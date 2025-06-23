@@ -1,0 +1,36 @@
+.root {
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+.text-field, .password-field {
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-padding: 10 12;
+}
+
+.button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+}
+
+.button:hover {
+    -fx-background-color: #45a049;
+}
+
+#btnRegister {
+    -fx-font-size: 12px;
+    -fx-underline: true;
+}
+
+/* Responsiveness
+@media screen and (max-width: 800px) {
+    .text-field, .password-field {
+        -fx-max-width: 90%;
+    }
+
+    .button {
+        -fx-max-width: 80%;
+    }
+} */
