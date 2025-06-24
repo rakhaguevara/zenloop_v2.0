@@ -1,7 +1,6 @@
 package controller;
 
 import javafx.fxml.FXML;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class LoginControllerCalmify {
@@ -10,11 +9,7 @@ public class LoginControllerCalmify {
     private ImageView leftImage;
 
     @FXML
-    private ImageView rightImage;
-
-    @FXML
     public void initialize() {
-
+        // Optional: bisa isi kode inisialisasi di sini
     }
-
 }
