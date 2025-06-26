@@ -1,0 +1,6 @@
+{
+    "java.project.referencedLibraries": [
+        "/Users/rakhaguevara/Downloads/javafx-sdk-17.0.15/lib/**/*.jar",
+        "/Users/rakhaguevara/Downloads/xstream-1.4.20 copy.jar"
+    ]
+}
