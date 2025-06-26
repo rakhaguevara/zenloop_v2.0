@@ -20,7 +20,6 @@ public class CalmifyApp extends Application {
         // Tambahkan style.css jika ada
         // scene.getStylesheets().add(getClass().getResource("/view/style.css").toExternalForm());
 
-        stage.setTitle("Login Page Calmify");
         stage.setScene(scene);
 
         // Jika ingin agar user tidak bisa resize:

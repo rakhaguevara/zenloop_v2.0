@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="550.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BannerController">
+<AnchorPane prefHeight="586.0" prefWidth="852.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BannerController">
    <children>
-      <ImageView fitHeight="518.0" fitWidth="752.0" layoutX="24.0" layoutY="12.0">
+      <ImageView fitHeight="547.0" fitWidth="798.0" layoutX="47.0" layoutY="17.0">
          <image>
-            <Image url="@../../app/resource/banner.png" />
+            <Image url="@../../app/resource/bannerr.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnFirstLogin" layoutX="92.0" layoutY="380.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="151.0" style="-fx-background-color: #333; -fx-border-radius: 20;" text="Login" textFill="WHITE" />
-      <Button fx:id="btnFirstSignUp" layoutX="259.0" layoutY="380.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="150.0" style="-fx-border-color: transparent;" text="Sign Up" />
+      <Button fx:id="btnFirstLogin" layoutX="120.0" layoutY="411.0" mnemonicParsing="false" onAction="#handleButtonOpenLogin" prefHeight="42.0" prefWidth="143.0" style="-fx-background-color: #333; -fx-border-radius: 20;" text="Login" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="btnFirstSignUp" layoutX="279.0" layoutY="408.0" mnemonicParsing="false" onAction="#handleButtonOpenSignUp" prefHeight="45.0" prefWidth="142.0" style="-fx-background-color: #ECECEC;" text="Sign Up" textFill="#0000008f">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
    </children>
 </AnchorPane>
