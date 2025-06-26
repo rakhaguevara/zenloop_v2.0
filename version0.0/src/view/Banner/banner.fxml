@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="550.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BannerController">
+   <children>
+      <ImageView fitHeight="518.0" fitWidth="752.0" layoutX="24.0" layoutY="12.0">
+         <image>
+            <Image url="@../../app/resource/banner.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnFirstLogin" layoutX="92.0" layoutY="380.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="151.0" style="-fx-background-color: #333; -fx-border-radius: 20;" text="Login" textFill="WHITE" />
+      <Button fx:id="btnFirstSignUp" layoutX="259.0" layoutY="380.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="150.0" style="-fx-border-color: transparent;" text="Sign Up" />
+   </children>
+</AnchorPane>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
@@ -8,20 +9,37 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginControllerCalmify">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginControllerCalmify">
     <children>
         <HBox style="-fx-background-color: #ddd;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <AnchorPane prefHeight="700.0" prefWidth="693.0" style="-fx-background-color: #333;" />
+            <AnchorPane prefHeight="700.0" prefWidth="693.0" style="-fx-background-color: #fff;">
+               <children>
+                  <ImageView fitHeight="352.0" fitWidth="351.0" layoutX="161.0" layoutY="135.0">
+                     <image>
+                        <Image url="@../../app/resource/left.png" />
+                     </image>
+                  </ImageView>
+               </children></AnchorPane>
+            <ImageView fitHeight="200.0" fitWidth="199.0">
+               <image>
+                  <Image url="@../../app/resource/left.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="200.0" fitWidth="199.0">
+               <image>
+                  <Image url="@../../app/resource/left.png" />
+               </image>
+            </ImageView>
          </children>
         </HBox>
       <HBox layoutX="687.0" prefHeight="698.0" prefWidth="514.0">
          <children>
-            <AnchorPane prefHeight="698.0" prefWidth="515.0" HBox.hgrow="ALWAYS">
+            <AnchorPane prefHeight="698.0" prefWidth="515.0" style="-fx-background-color: #fff;" HBox.hgrow="ALWAYS">
                <children>
-                  <ImageView fitHeight="703.0" fitWidth="514.0" layoutX="4.0" layoutY="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <ImageView fitHeight="700.0" fitWidth="506.0" layoutX="-2.0">
                      <image>
-                        <Image url="@../../app/resource/Frame%202.png" />
+                        <Image url="@../../app/resource/right.png" />
                      </image>
                   </ImageView>
                </children>

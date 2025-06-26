@@ -11,22 +11,20 @@ public class CalmifyApp extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/login/loginCalmifyFXML.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Banner/banner.fxml"));
         Parent root = fxmlLoader.load();
 
         // Buat scene dengan ukuran spesifik (misalnya 1200 x 700)
-        Scene scene = new Scene(root, 1200, 700);
-
-        stage.setFullScreen(true);
+        Scene scene = new Scene(root);
 
         // Tambahkan style.css jika ada
-        scene.getStylesheets().add(getClass().getResource("/view/login/style.css").toExternalForm());
+        // scene.getStylesheets().add(getClass().getResource("/view/style.css").toExternalForm());
 
         stage.setTitle("Login Page Calmify");
         stage.setScene(scene);
 
         // Jika ingin agar user tidak bisa resize:
-        // stage.setResizable(false);
+        stage.setResizable(false);
 
         stage.show();
     }

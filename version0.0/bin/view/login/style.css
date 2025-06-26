@@ -9,14 +9,16 @@
 }
 
 .button {
-    -fx-background-color: #4CAF50;
-    -fx-text-fill: white;
+    -fx-background-color: #6F826A;
+    -fx-text-fill: #FFF0DC;
     -fx-font-weight: bold;
     -fx-background-radius: 6;
 }
 
 .button:hover {
-    -fx-background-color: #45a049;
+    -fx-background-color: #4E5C4A;
+    -fx-text-fill: #FFF0DC;
+
 }
 
 #btnRegister {
