@@ -1,3 +1,4 @@
+/* Umum */
 .root {
     -fx-font-family: "Segoe UI", sans-serif;
 }
@@ -8,9 +9,9 @@
     -fx-padding: 10 12;
 }
 
-.button {
+/* .button {
     -fx-background-color: #6F826A;
-    -fx-text-fill: #FFF0DC;
+    -fx-text-fill: #ffffff;
     -fx-font-weight: bold;
     -fx-background-radius: 6;
 }
@@ -18,21 +19,49 @@
 .button:hover {
     -fx-background-color: #4E5C4A;
     -fx-text-fill: #FFF0DC;
-
-}
+} */
 
 #btnRegister {
     -fx-font-size: 12px;
     -fx-underline: true;
 }
 
-/* Responsiveness
-@media screen and (max-width: 800px) {
-    .text-field, .password-field {
-        -fx-max-width: 90%;
-    }
+/* Sidebar Style */
+.sidebar-item {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    /* -fx-padding: 5 10; */
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
 
-    .button {
-        -fx-max-width: 80%;
-    }
-} */
+.sidebar-text {
+    -fx-fill: #000000;
+}
+
+/* Hover state (teks) */
+.sidebar-item:hover .sidebar-text {
+    -fx-fill: #015C55;
+}
+
+/* Active state (teks + background) */
+.sidebar-item.active {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 6, 0.2, 0, 2);
+    -fx-max-width: 240px;
+    /* -fx-translate-x: 12px; Geser ke kanan  */
+
+        -fx-background-insets: 0 0 0 12; /* top right bottom left */
+}
+
+.sidebar-item.active .sidebar-text {
+    -fx-fill: #015C55;
+}
+
+/* Tambahan jika ingin animasi/efek lebih */
+.sidebar-item:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.05);
+    -fx-background-radius: 10;
+}

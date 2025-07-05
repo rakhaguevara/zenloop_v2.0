@@ -8,46 +8,52 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="654.0" prefWidth="942.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="654.0" prefWidth="999.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegisterController">
    <children>
-      <ImageView fitHeight="635.0" fitWidth="447.0" layoutX="10.0" layoutY="10.0">
-         <image>
-            <Image url="@../../app/resource/leftRegist.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="633.0" fitWidth="464.0" layoutX="469.0" layoutY="11.0">
-         <image>
-            <Image url="@../../app/resource/rightRegist.png" />
-         </image>
-      </ImageView>
-      <TextField fx:id="tfUserRegis" layoutX="62.0" layoutY="138.0" prefHeight="48.0" prefWidth="345.0" />
-      <TextField fx:id="tfEmailRegis" layoutX="62.0" layoutY="218.0" prefHeight="48.0" prefWidth="345.0" />
-      <TextField fx:id="tfPassRegis" layoutX="62.0" layoutY="301.0" prefHeight="48.0" prefWidth="345.0" />
-      <TextField fx:id="tfConfPassRegis" layoutX="61.0" layoutY="384.0" prefHeight="48.0" prefWidth="346.0" />
-      <Button fx:id="btnSignUp" layoutX="61.0" layoutY="552.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="347.0" style="-fx-background-color: #1A202C;" text="Sign Up" textFill="#f8f8f8">
-         <font>
-            <Font size="14.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <effect>
-            <Blend mode="DARKEN" />
-         </effect>
-      </Button>
-      <ChoiceBox fx:id="cbRoleRegist" layoutX="61.0" layoutY="486.0" prefHeight="50.0" prefWidth="346.0" />
-      <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="391.0" layoutY="33.0">
-         <image>
-            <Image url="@../../app/resource/exit.png" />
-         </image>
-      </ImageView>
-      <Button fx:id="btnBackLogin" layoutX="394.0" layoutY="35.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="37.0" style="-fx-background-color: transparent;">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <effect>
-            <Shadow color="#d0d0d0" />
-         </effect>
-      </Button>
+      <AnchorPane layoutX="-10.0" layoutY="-9.0" prefHeight="642.0" prefWidth="999.0">
+         <children>
+            <ImageView fitHeight="635.0" fitWidth="494.0" layoutX="19.0" layoutY="19.0">
+               <image>
+                  <Image url="@../../app/resource/leftRegist.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="636.0" fitWidth="479.0" layoutX="520.0" layoutY="18.0">
+               <image>
+                  <Image url="@../../app/resource/rightRegist.png" />
+               </image>
+            </ImageView>
+
+            <TextField fx:id="tfUsername" layoutX="79.0" layoutY="166.0" prefHeight="43.0" prefWidth="373.0" promptText="Enter Username" />
+            <TextField fx:id="tfUserEmail" layoutX="79.0" layoutY="241.0" prefHeight="43.0" prefWidth="373.0" promptText="Email" />
+            <PasswordField fx:id="tfpassFieldRegister" layoutX="80.0" layoutY="318.0" prefHeight="44.0" prefWidth="372.0" promptText="Password" />
+            <PasswordField fx:id="tfConfPass" layoutX="80.0" layoutY="395.0" prefHeight="43.0" prefWidth="372.0" promptText="Confirm Password" />
+
+            <ChoiceBox fx:id="cbRoleRegist" layoutX="80.0" layoutY="491.0" prefHeight="45.0" prefWidth="372.0" />
+
+            <Button fx:id="btnSignUp" layoutX="81.0" layoutY="552.0" mnemonicParsing="false" onAction="#handleSignUp" prefHeight="45.0" prefWidth="371.0" style="-fx-background-color: #1A202C;" text="Sign Up" textFill="#f8f8f8">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+
+            <ImageView fx:id="leftBackLogin" fitHeight="41.0" fitWidth="41.0" layoutX="448.0" layoutY="57.0">
+               <image>
+                  <Image url="@../../app/resource/leftBUtton.png" />
+               </image>
+            </ImageView>
+
+            <Button fx:id="btnBackLogin" layoutX="445.0" layoutY="56.0" mnemonicParsing="false" onAction="#handleBackLogin" prefHeight="36.0" prefWidth="45.0" style="-fx-background-color: transparent;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <Shadow color="#d0d0d0" />
+               </effect>
+            </Button>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

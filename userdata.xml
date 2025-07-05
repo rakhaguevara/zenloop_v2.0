@@ -1,0 +1,16 @@
+<users>
+  <users>
+    <user>
+      <username>rasad</username>
+      <email>123sad@gmail.com</email>
+      <password>rakha</password>
+      <role>Zenloopers</role>
+    </user>
+    <user>
+      <username>andika</username>
+      <email>andikakeren@gmail.com</email>
+      <password>1234</password>
+      <role>Zenloopers</role>
+    </user>
+  </users>
+</users>

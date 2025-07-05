@@ -1,7 +1,30 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class UserData {
     private String nama, username, email, password, role, phone, address;
+
+    // untuk xtream
+
+    public UserData() {
+
+    }
+
+    public class UserList {
+
+        private List<UserData> users = new ArrayList<>();
+
+        public List<UserData> getUsers() {
+            return users;
+        }
+
+        public void addUser(UserData user) {
+            users.add(user);
+        }
+
+    }
 
     // Logiin Needed
     public UserData(String username, String email, String password, String role) {

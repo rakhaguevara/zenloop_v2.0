@@ -21,7 +21,7 @@ public class BannerController {
     public void handleButtonOpenLogin(ActionEvent event) {
 
         try {
-            Parent secondPage = FXMLLoader.load(getClass().getResource("/view/login/loginCalmifyFXML.fxml"));
+            Parent secondPage = FXMLLoader.load(getClass().getResource("/view/login/loginZenloopFXML.fxml"));
             Scene scene = new Scene(secondPage);
 
             // Ganti scene pada stage yang aktif
