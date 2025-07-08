@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserData {
-    private String nama, username, email, password, role, phone, address;
+    private String nama, username, email, password, role, phone, address, userID;
 
     // untuk xtream
 

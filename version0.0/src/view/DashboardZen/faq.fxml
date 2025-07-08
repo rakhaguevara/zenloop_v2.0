@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="840.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox layoutX="131.0" layoutY="189.0" prefHeight="840.0" prefWidth="1200.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="840.0" fitWidth="1200.0">
+               <image>
+                  <Image url="@../../app/resource/faqView.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

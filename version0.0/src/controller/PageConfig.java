@@ -2,15 +2,15 @@ package controller;
 
 public enum PageConfig {
     HOMEPAGE("/view/DashboardZen/homepage.fxml", true),
-    JURNAL_ARCHIVE("/view/JurnalArchive/jurnalArchive.fxml", true),
+    JURNAL_ARCHIVE("/view/NotFindPage/nfp.fxml", true),
     STRES_STATISTIC("/view/NotFindPage/nfp.fxml", false),
-    ZEN_BOT_AI("/view/ZenBotAi/zenBotAi.fxml", false), // Hide rightbar
-    FIND_KONSELOR("/view/FindYourKonselor/findYourKonselor.fxml", true),
-    RELAX_MUSIC("/view/RelaxMusic/relaxMusic.fxml", false), // Hide rightbar
-    COMMUNITY("/view/Community/community.fxml", true),
-    HISTORY("/view/History/history.fxml", true),
+    ZEN_BOT_AI("/view/NotFindPage/nfp.fxml", false), // Hide rightbar
+    FIND_KONSELOR("/view/NotFindPage/nfp.fxml", false),
+    RELAX_MUSIC("/view/NotFindPage/nfp.fxml", false), // Hide rightbar
+    COMMUNITY("/view/NotFindPage/nfp.fxml", true),
+    HISTORY("/view/NotFindPage/nfp.fxml", false),
     SETTING("/view/DashboardZen/Setting.fxml", false), // Hide rightbar
-    FAQ("/view/FAQ/faq.fxml", true);
+    FAQ("/view/DashboardZen/faq.fxml", false);
 
     private final String fxmlPath;
     private final boolean showRightbar;
