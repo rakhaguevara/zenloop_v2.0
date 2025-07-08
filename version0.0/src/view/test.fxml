@@ -5,21 +5,21 @@
 <?import javafx.fxml.*?>
 
 <BorderPane xmlns="http://javafx.com/javafx/8"
-    xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController" prefWidth="1190.0" prefHeight="840.0">
+    xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TestController" prefWidth="1190.0" prefHeight="840.0">
 
     <!-- Sidebar -->
     <left>
         <fx:include fx:id="sidebarPane" source="/view/Sidebar/sidebar.fxml"/>
     </left>
 
-    <!-- Right Bar -->
-    <right>
+    <!-- Sidebar -->
+    <!-- <right>
         <fx:include fx:id="rightBarPane" source="/view/RightBar/rightbarZen.fxml"/>
-    </right>
+    </right> -->
 
-    <!-- Main content area - now using AnchorPane for dynamic content loading -->
+    <!-- Konten utama di tengah -->
     <center>
-        <AnchorPane fx:id="mainContentPane" prefWidth="600.0" prefHeight="800.0"/>
+        <fx:include fx:id="notFindPage" source="/view/NotFindPage/nfp.fxml"/>
     </center>
 
 </BorderPane>

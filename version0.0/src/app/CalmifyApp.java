@@ -12,7 +12,7 @@ public class CalmifyApp extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/homeZen.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Banner/banner.fxml"));
         Parent root = fxmlLoader.load();
 
         // Buat scene dengan ukuran spesifik (misalnya 1200 x 700)

@@ -65,3 +65,15 @@
     -fx-background-color: rgba(255, 255, 255, 0.05);
     -fx-background-radius: 10;
 }
+
+
+.rightbar-button{
+    -fx-background-color: #015C55;
+    -fx-text-fill: #ffffff;
+    -fx-border-radius: 24;
+    -fx-cursor: hand;
+}
+
+.rightbar-button:hover{
+    -fx-background-color : #037B72;
+}

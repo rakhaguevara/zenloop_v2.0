@@ -1,11 +1,168 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="rightBarPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="840.0" prefWidth="290.0" style="-fx-background-color: #333;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="840.0" prefWidth="265.0"
+   xmlns="http://javafx.com/javafx/8"
+   xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="100.0" layoutY="265.0" text="Kanan wee" textFill="WHITE" />
+      <AnchorPane fx:id="rightBarPane" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <ImageView fitHeight="840.0" fitWidth="260.0">
+               <image>
+                  <Image url="@../../app/resource/rightpage.png" />
+               </image>
+            </ImageView>
+            <VBox prefHeight="840.0" prefWidth="260.0">
+               <children>
+                  <VBox prefHeight="78.0" prefWidth="260.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <DatePicker prefHeight="27.0" prefWidth="109.0">
+                                 <HBox.margin>
+                                    <Insets left="135.0" top="24.0" />
+                                 </HBox.margin>
+                              </DatePicker>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="278.0" prefWidth="260.0">
+                     <children>
+                        <HBox prefHeight="42.0" prefWidth="260.0">
+                           <children>
+                              <Label text="1">
+                                 <padding>
+                                    <Insets left="26.0" top="8.0" />
+                                 </padding>
+                                 <HBox.margin>
+                                    <Insets top="8.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label text="2">
+                                 <padding>
+                                    <Insets left="26.0" top="8.0" />
+                                 </padding>
+                                 <HBox.margin>
+                                    <Insets top="8.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label text="3">
+                                 <padding>
+                                    <Insets left="26.0" top="8.0" />
+                                 </padding>
+                                 <HBox.margin>
+                                    <Insets top="8.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label text="4">
+                                 <padding>
+                                    <Insets left="28.0" top="8.0" />
+                                 </padding>
+                                 <HBox.margin>
+                                    <Insets top="8.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label text="5">
+                                 <padding>
+                                    <Insets left="26.0" top="8.0" />
+                                 </padding>
+                                 <HBox.margin>
+                                    <Insets top="8.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label text="6">
+                                 <padding>
+                                    <Insets left="20.0" top="8.0" />
+                                 </padding>
+                                 <HBox.margin>
+                                    <Insets top="8.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label text="7">
+                                 <padding>
+                                    <Insets left="26.0" top="8.0" />
+                                 </padding>
+                                 <HBox.margin>
+                                    <Insets top="8.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <VBox prefHeight="235.0" prefWidth="260.0">
+                           <children>
+                              <HBox prefHeight="75.0" prefWidth="260.0" />
+                              <HBox prefHeight="75.0" prefWidth="260.0">
+                                 <VBox.margin>
+                                    <Insets top="4.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="75.0" prefWidth="260.0">
+                                 <padding>
+                                    <Insets top="4.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets top="4.0" />
+                                 </VBox.margin>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="49.0" prefWidth="260.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="btnToConsult" mnemonicParsing="false" prefHeight="38.0" prefWidth="228.0" styleClass="rightbar-button" stylesheets="@../style.css" text="Schedule a new consultan">
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="278.0" prefWidth="260.0">
+                     <children>
+                        <Button fx:id="btnAddMusic" mnemonicParsing="false" prefHeight="32.0" prefWidth="31.0" style="-fx-background-color: transparent;">
+                           <VBox.margin>
+                              <Insets left="220.0" top="4.0" />
+                           </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="75.0" prefWidth="260.0">
+                     <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #F5F7F9;">
+                           <children>
+                              <Label layoutX="92.0" layoutY="14.0" text="Judul Lagu">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="114.0" layoutY="38.0" text="Artist" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="82.0" prefWidth="260.0" />
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
    </children>
-</AnchorPane>
+</VBox>
