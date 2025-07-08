@@ -1,5 +1,5 @@
 package controller;
 
-public class testt-git {
-    
+public class testt {
+
 }
