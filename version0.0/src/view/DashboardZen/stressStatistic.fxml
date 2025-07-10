@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.chart.BarChart?>
@@ -15,9 +22,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="centerPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="845.0" prefWidth="950.0"
-   xmlns="http://javafx.com/javafx/23.0.1"
-   xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StatisticController">
+<AnchorPane fx:id="centerPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="845.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StatisticController">
    <children>
       <HBox layoutX="504.0" layoutY="295.0" prefHeight="845.0" prefWidth="950.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -35,12 +40,12 @@
                               <VBox prefHeight="479.0" prefWidth="631.0">
                                  <children>
                                     <BarChart fx:id="barChartStress" prefHeight="375.0" prefWidth="583.0" style="-fx-background-color: white;">
-                                       <xAxis>
-                                          <CategoryAxis side="BOTTOM" />
-                                       </xAxis>
-                                       <yAxis>
-                                          <NumberAxis side="LEFT" />
-                                       </yAxis>
+                             <xAxis>
+      <CategoryAxis fx:id="hariAxis" side="BOTTOM" />
+   </xAxis>
+   <yAxis>
+      <NumberAxis fx:id="nilaiAxis" side="LEFT" />
+   </yAxis>
                                        <VBox.margin>
                                           <Insets left="29.0" right="12.0" top="85.0" />
                                        </VBox.margin>
@@ -106,12 +111,13 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <TableView fx:id="tabelStressStatistic" layoutX="30.0" layoutY="523.0" prefHeight="296.0" prefWidth="890.0">
-                     <columns>
-                        <TableColumn prefWidth="75.0" text="C1" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                     </columns>
-                  </TableView>
+                <TableView fx:id="tabelStressStatistic" layoutX="30.0" layoutY="523.0" prefHeight="296.0" prefWidth="890.0">
+   <columns>
+      <TableColumn fx:id="colTanggal" text="Tanggal" prefWidth="150.0"/>
+      <TableColumn fx:id="colRataRata" text="Rata-rata" prefWidth="150.0"/>
+      <TableColumn fx:id="colKeterangan" text="Keterangan" prefWidth="200.0"/>
+   </columns>
+</TableView>
                </children>
             </AnchorPane>
          </children>

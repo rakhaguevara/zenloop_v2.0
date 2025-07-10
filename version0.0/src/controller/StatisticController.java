@@ -1,17 +1,20 @@
 package controller;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.chart.BarChart;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.chart.*;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
 public class StatisticController {
 
     @FXML
     private BarChart<String, Number> barChartStress;
+
+    @FXML
+    private CategoryAxis hariAxis;
+
+    @FXML
+    private NumberAxis nilaiAxis;
 
     @FXML
     private Button btnDeleteData;
@@ -29,6 +32,15 @@ public class StatisticController {
     private TableView<?> tabelStressStatistic;
 
     @FXML
+    private TableColumn<?, ?> colTanggal;
+
+    @FXML
+    private TableColumn<?, ?> colRataRata;
+
+    @FXML
+    private TableColumn<?, ?> colKeterangan;
+
+    @FXML
     private TextField tfTest1;
 
     @FXML
@@ -43,19 +55,7 @@ public class StatisticController {
     @FXML
     private TextField tfTest5;
 
-    @FXML
-    void btnHandleStatistic(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleDeleteData(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleSaveStatistic(ActionEvent event) {
-
-    }
-
+    private XYChart.Series<String, Number> seriesData = new XYChart.Series<>();
+    private int indexHari = 0;
+    private final String[] hariMinggu = { "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu" };
 }

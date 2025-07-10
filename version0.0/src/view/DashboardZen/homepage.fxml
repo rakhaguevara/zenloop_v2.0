@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
@@ -13,9 +21,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="homePage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="845.0" prefWidth="940.0"
-   xmlns="http://javafx.com/javafx/23.0.1"
-   xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="homePage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="845.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.homepageZen.HomepageZenController">
    <children>
       <ImageView fitHeight="840.0" fitWidth="940.0">
          <image>
@@ -39,7 +45,7 @@
                                  <children>
                                     <AnchorPane prefHeight="323.0" prefWidth="627.0">
                                        <children>
-                                          <BarChart layoutX="25.0" layoutY="16.0" prefHeight="292.0" prefWidth="581.0" style="-fx-background-color: white;" AnchorPane.topAnchor="14.0">
+                                          <BarChart fx:id="tvStress" layoutX="25.0" layoutY="16.0" prefHeight="292.0" prefWidth="581.0" style="-fx-background-color: white;" AnchorPane.topAnchor="14.0">
                                              <xAxis>
                                                 <CategoryAxis side="BOTTOM" />
                                              </xAxis>
@@ -55,10 +61,13 @@
                                  <children>
                                     <AnchorPane prefHeight="323.0" prefWidth="314.0">
                                        <children>
-                                          <Button layoutX="180.0" layoutY="252.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="102.0" styleClass="button-saveChange" stylesheets="@../style.css" text="Start Writing!">
+                                          <Button fx:id="btnToJournal" layoutX="180.0" layoutY="252.0" mnemonicParsing="false" onAction="#handleToJournal" prefHeight="44.0" prefWidth="102.0" styleClass="button-saveChange" stylesheets="@../style.css" text="Start Writing!">
                                              <font>
                                                 <Font size="10.0" />
                                              </font>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
                                           </Button>
                                        </children>
                                     </AnchorPane>
@@ -99,10 +108,13 @@
             </VBox>
          </children>
       </HBox>
-      <Button layoutX="406.0" layoutY="125.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="161.0" styleClass="button-saveChange" stylesheets="@../style.css" text="Quick Mental Check-In">
+      <Button fx:id="btnToStressCheck" layoutX="406.0" layoutY="125.0" mnemonicParsing="false" onAction="#handleToStress" prefHeight="44.0" prefWidth="161.0" styleClass="button-saveChange" stylesheets="@../style.css" text="Quick Mental Check-In">
          <font>
             <Font size="10.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
    </children>
 </AnchorPane>
