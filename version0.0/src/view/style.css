@@ -133,3 +133,13 @@
 .button-edit:hover{
     -fx-background-color : rgb(241, 241, 241);
 }
+
+
+/* mendekorasi tabel */
+
+/* Mengubah warna batang pada BarChart */
+.chart-bar {
+    -fx-bar-fill: #2B2B2B; /* Ganti dengan warna yang diinginkan */
+}
+
+

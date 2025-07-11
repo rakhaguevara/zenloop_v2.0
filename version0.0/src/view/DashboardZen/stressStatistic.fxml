@@ -16,9 +16,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="centerPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="845.0" prefWidth="950.0"
-   xmlns="http://javafx.com/javafx/23.0.1"
-   xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StatisticController">
+<AnchorPane fx:id="centerPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="845.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StatisticController">
    <children>
       <HBox layoutX="504.0" layoutY="295.0" prefHeight="845.0" prefWidth="950.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -35,7 +33,7 @@
                            <children>
                               <VBox prefHeight="479.0" prefWidth="631.0">
                                  <children>
-                                    <BarChart fx:id="barChartStress" prefHeight="375.0" prefWidth="583.0" style="-fx-background-color: white;">
+                                    <BarChart fx:id="barChartStress" prefHeight="375.0" prefWidth="583.0" style="-fx-background-color: white;" styleClass="chart-bar" stylesheets="@../style.css">
                                        <xAxis>
                                           <CategoryAxis fx:id="hariAxis" side="BOTTOM" />
                                        </xAxis>
