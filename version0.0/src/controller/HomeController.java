@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.chart.BarChart;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import java.io.IOException;
@@ -15,6 +16,11 @@ public class HomeController {
 
     @FXML
     private VBox rightBarPane;
+
+    @FXML
+    private BarChart<String, Number> tvStress;
+
+    private static BarChart<String, Number> staticTvStress;
 
     private static HomeController instance;
     private PageConfig currentPage;
@@ -32,6 +38,7 @@ public class HomeController {
         System.out.println("HomeController initialized");
         // Load default page (homepage)
         loadPage(PageConfig.HOMEPAGE);
+        staticTvStress = tvStress;
     }
 
     // Method to load different pages using PageConfig enum
@@ -93,6 +100,10 @@ public class HomeController {
             System.err.println("Error loading custom page: " + fxmlPath);
             e.printStackTrace();
         }
+    }
+
+    public static BarChart<String, Number> getTvStress() {
+        return staticTvStress;
     }
 
     // Method to control rightbar visibility
