@@ -13,7 +13,6 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import model.UserData;
-import model.UserData.UserList;
 import util.UserServiceXStream;
 import javafx.scene.Node;
 

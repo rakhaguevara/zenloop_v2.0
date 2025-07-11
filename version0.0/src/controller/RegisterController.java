@@ -55,12 +55,12 @@ public class RegisterController {
 
         // Validasi sederhana
         if (username.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
-            showAlert(Alert.AlertType.WARNING, "Form Error", "Please fill in all fields.");
+            util.AlertUtil.showAlert(Alert.AlertType.WARNING, "Form Error", "Please fill in all fields.");
             return;
         }
 
         if (!password.equals(confirmPassword)) {
-            showAlert(Alert.AlertType.ERROR, "Password Mismatch", "Passwords do not match.");
+            util.AlertUtil.showAlert(Alert.AlertType.ERROR, "Password Mismatch", "Passwords do not match.");
             return;
         }
 
@@ -75,12 +75,14 @@ public class RegisterController {
 
         // Opsional: Cek apakah username sudah digunakan
         if (service.isUsernameTaken(username)) {
-            showAlert(Alert.AlertType.ERROR, "Username Taken", "Username already exists. Please choose another.");
+            util.AlertUtil.showAlert(Alert.AlertType.ERROR, "Username Taken",
+                    "Username already exists. Please choose another.");
             return;
         }
 
         service.registerUser(newUser);
-        showAlert(Alert.AlertType.INFORMATION, "Registration Successful", "User registered successfully!");
+        util.AlertUtil.showAlert(Alert.AlertType.INFORMATION, "Registration Successful",
+                "User registered successfully!");
 
         // Reset form atau pindah ke halaman login
         tfUsername.clear();
@@ -88,15 +90,6 @@ public class RegisterController {
         tfpassFieldRegister.clear();
         tfConfPass.clear();
         cbRoleRegist.setValue("User");
-    }
-
-    @FXML
-    private void showAlert(Alert.AlertType type, String title, String message) {
-        Alert alert = new Alert(type);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
     }
 
     @FXML

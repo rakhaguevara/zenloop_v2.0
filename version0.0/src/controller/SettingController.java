@@ -9,93 +9,25 @@ import javafx.scene.shape.Circle;
 public class SettingController {
 
     @FXML
-    private Button btnCancelSett;
-
-    @FXML
-    private Button btnChangeNumber;
-
-    @FXML
-    private Button btnChangePass;
-
-    @FXML
-    private Button btnEditEmail;
-
-    @FXML
-    private Button btnEditName;
-
-    @FXML
-    private Button btnEditUsr;
-
-    @FXML
-    private Button btnHandleLogin;
-
-    @FXML
-    private Button btnLogOutSet;
-
-    @FXML
-    private Button btnSaveChanges;
+    private TextField tfEmail, tfName, tfPassword, tfPhoneNum, tfUsername;
 
     @FXML
     private Circle ccProfileImg;
 
     @FXML
-    private TextField tfEmail;
+    private Button btnSaveChanges, btnLogOutSet;
 
-    @FXML
-    private TextField tfName;
-
-    @FXML
-    private TextField tfPassword;
-
-    @FXML
-    private TextField tfPhoneNum;
-
-    @FXML
-    private TextField tfUsername;
-
-    @FXML
-    void handleCancelSett(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleChangeEmail(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleChangeName(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleChangePass(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleChangePhoneNum(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleEditName(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleLogOut(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleLoginSetting(ActionEvent event) {
-
-    }
-
+    // Handler untuk menyimpan perubahan
     @FXML
     void handleSaveChanges(ActionEvent event) {
 
     }
 
+    // Handler untuk logout
+    @FXML
+    void handleLogOut(ActionEvent event) {
+
+    }
+
+    // Tambahkan handler lainnya hanya jika benar-benar dibutuhkan
 }

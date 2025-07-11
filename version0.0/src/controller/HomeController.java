@@ -169,7 +169,6 @@ public class HomeController {
         return rightBarPane != null && rightBarPane.isVisible();
     }
 
-    // Method to get the main content pane (useful for other controllers)
     public AnchorPane getMainContentPane() {
         return mainContentPane;
     }

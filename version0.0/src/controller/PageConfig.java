@@ -2,7 +2,7 @@ package controller;
 
 public enum PageConfig {
     HOMEPAGE("/view/DashboardZen/homepage.fxml", true),
-    JURNAL_ARCHIVE("/view/NotFindPage/nfp.fxml", true),
+    JURNAL_ARCHIVE("/view/DashboardZen/journalArchive.fxml", true),
     STRES_STATISTIC("/view/DashboardZen/stressStatistic.fxml", true),
     ZEN_BOT_AI("/view/NotFindPage/nfp.fxml", false), // Hide rightbar
     FIND_KONSELOR("/view/NotFindPage/nfp.fxml", false),

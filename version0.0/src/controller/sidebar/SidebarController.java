@@ -1,7 +1,8 @@
-package controller;
+package controller.sidebar;
 
 import javax.swing.Action;
 
+import controller.HomeController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,72 +21,36 @@ import javafx.stage.Stage;
 public class SidebarController {
 
     @FXML
-    private HBox homepageItem;
-    @FXML
-    private HBox jurnalArchiveItem;
-    @FXML
-    private HBox stresStatistic;
-    @FXML
-    private HBox zenBotAi;
-    @FXML
-    private HBox findYourKonselor;
-    @FXML
-    private HBox relaxMusic;
-    @FXML
-    private HBox community;
-    @FXML
-    private HBox history;
-    @FXML
-    private HBox setting;
-    @FXML
-    private HBox fAQ;
+    private HBox homepageItem, jurnalArchiveItem, stresStatistic, zenBotAi, findYourKonselor,
+            relaxMusic, community, history, setting, fAQ;
 
     @FXML
-    private ImageView icon1;
-    @FXML
-    private ImageView icon2;
-    @FXML
-    private ImageView icon3;
-    @FXML
-    private ImageView icon4;
-    @FXML
-    private ImageView icon5;
-    @FXML
-    private ImageView icon6;
-    @FXML
-    private ImageView icon7;
-    @FXML
-    private ImageView icon8;
-    @FXML
-    private ImageView icon9;
-    @FXML
-    private ImageView icon10;
+    private ImageView icon1, icon2, icon3, icon4, icon5, icon6, icon7, icon8, icon9, icon10;
 
     @FXML
-    private Text homepageText;
-    @FXML
-    private Text jurnalArchiveText;
-    @FXML
-    private Text stresStatisticText;
-    @FXML
-    private Text zenBotAitext;
-    @FXML
-    private Text findYourKonselorText;
-    @FXML
-    private Text relaxMusicText;
-    @FXML
-    private Text communityText;
-    @FXML
-    private Text historyText;
-    @FXML
-    private Text settingText;
-    @FXML
-    private Text fAQText;
+    private Text homepageText, jurnalArchiveText, stresStatisticText, zenBotAitext,
+            findYourKonselorText, relaxMusicText, communityText, historyText,
+            settingText, fAQText;
 
     private HBox activeItem = null;
 
+    private static SidebarController instance;
+
+    public static SidebarController getInstance() {
+        return instance;
+    }
+
+    public void activateStressMenu() {
+        setActiveItem(stresStatistic, icon3, "/app/resource/icon3Act.png");
+    }
+
+    public void activateJurnalMenu() {
+        setActiveItem(jurnalArchiveItem, icon2, "/app/resource/icon2Act.png");
+    }
+
     @FXML
     public void initialize() {
+        instance = this;
         System.out.println("Sidebar loaded");
         // Set default active item
         setActiveItem(homepageItem, icon1, "/app/resource/icon1Act.png");
@@ -254,4 +219,5 @@ public class SidebarController {
             e.printStackTrace();
         }
     }
+
 }
