@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="840.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.sidebar.SidebarDrController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="840.0" prefWidth="250.0"
+   xmlns="http://javafx.com/javafx/23.0.1"
+   xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.sidebar.SidebarDrController">
    <children>
       <AnchorPane prefHeight="840.0" prefWidth="250.0">
          <children>
@@ -20,9 +26,9 @@
             </ImageView>
             <VBox prefHeight="840.0" prefWidth="250.0">
                <children>
-                  <VBox prefHeight="110.0" prefWidth="250.0">
+                  <VBox prefHeight="211.0" prefWidth="300.0">
                      <children>
-                        <AnchorPane prefHeight="118.0" prefWidth="300.0">
+                        <AnchorPane prefHeight="208.0" prefWidth="300.0">
                            <children>
                               <Button fx:id="btnLogOut" layoutX="213.0" layoutY="47.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="38.0" style="-fx-background-color: transparent;" />
                               <Button fx:id="btnLogOutSidebarDr" layoutX="193.0" layoutY="26.0" mnemonicParsing="false" onAction="#handleLogoutSidebarDr" prefHeight="43.0" prefWidth="39.0" style="-fx-background-color: transparent;">
@@ -38,45 +44,45 @@
                      <children>
                         <AnchorPane prefHeight="185.0" prefWidth="250.0">
                            <children>
-                              <VBox layoutX="11.0" layoutY="28.0" prefHeight="205.0" prefWidth="300.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="28.0">
+                              <VBox layoutX="11.0" prefHeight="459.0" prefWidth="300.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <HBox fx:id="homepageItemDr" onMouseClicked="#handleHomepageClick" prefHeight="40.0" prefWidth="200.0" styleClass="sidebar-item" stylesheets="@../../../../../../calmify%203/version0.0/src/view/style.css">
+                                    <HBox fx:id="homepageItemDr" onMouseClicked="#handleHomepageDrClick" prefHeight="40.0" prefWidth="250.0" styleClass="sidebar-item" stylesheets="@../style.css">
                                        <children>
                                           <ImageView fx:id="icon1Dr" fitHeight="22.0" fitWidth="22.0">
                                              <image>
-                                                <Image url="@../../../../../../calmify%203/version0.0/src/app/resource/icon1.png" />
+                                                <Image url="@../../app/resource/icon1.png" />
                                              </image>
                                              <HBox.margin>
                                                 <Insets left="25.0" top="8.0" />
                                              </HBox.margin>
                                           </ImageView>
                                           <Text fx:id="homepageTextDr" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sidebar-text" text="Homepage">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
                                              <HBox.margin>
                                                 <Insets left="20.0" top="10.0" />
                                              </HBox.margin>
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
                                           </Text>
                                        </children>
+                                       <VBox.margin>
+                                          <Insets right="8.0" top="65.0" />
+                                       </VBox.margin>
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
-                                       <VBox.margin>
-                                          <Insets right="8.0" top="40.0" />
-                                       </VBox.margin>
                                     </HBox>
-                                    <HBox fx:id="jurnalArchiveItemDr" onMouseClicked="#handleJurnalArchiveClick" prefHeight="40.0" prefWidth="200.0" styleClass="sidebar-item" stylesheets="@../../../../../../calmify%203/version0.0/src/view/style.css">
+                                    <HBox fx:id="jurnalArchiveItemDr" onMouseClicked="#hanldePatientDashboard" prefHeight="40.0" prefWidth="250.0" styleClass="sidebar-item" stylesheets="@../style.css">
                                        <children>
                                           <ImageView fx:id="icon2Dr" fitHeight="20.0" fitWidth="20.0">
                                              <image>
-                                                <Image url="@../../../../../../calmify%203/version0.0/src/app/resource/icon2.png" />
+                                                <Image url="@../../app/resource/icon2.png" />
                                              </image>
                                              <HBox.margin>
                                                 <Insets left="25.0" top="8.0" />
                                              </HBox.margin>
                                           </ImageView>
-                                          <Text fx:id="jurnalArchiveTextDr" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sidebar-text" text="Patient Dashboard" wrappingWidth="111.05126953125">
+                                          <Text fx:id="jurnalArchiveTextDr" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sidebar-text" text="Patient Archive" wrappingWidth="111.05126953125">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
@@ -85,18 +91,18 @@
                                              </HBox.margin>
                                           </Text>
                                        </children>
+                                       <VBox.margin>
+                                          <Insets right="8.0" top="8.0" />
+                                       </VBox.margin>
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
-                                       <VBox.margin>
-                                          <Insets right="8.0" top="2.0" />
-                                       </VBox.margin>
                                     </HBox>
-                                    <HBox fx:id="findYourKonselorDr" onMouseClicked="#handleFindYourKonselorClick" prefHeight="40.0" prefWidth="200.0" styleClass="sidebar-item" stylesheets="@../../../../../../calmify%203/version0.0/src/view/style.css">
+                                    <HBox fx:id="yourClinic" onMouseClicked="#handleClinic" prefHeight="40.0" prefWidth="250.0" styleClass="sidebar-item" stylesheets="@../style.css">
                                        <children>
                                           <ImageView fx:id="icon3Dr" fitHeight="23.0" fitWidth="23.0">
                                              <image>
-                                                <Image url="@../../../../../../calmify%203/version0.0/src/app/resource/icon5.png" />
+                                                <Image url="@../../app/resource/icon5.png" />
                                              </image>
                                              <HBox.margin>
                                                 <Insets left="25.0" top="8.0" />
@@ -111,18 +117,18 @@
                                              </HBox.margin>
                                           </Text>
                                        </children>
+                                       <VBox.margin>
+                                          <Insets top="8.0" />
+                                       </VBox.margin>
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
-                                       <VBox.margin>
-                                          <Insets top="2.0" />
-                                       </VBox.margin>
                                     </HBox>
-                                    <HBox fx:id="zenBotAiDr" onMouseClicked="#handleZenBotAiClick" prefHeight="40.0" prefWidth="200.0" styleClass="sidebar-item" stylesheets="@../../../../../../calmify%203/version0.0/src/view/style.css">
+                                    <HBox fx:id="zenBotAiDr" onMouseClicked="#handleZenbotAiDr" prefHeight="40.0" prefWidth="250.0" styleClass="sidebar-item" stylesheets="@../style.css">
                                        <children>
                                           <ImageView fx:id="icon4Dr" fitHeight="20.0" fitWidth="20.0">
                                              <image>
-                                                <Image url="@../../../../../../calmify%203/version0.0/src/app/resource/icon4.png" />
+                                                <Image url="@../../app/resource/icon4.png" />
                                              </image>
                                              <HBox.margin>
                                                 <Insets left="25.0" top="8.0" />
@@ -137,12 +143,12 @@
                                              </HBox.margin>
                                           </Text>
                                        </children>
+                                       <VBox.margin>
+                                          <Insets right="8.0" top="8.0" />
+                                       </VBox.margin>
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
-                                       <VBox.margin>
-                                          <Insets right="8.0" top="2.0" />
-                                       </VBox.margin>
                                     </HBox>
                                  </children>
                               </VBox>
@@ -150,26 +156,17 @@
                         </AnchorPane>
                      </children>
                   </VBox>
-                  <VBox prefHeight="192.0" prefWidth="250.0">
+                  <VBox prefHeight="219.0" prefWidth="300.0">
                      <children>
-                        <AnchorPane prefHeight="182.0" prefWidth="300.0">
+                        <AnchorPane prefHeight="306.0" prefWidth="300.0">
                            <children>
-                              <VBox layoutX="11.0" prefHeight="213.0" prefWidth="250.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                           </children>
-                        </AnchorPane>
-                     </children>
-                  </VBox>
-                  <VBox prefHeight="201.0" prefWidth="250.0">
-                     <children>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                           <children>
-                              <VBox layoutX="11.0" prefHeight="194.0" prefWidth="250.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <VBox layoutX="11.0" layoutY="-10.0" prefHeight="190.0" prefWidth="250.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="-10.0">
                                  <children>
-                                    <HBox fx:id="settingDr" onMouseClicked="#handleSettingClick" prefHeight="188.0" prefWidth="250.0" styleClass="sidebar-item" stylesheets="@../../../../../../calmify%203/version0.0/src/view/style.css">
+                                    <HBox fx:id="settingDr" onMouseClicked="#handleSettingClickDr" prefHeight="40.0" prefWidth="200.0" styleClass="sidebar-item" stylesheets="@../style.css">
                                        <children>
-                                          <ImageView fx:id="icon5Dr" fitHeight="23.0" fitWidth="23.0">
+                                          <ImageView fx:id="icon5Dr" fitHeight="20.0" fitWidth="20.0">
                                              <image>
-                                                <Image url="@../../../../../../calmify%203/version0.0/src/app/resource/icon9.png" />
+                                                <Image url="@../../app/resource/icon9.png" />
                                              </image>
                                              <HBox.margin>
                                                 <Insets left="25.0" top="8.0" />
@@ -184,21 +181,18 @@
                                              </HBox.margin>
                                           </Text>
                                        </children>
+                                       <VBox.margin>
+                                          <Insets top="90.0" />
+                                       </VBox.margin>
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
-                                       <VBox.margin>
-                                          <Insets bottom="8.0" top="90.0" />
-                                       </VBox.margin>
-                                       <padding>
-                                          <Insets bottom="8.0" />
-                                       </padding>
                                     </HBox>
-                                    <HBox fx:id="fAQ" onMouseClicked="#handlefAQClick" prefHeight="50.0" prefWidth="250.0" styleClass="sidebar-item" stylesheets="@../../../../../../calmify%203/version0.0/src/view/style.css">
+                                    <HBox fx:id="fAQ" onMouseClicked="#handlefAQClick" prefHeight="40.0" prefWidth="200.0" styleClass="sidebar-item" stylesheets="@../style.css">
                                        <children>
                                           <ImageView fx:id="icon6Dr" fitHeight="23.0" fitWidth="23.0">
                                              <image>
-                                                <Image url="@../../../../../../calmify%203/version0.0/src/app/resource/icon10.png" />
+                                                <Image url="@../../app/resource/icon10.png" />
                                              </image>
                                              <HBox.margin>
                                                 <Insets left="25.0" top="8.0" />
@@ -216,12 +210,6 @@
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
-                                       <VBox.margin>
-                                          <Insets bottom="30.0" />
-                                       </VBox.margin>
-                                       <padding>
-                                          <Insets bottom="8.0" />
-                                       </padding>
                                     </HBox>
                                  </children>
                               </VBox>
@@ -229,18 +217,18 @@
                         </AnchorPane>
                      </children>
                   </VBox>
-                  <VBox prefHeight="126.0" prefWidth="250.0">
+                  <VBox prefHeight="111.0" prefWidth="300.0">
                      <children>
                         <AnchorPane prefHeight="140.0" prefWidth="256.0">
                            <children>
                               <ImageView fitHeight="86.0" fitWidth="232.0" layoutX="10.0" layoutY="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="5.0">
                                  <image>
-                                    <Image url="@../../../../../../calmify%203/version0.0/src/app/resource/profileB.png" />
+                                    <Image url="@../../app/resource/profileB.png" />
                                  </image>
                               </ImageView>
                               <Circle fx:id="imgProfileDr" fill="#d1d2d3" layoutX="50.0" layoutY="45.0" radius="31.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="14.0" />
-                              <Label fx:id="nameUserDr" layoutX="95.0" layoutY="28.0" prefHeight="17.0" prefWidth="122.0" />
-                              <Label fx:id="zenloopCodeDr" layoutX="95.0" layoutY="40.0" prefHeight="17.0" prefWidth="122.0" AnchorPane.topAnchor="48.0" />
+                              <Label fx:id="nameUserDr" layoutX="95.0" layoutY="28.0" prefHeight="17.0" prefWidth="122.0" text="Your Name" />
+                              <Label fx:id="zenloopCodeDr" layoutX="95.0" layoutY="40.0" prefHeight="17.0" prefWidth="122.0" text="ZenId" AnchorPane.topAnchor="48.0" />
                            </children>
                         </AnchorPane>
                      </children>

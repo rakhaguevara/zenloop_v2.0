@@ -130,7 +130,7 @@ public class HomeController {
     }
 
     public void showZenBotAi() {
-        loadPage(PageConfig.ZEN_BOT_AI); // This will hide rightbar
+        loadPage(PageConfig.ZEN_BOT_AI);
     }
 
     public void showFindYourKonselor() {
@@ -138,7 +138,7 @@ public class HomeController {
     }
 
     public void showRelaxMusic() {
-        loadPage(PageConfig.RELAX_MUSIC); // This will hide rightbar
+        loadPage(PageConfig.RELAX_MUSIC);
     }
 
     public void showCommunity() {

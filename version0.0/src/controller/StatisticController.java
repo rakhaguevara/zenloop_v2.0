@@ -1,6 +1,7 @@
 package controller;
 
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
 import com.thoughtworks.xstream.io.xml.StaxDriver;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -217,7 +218,7 @@ public class StatisticController {
 
             // Tulis data ke file XML
             FileWriter writer = new FileWriter(path);
-            XStream xstream = new XStream(new StaxDriver());
+            XStream xstream = new XStream(new DomDriver());
             String xml = xstream.toXML(new ArrayList<>(riwayatData));
             writer.write(xml);
             writer.close();

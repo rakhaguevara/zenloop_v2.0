@@ -15,6 +15,8 @@ public class HomeDrController {
     private AnchorPane mainContentPaneDr;
 
     @FXML
+    private VBox rightBarInclude;
+
     private VBox rightBarPaneDr;
 
     private static HomeDrController instance;
@@ -109,20 +111,20 @@ public class HomeDrController {
         loadPage(PageConfigDr.HOMEPAGE_DR);
     }
 
-    public void showJurnalArchive() {
-        loadPage(PageConfigDr.JURNAL_ARCHIVE_DR);
+    public void showPatientDashboard() {
+        loadPage(PageConfigDr.PATIENT_DASHBOARD_DR);
     }
 
-    public void showFindYourKonselor() {
-        loadPage(PageConfigDr.FIND_KONSELOR_DR);
+    public void showYourClinicDr() {
+        loadPage(PageConfigDr.YOUR_CLINIC);
     }
 
     public void showZenBotAi() {
-        loadPage(PageConfigDr.ZEN_BOT_AI_DR); // This will hide rightbar
+        loadPage(PageConfigDr.ZEN_BOT_AI_DR);
     }
 
     public void showSetting() {
-        loadPage(PageConfigDr.SETTING_DR); // This will hide rightbar
+        loadPage(PageConfigDr.SETTING_DR);
     }
 
     public void showFAQ() {

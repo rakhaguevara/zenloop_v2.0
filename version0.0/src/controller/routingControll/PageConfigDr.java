@@ -1,12 +1,12 @@
 package controller.routingControll;
 
 public enum PageConfigDr {
-    HOMEPAGE_DR("/view/DashboardZen/homepage.fxml", true),
-    JURNAL_ARCHIVE_DR("/view/homeDr/jurnalArchiveDr.fxml", true),
-    FIND_KONSELOR_DR("/view/homeDr/findKonselorDr.fxml", true),
-    ZEN_BOT_AI_DR("/view/homeDr/zenBotAiDr.fxml", false),
-    SETTING_DR("/view/homeDr/settingDr.fxml", false),
-    FAQ_DR("/view/homeDr/faqDr.fxml", true);
+    HOMEPAGE_DR("/view/NotFindPage/nfp.fxml", false),
+    PATIENT_DASHBOARD_DR("/view/NotFindPage/nfp.fxml", false),
+    YOUR_CLINIC("/view/NotFindPage/nfp.fxml", false),
+    ZEN_BOT_AI_DR("/view/NotFindPage/nfp.fxml", true),
+    SETTING_DR("/view/NotFindPage/nfp.fxml", false),
+    FAQ_DR("/view/NotFindPage/nfp.fxml", false);
 
     private final String fxmlPath;
     private final boolean showRightbar;
