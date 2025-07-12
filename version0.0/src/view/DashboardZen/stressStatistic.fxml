@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.chart.BarChart?>
@@ -16,7 +24,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
+<<<<<<< HEAD
 <AnchorPane fx:id="centerPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="845.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StatisticController">
+=======
+<AnchorPane fx:id="centerPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="845.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StatisticController">
+>>>>>>> 599bf72 ("try to add another user for login")
    <children>
       <HBox layoutX="504.0" layoutY="295.0" prefHeight="845.0" prefWidth="950.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -112,12 +124,16 @@
                         </DatePicker>
                      </children>
                   </VBox>
-                  <TableView fx:id="tabelStressStatistic" layoutX="30.0" layoutY="523.0" prefHeight="296.0" prefWidth="890.0">
+                  <TableView id="#table-view" fx:id="tabelStressStatistic" layoutX="30.0" layoutY="523.0" prefHeight="296.0" prefWidth="890.0" stylesheets="@../style.css">
                      <columns>
                         <TableColumn fx:id="kolomTanggal" prefWidth="150.0" text="Tanggal" />
                         <TableColumn fx:id="kolomRataRata" prefWidth="150.0" text="Rata-rata" />
                         <TableColumn fx:id="kolomKeterangan" prefWidth="200.0" text="Keterangan" />
                      </columns>
+                     <styleClass>
+                        <String fx:value="table-column" />
+                        <String fx:value="table-column-header" />
+                     </styleClass>
                   </TableView>
                </children>
             </AnchorPane>

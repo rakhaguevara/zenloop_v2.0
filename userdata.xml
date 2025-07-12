@@ -6,5 +6,11 @@
       <password>123</password>
       <role>Zenloopers</role>
     </user>
+    <user>
+      <username>drRakha</username>
+      <email>drRakha2505@gmail.com</email>
+      <password>123</password>
+      <role>Proffessional</role>
+    </user>
   </users>
 </users>

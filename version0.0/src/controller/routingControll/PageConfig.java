@@ -1,4 +1,4 @@
-package controller;
+package controller.routingControll;
 
 public enum PageConfig {
     HOMEPAGE("/view/DashboardZen/homepage.fxml", true),

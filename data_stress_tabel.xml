@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 <?xml version="1.0" ?><list><model.StressHarian><tanggal>2025-07-11</tanggal><rataRata>4.4</rataRata><keterangan>Hari Buruk</keterangan><quest1>4</quest1><quest2>5</quest2><quest3>4</quest3><quest4>5</quest4><quest5>4</quest5></model.StressHarian><model.StressHarian><tanggal>2025-07-12</tanggal><rataRata>7.4</rataRata><keterangan>Lumayan</keterangan><quest1>6</quest1><quest2>9</quest2><quest3>8</quest3><quest4>5</quest4><quest5>9</quest5></model.StressHarian></list>
+=======
+<?xml version="1.0" ?><list><model.StressHarian><tanggal>2025-07-11</tanggal><rataRata>4.4</rataRata><keterangan>Hari Buruk</keterangan><quest1>4</quest1><quest2>5</quest2><quest3>4</quest3><quest4>5</quest4><quest5>4</quest5></model.StressHarian><model.StressHarian><tanggal>2025-07-12</tanggal><rataRata>4.8</rataRata><keterangan>Hari Buruk</keterangan><quest1>4</quest1><quest2>4</quest2><quest3>5</quest3><quest4>5</quest4><quest5>6</quest5></model.StressHarian></list>
+>>>>>>> 599bf72 ("try to add another user for login")

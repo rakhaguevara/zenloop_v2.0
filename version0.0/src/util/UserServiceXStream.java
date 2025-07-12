@@ -8,6 +8,8 @@ import model.UserList;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserServiceXStream {
 
@@ -41,14 +43,15 @@ public class UserServiceXStream {
     /**
      * Validasi login
      */
-    public boolean loginUser(String username, String password) {
-        UserList userList = loadUserList();
-        for (UserData u : userList.getUsers()) {
-            if (u.getUsername().equals(username) && u.getPassword().equals(password)) {
-                return true;
+    public UserData loginUser(String username, String password) {
+        List<UserData> users = loadUsers();
+
+        for (UserData user : users) {
+            if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+                return user; // Kembalikan objek UserData
             }
         }
-        return false;
+        return null;
     }
 
     /**
@@ -67,6 +70,11 @@ public class UserServiceXStream {
     /**
      * Load daftar user dari XML
      */
+
+    public List<UserData> loadUsers() {
+        return loadUserList().getUsers();
+    }
+
     private UserList loadUserList() {
         try {
             File file = new File(FILE_NAME);

@@ -135,6 +135,7 @@
 }
 
 
+<<<<<<< HEAD
 /* mendekorasi tabel */
 
 /* Mengubah warna batang pada BarChart */
@@ -142,4 +143,70 @@
     -fx-bar-fill: #2B2B2B; /* Ganti dengan warna yang diinginkan */
 }
 
+=======
+
+/* design tabel */
+/* Header Tabel */
+
+/* Tabel Style */
+#table-view {
+    -fx-background-color: #ffffff; /* Warna latar belakang tabel */
+    -fx-border-color: #dddddd; /* Warna border tabel */
+    -fx-border-width: 1px;
+    -fx-font-size: 14px; /* Ukuran font untuk teks di dalam tabel */
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-selection-bar: #018F82; /* Warna latar belakang saat baris dipilih */
+    -fx-padding: 10px; /* Padding keseluruhan */
+}
+
+/* Header Tabel */
+.table-column-header {
+    /* -fx-background-color: #018F82; Warna latar belakang header tabel */
+    -fx-text-fill: white; /* Warna teks di header */
+    -fx-font-weight: bold; /* Teks header tebal */
+    -fx-padding: 10px;
+    -fx-alignment: center; /* Menyelaraskan teks di header */
+    -fx-border-radius: 10px;
+    -fx-border-color: #018F82; /* Warna border untuk header */
+}
+
+Kolom tabel
+.table-column {
+    -fx-alignment: CENTER_LEFT; /* Menyelaraskan teks ke kiri di kolom */
+    -fx-padding: 8px;
+    -fx-border-color: #eeeeee; /* Warna border antar kolom */
+    -fx-border-width: 0 1px 1px 1px; /* Hanya border bawah dan kanan kolom */
+}
+
+/* Baris Tabel */
+
+
+/* Hover state untuk baris tabel */
+.table-row-cell:hover {
+    -fx-background-color: rgba(0, 0, 0, 0.05); /* Warna latar belakang saat hover */
+}
+
+/* Teks dalam sel tabel */
+.table-cell {
+    -fx-padding: 8px; /* Padding di dalam sel */
+    -fx-text-fill: #333; /* Warna teks di dalam sel */
+}
+
+/* Kolom yang dipilih */
+.table-row-cell:selected {
+    -fx-background-color: #4f8a8a; /* Warna saat baris dipilih */
+    -fx-text-fill: white; /* Warna teks saat dipilih */
+}
+
+/* Border sel saat hover atau pilih */
+.table-cell:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Styling untuk tabel dengan scroll jika diperlukan */
+.table-view:vertical {
+    -fx-scroll-bar-width: 10px; /* Lebar scrollbar */
+    -fx-scroll-bar-color: #018F82; /* Warna scrollbar */
+}
+>>>>>>> 599bf72 ("try to add another user for login")
 

@@ -44,43 +44,101 @@ public class LoginControllerZenloop {
     // // Optional initialization logic
     // }
 
+    // @FXML
+    // private void handleLogin(ActionEvent event) {
+    // String username = tfUsername.getText();
+    // String password = tfPassword.getText();
+
+    // if (username.isEmpty() || password.isEmpty()) {
+    // showAlert(AlertType.WARNING, "Username or Password doesnt fill ",
+    // "Please fill Username and Password correctly");
+    // return;
+    // }
+
+    // UserServiceXStream userService = new UserServiceXStream();
+
+    // boolean loginResult = userService.loginUser(username, password);
+
+    // if (loginResult) {
+
+    // try {
+    // Parent homePage =
+    // FXMLLoader.load(getClass().getResource("/view/homeZen.fxml"));
+    // Scene scene = new Scene(homePage);
+
+    // Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    // stage.setScene(scene);
+    // stage.show();
+    // stage.centerOnScreen();
+
+    // System.out.println("Login successful!");
+    // showAlert(AlertType.CONFIRMATION, "Welcome to Zenloop",
+    // "Welcome to zenloop, before you start the application, would you like to
+    // aggre for the user policy?");
+
+    // } catch (Exception e) {
+    // e.printStackTrace();
+    // System.out.println("Error loading home page: " + e.getMessage());
+    // }
+    // } else {
+    // showAlert(Alert.AlertType.WARNING, "Invalid Data",
+    // "Your username or password doesnt match, please fill the correct one");
+    // }
+    // }
+
     @FXML
     private void handleLogin(ActionEvent event) {
         String username = tfUsername.getText();
         String password = tfPassword.getText();
 
         if (username.isEmpty() || password.isEmpty()) {
-            showAlert(AlertType.WARNING, "Username or Password doesnt fill ",
-                    "Please fill Username and Password correctly");
+            showAlert(AlertType.WARNING, "Input Required", "Please fill in both Username and Password.");
             return;
         }
 
         UserServiceXStream userService = new UserServiceXStream();
+        UserData loggedInUser = userService.loginUser(username, password);
 
-        boolean loginResult = userService.loginUser(username, password);
+        if (loggedInUser != null) {
+            String role = loggedInUser.getRole();
 
-        if (loginResult) {
-
+            // Validasi role jika diperlukan
+            // if (!"Zenloopers".equalsIgnoreCase(role)) {
+            // showAlert(AlertType.ERROR, "Access Denied", "Only Zenloopers can access this
+            // application.");
+            // return;
+            // }
             try {
-                Parent homePage = FXMLLoader.load(getClass().getResource("/view/homeZen.fxml"));
-                Scene scene = new Scene(homePage);
+                Parent halaman;
 
+                if ("Zenloopers".equalsIgnoreCase(role)) {
+                    halaman = FXMLLoader.load(getClass().getResource("/view/homeZen.fxml"));
+                } else if ("Proffessional".equalsIgnoreCase(role)) {
+                    halaman = FXMLLoader.load(getClass().getResource("/view/homeDr.fxml"));
+                } else if ("Parent".equalsIgnoreCase(role)) {
+                    halaman = FXMLLoader.load(getClass().getResource("/view/homeZen.fxml"));
+                } else if ("Admin".equalsIgnoreCase(role)) {
+                    halaman = FXMLLoader.load(getClass().getResource("/view/homeZen.fxml"));
+                } else {
+                    showAlert(AlertType.ERROR, "Access Denied", "Your role is not recognized.");
+                    return;
+                }
+
+                Scene scene = new Scene(halaman);
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(scene);
                 stage.show();
                 stage.centerOnScreen();
 
-                System.out.println("Login successful!");
-                showAlert(AlertType.CONFIRMATION, "Welcome to Zenloop",
-                        "Welcome to zenloop, before you start the application, would you like to aggre for the user policy?");
+                showAlert(AlertType.INFORMATION, "Login Success",
+                        "Welcome " + loggedInUser.getUsername() + ", Role: " + role);
 
             } catch (Exception e) {
                 e.printStackTrace();
-                System.out.println("Error loading home page: " + e.getMessage());
+                showAlert(AlertType.ERROR, "Error", "Failed to load the home page for your role.");
             }
         } else {
-            showAlert(Alert.AlertType.WARNING, "Invalid Data",
-                    "Your username or password doesnt match, please fill the correct one");
+            showAlert(AlertType.WARNING, "Login Failed", "Invalid username or password.");
         }
     }
 
