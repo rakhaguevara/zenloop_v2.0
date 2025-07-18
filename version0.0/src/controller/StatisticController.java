@@ -9,9 +9,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.*;
 import javafx.scene.control.*;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
 import model.StressHarian;
+import util.AlertUtil;
 
 import java.io.File;
 import java.io.FileReader;
@@ -23,10 +24,10 @@ import java.util.*;
 public class StatisticController {
 
     @FXML
-    private BarChart<String, Number> barChartStress;
+    private LineChart<String, Number> lineChartStress;
+
     @FXML
     private CategoryAxis hariAxis;
-
     @FXML
     private NumberAxis nilaiAxis;
 
@@ -46,7 +47,7 @@ public class StatisticController {
     @FXML
     private DatePicker datePicker;
 
-    private XYChart.Series<String, Number> dataMingguan = new XYChart.Series<>();
+    // private XYChart.Series<String, Number> dataMingguan = new XYChart.Series<>();
     private ObservableList<StressHarian> riwayatData = FXCollections.observableArrayList();
     private final String[] hariMinggu = { "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu" };
 
@@ -54,7 +55,7 @@ public class StatisticController {
     public void initialize() {
         if (hariAxis != null) {
             hariAxis.setCategories(FXCollections.observableArrayList(Arrays.asList(hariMinggu)));
-            barChartStress.getData().add(dataMingguan);
+            // lineChartStress.getData().add(dataMingguan);
         }
 
         kolomTanggal.setCellValueFactory(new PropertyValueFactory<>("tanggal"));
@@ -72,7 +73,6 @@ public class StatisticController {
                 tfTest5.setText(String.valueOf(selected.getQuest5()));
                 datePicker.setValue(LocalDate.parse(selected.getTanggal()));
             }
-
         });
 
         muatDariXML();
@@ -81,49 +81,43 @@ public class StatisticController {
     @FXML
     void handleSaveStatistic(ActionEvent event) {
         try {
-            // Validasi dan parsing input secara langsung
             int quest1 = Integer.parseInt(tfTest1.getText());
             int quest2 = Integer.parseInt(tfTest2.getText());
             int quest3 = Integer.parseInt(tfTest3.getText());
             int quest4 = Integer.parseInt(tfTest4.getText());
             int quest5 = Integer.parseInt(tfTest5.getText());
 
-            // Memastikan nilai valid
             if (quest1 < 0 || quest1 > 10 || quest2 < 0 || quest2 > 10 ||
                     quest3 < 0 || quest3 > 10 || quest4 < 0 || quest4 > 10 ||
                     quest5 < 0 || quest5 > 10) {
-                showAlert("Nilai harus antara 0 sampai 10.");
+                AlertUtil.showAlert(Alert.AlertType.WARNING, "Validasi", "Nilai harus antara 0 sampai 10.");
                 return;
             }
 
-            // Memastikan tanggal dipilih
             LocalDate tanggal = datePicker.getValue();
             if (tanggal == null) {
-                showAlert("Silakan pilih tanggal terlebih dahulu.");
+                AlertUtil.showAlert(Alert.AlertType.WARNING, "Validasi", "Silakan pilih tanggal terlebih dahulu.");
                 return;
             }
 
-            // Cek apakah tanggal sudah ada
             if (isTanggalExist(tanggal)) {
-                showAlert("Tanggal sudah ada. Gunakan tombol edit.");
+                AlertUtil.showAlert(Alert.AlertType.WARNING, "Validasi", "Tanggal sudah ada. Gunakan tombol edit.");
                 return;
             }
 
-            // Menghitung rata-rata dan keterangan
             double rata2 = (quest1 + quest2 + quest3 + quest4 + quest5) / 5.0;
             String keterangan = getKeterangan(rata2);
 
-            // Menambah data ke riwayat dan memperbarui UI
             riwayatData.add(
                     new StressHarian(tanggal.toString(), rata2, keterangan, quest1, quest2, quest3, quest4, quest5));
             tabelStressStatistic.refresh();
-            refreshBarChart();
+            refreshLineChart();
             simpanKeXML();
-            showAlert("Data berhasil disimpan.");
+            AlertUtil.showAlert(AlertType.CONFIRMATION, "Berhasil", "Data berhasil disimpan");
             clearFields();
 
         } catch (NumberFormatException e) {
-            showAlert("Masukkan angka valid.");
+            AlertUtil.showAlert(Alert.AlertType.ERROR, "Error", "Masukkan angka valid.");
         }
     }
 
@@ -131,7 +125,7 @@ public class StatisticController {
     void handleEditStatistic(ActionEvent event) {
         StressHarian selected = tabelStressStatistic.getSelectionModel().getSelectedItem();
         if (selected == null) {
-            showAlert("Pilih data yang ingin diedit.");
+            AlertUtil.showAlert(Alert.AlertType.WARNING, "Peringatan", "Pilih data yang ingin diedit.");
             return;
         }
 
@@ -141,7 +135,6 @@ public class StatisticController {
             int quest3 = Integer.parseInt(tfTest3.getText());
             int quest4 = Integer.parseInt(tfTest4.getText());
             int quest5 = Integer.parseInt(tfTest5.getText());
-
             LocalDate tanggal = datePicker.getValue();
 
             double rata2 = (quest1 + quest2 + quest3 + quest4 + quest5) / 5.0;
@@ -157,13 +150,13 @@ public class StatisticController {
             selected.setKeterangan(keterangan);
 
             tabelStressStatistic.refresh();
-            refreshBarChart();
+            refreshLineChart();
             simpanKeXML();
-            showAlert("Data berhasil diperbarui.");
+
             clearFields();
 
         } catch (NumberFormatException e) {
-            showAlert("Masukkan angka valid.");
+            AlertUtil.showAlert(Alert.AlertType.ERROR, "Error", "Masukkan angka valid.");
         }
     }
 
@@ -172,25 +165,44 @@ public class StatisticController {
         StressHarian selected = tabelStressStatistic.getSelectionModel().getSelectedItem();
         if (selected != null) {
             riwayatData.remove(selected);
-            refreshBarChart();
+            refreshLineChart();
             simpanKeXML();
-            showAlert("Data berhasil dihapus.");
-
+            AlertUtil.showAlert(AlertType.CONFIRMATION, null, "Data berhasil dihapus");
             clearFields();
         } else {
-            showAlert("Pilih data yang ingin dihapus.");
+            AlertUtil.showAlert(Alert.AlertType.WARNING, "Peringatan", "Pilih data yang ingin dihapus.");
         }
-
     }
 
-    private void refreshBarChart() {
-        dataMingguan.getData().clear();
+    private void refreshLineChart() {
+        lineChartStress.getData().clear(); // Bersihkan seluruh data
+
+        XYChart.Series<String, Number> series = new XYChart.Series<>();
+        series.setName("Rata-rata Stres per Hari");
+
+        // Buat map hari -> daftar nilai
+        Map<String, List<Double>> stressMap = new LinkedHashMap<>();
+        for (String hari : hariMinggu) {
+            stressMap.put(hari, new ArrayList<>());
+        }
+
         for (StressHarian data : riwayatData) {
             LocalDate date = LocalDate.parse(data.getTanggal());
             String hari = hariMinggu[date.getDayOfWeek().getValue() - 1];
-            dataMingguan.getData().add(new XYChart.Data<>(hari, data.getRataRata()));
+            stressMap.get(hari).add(data.getRataRata());
         }
-        barChartStress.layout();
+
+        for (String hari : hariMinggu) {
+            List<Double> nilai = stressMap.get(hari);
+            if (!nilai.isEmpty()) {
+                double avg = nilai.stream().mapToDouble(Double::doubleValue).average().orElse(0);
+                series.getData().add(new XYChart.Data<>(hari, avg));
+            } else {
+                series.getData().add(new XYChart.Data<>(hari, 0)); // opsional: tampilkan 0 jika tidak ada data
+            }
+        }
+
+        lineChartStress.getData().add(series);
     }
 
     private boolean isTanggalExist(LocalDate tanggal) {
@@ -207,43 +219,41 @@ public class StatisticController {
 
     private void simpanKeXML() {
         try {
-            String path = "data_stress_tabel.xml";
-            File file = new File(path);
-
-            // Periksa apakah file sudah ada
-            if (!file.exists()) {
-                // Jika file tidak ada, buat file baru
-                file.createNewFile();
-            }
-
-            // Tulis data ke file XML
+            String username = model.SessionManager.getCurrentUser().getUsername();
+            String path = "data_stress_tabel_" + username + ".xml";
             FileWriter writer = new FileWriter(path);
             XStream xstream = new XStream(new DomDriver());
+
+            xstream.alias("stress", StressHarian.class);
+            xstream.allowTypesByWildcard(new String[] { "model.**" });
+
             String xml = xstream.toXML(new ArrayList<>(riwayatData));
             writer.write(xml);
             writer.close();
-
-            System.out.println("XML berhasil disimpan di: " + file.getAbsolutePath());
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     private void muatDariXML() {
-        try (FileReader reader = new FileReader("data_stress_tabel.xml")) {
+        try {
+            String username = model.SessionManager.getCurrentUser().getUsername();
+            String path = "data_stress_tabel_" + username + ".xml";
+            File file = new File(path);
+            if (!file.exists())
+                return;
+
+            FileReader reader = new FileReader(file);
             XStream xstream = new XStream(new StaxDriver());
-            xstream.allowTypes(new Class[] { StressHarian.class, ArrayList.class });
+            xstream.alias("stress", StressHarian.class);
+            xstream.allowTypesByWildcard(new String[] { "model.**" });
+
             List<StressHarian> list = (List<StressHarian>) xstream.fromXML(reader);
             riwayatData.setAll(list);
-            refreshBarChart();
+            refreshLineChart();
         } catch (Exception e) {
-            System.out.println("Gagal memuat XML: " + e.getMessage());
+            System.out.println("⚠️ Gagal memuat XML stress user: " + e.getMessage());
         }
-    }
-
-    private void showAlert(String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION, message);
-        alert.show();
     }
 
     private void clearFields() {

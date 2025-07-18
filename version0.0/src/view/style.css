@@ -134,8 +134,6 @@
     -fx-background-color : rgb(241, 241, 241);
 }
 
-
-<<<<<<< HEAD
 /* mendekorasi tabel */
 
 /* Mengubah warna batang pada BarChart */
@@ -143,7 +141,7 @@
     -fx-bar-fill: #2B2B2B; /* Ganti dengan warna yang diinginkan */
 }
 
-=======
+
 
 /* design tabel */
 /* Header Tabel */
@@ -178,35 +176,19 @@ Kolom tabel
     -fx-border-width: 0 1px 1px 1px; /* Hanya border bawah dan kanan kolom */
 }
 
-/* Baris Tabel */
+/*  ai chat  */
 
-
-/* Hover state untuk baris tabel */
-.table-row-cell:hover {
-    -fx-background-color: rgba(0, 0, 0, 0.05); /* Warna latar belakang saat hover */
+.button-ai{
+    -fx-background-color : #018F82;
+    -fx-text-fill: white;
 }
 
-/* Teks dalam sel tabel */
-.table-cell {
-    -fx-padding: 8px; /* Padding di dalam sel */
-    -fx-text-fill: #333; /* Warna teks di dalam sel */
-}
 
-/* Kolom yang dipilih */
-.table-row-cell:selected {
-    -fx-background-color: #4f8a8a; /* Warna saat baris dipilih */
-    -fx-text-fill: white; /* Warna teks saat dipilih */
+/* button play pause */
+#button-music{
+    -fx-background-color : #1A202C;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: rgba(0, 0, 0, 0.356);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 6, 0.2, 0, 2);
+    -fx-border-radius: 8;    
 }
-
-/* Border sel saat hover atau pilih */
-.table-cell:hover {
-    -fx-background-color: rgba(255, 255, 255, 0.1);
-}
-
-/* Styling untuk tabel dengan scroll jika diperlukan */
-.table-view:vertical {
-    -fx-scroll-bar-width: 10px; /* Lebar scrollbar */
-    -fx-scroll-bar-color: #018F82; /* Warna scrollbar */
-}
->>>>>>> 599bf72 ("try to add another user for login")
-

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
@@ -8,9 +12,12 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="centerPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="845.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="centerPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+   minWidth="-Infinity" prefHeight="845.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/8"
+   xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox layoutX="504.0" layoutY="295.0" prefHeight="845.0" prefWidth="950.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox layoutX="504.0" layoutY="295.0" prefHeight="845.0" prefWidth="950.0"
+         AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <AnchorPane prefHeight="840.0" prefWidth="850.0">
                <children>
@@ -19,15 +26,8 @@
                         <Image url="@../../app/resource/stressStatictic.png" />
                      </image>
                   </ImageView>
-                  <Button layoutX="803.0" layoutY="372.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="98.0" text="Button" />
-                  <Button layoutX="698.0" layoutY="372.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="98.0" text="Button" AnchorPane.rightAnchor="150.0" />
-                  <TextArea layoutX="31.0" layoutY="222.0" prefHeight="139.0" prefWidth="884.0" AnchorPane.leftAnchor="31.0" />
-                  <TextArea layoutX="33.0" layoutY="155.0" prefHeight="59.0" prefWidth="884.0" AnchorPane.leftAnchor="31.0" />
-                  <TextArea layoutX="73.0" layoutY="16.0" prefHeight="51.0" prefWidth="859.0" promptText="Search Your Jurnal Here">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </TextArea>
+                  <TextArea layoutX="33.0" layoutY="155.0" prefHeight="59.0" prefWidth="884.0"
+                     AnchorPane.leftAnchor="31.0" />
                </children>
             </AnchorPane>
          </children>

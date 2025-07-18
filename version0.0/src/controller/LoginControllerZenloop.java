@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import model.SessionManager;
 import model.UserData;
 import util.UserServiceXStream;
 import javafx.scene.Node;
@@ -90,6 +91,7 @@ public class LoginControllerZenloop {
     private void handleLogin(ActionEvent event) {
         String username = tfUsername.getText();
         String password = tfPassword.getText();
+        SessionManager.logout(); // ✅ reset sebelum login baru
 
         if (username.isEmpty() || password.isEmpty()) {
             showAlert(AlertType.WARNING, "Input Required", "Please fill in both Username and Password.");
@@ -100,24 +102,17 @@ public class LoginControllerZenloop {
         UserData loggedInUser = userService.loginUser(username, password);
 
         if (loggedInUser != null) {
+            // ✅ Simpan sesi login
+            SessionManager.login(loggedInUser);
             String role = loggedInUser.getRole();
 
-            // Validasi role jika diperlukan
-            // if (!"Zenloopers".equalsIgnoreCase(role)) {
-            // showAlert(AlertType.ERROR, "Access Denied", "Only Zenloopers can access this
-            // application.");
-            // return;
-            // }
             try {
                 Parent halaman;
-
                 if ("Zenloopers".equalsIgnoreCase(role)) {
                     halaman = FXMLLoader.load(getClass().getResource("/view/homeZen.fxml"));
                 } else if ("Proffessional".equalsIgnoreCase(role)) {
                     halaman = FXMLLoader.load(getClass().getResource("/view/homeDr.fxml"));
-                } else if ("Parent".equalsIgnoreCase(role)) {
-                    halaman = FXMLLoader.load(getClass().getResource("/view/homeZen.fxml"));
-                } else if ("Admin".equalsIgnoreCase(role)) {
+                } else if ("Parent".equalsIgnoreCase(role) || "Admin".equalsIgnoreCase(role)) {
                     halaman = FXMLLoader.load(getClass().getResource("/view/homeZen.fxml"));
                 } else {
                     showAlert(AlertType.ERROR, "Access Denied", "Your role is not recognized.");

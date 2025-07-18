@@ -17,49 +17,41 @@ public class UserServiceXStream {
     private XStream xstream;
 
     public UserServiceXStream() {
-        // Gunakan DomDriver agar tidak perlu xpp3
         xstream = new XStream(new DomDriver());
 
-        // Allow semua class di package model
         xstream.allowTypesByWildcard(new String[] {
                 "model.**"
         });
 
-        // Alias agar XML tidak terlalu panjang
         xstream.alias("user", UserData.class);
         xstream.alias("users", UserList.class);
     }
 
     /**
-     * Register user baru
+     * Mendaftarkan user baru dan menyimpannya ke file.
      */
     public void registerUser(UserData user) {
         UserList userList = loadUserList();
         userList.addUser(user);
         saveUserList(userList);
-        System.out.println("User registered.");
+        System.out.println("✅ User registered successfully.");
     }
 
-    /**
-     * Validasi login
-     */
     public UserData loginUser(String username, String password) {
         List<UserData> users = loadUsers();
-
         for (UserData user : users) {
             if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
-                return user; // Kembalikan objek UserData
+                return user;
             }
         }
         return null;
     }
 
     /**
-     * Cek apakah username sudah digunakan
+     * Mengecek apakah username sudah terdaftar.
      */
     public boolean isUsernameTaken(String username) {
-        UserList userList = loadUserList();
-        for (UserData user : userList.getUsers()) {
+        for (UserData user : loadUsers()) {
             if (user.getUsername().equalsIgnoreCase(username)) {
                 return true;
             }
@@ -68,13 +60,50 @@ public class UserServiceXStream {
     }
 
     /**
-     * Load daftar user dari XML
+     * Mengembalikan seluruh user dari file XML.
      */
-
     public List<UserData> loadUsers() {
         return loadUserList().getUsers();
     }
 
+    /**
+     * Mengembalikan daftar user yang memiliki role tertentu.
+     */
+    public List<UserData> getUsersByRole(String role) {
+        List<UserData> filtered = new ArrayList<>();
+        for (UserData user : loadUsers()) {
+            if (user.getRole() != null && user.getRole().equalsIgnoreCase(role)) {
+                filtered.add(user);
+            }
+        }
+        return filtered;
+    }
+
+    /**
+     * Menyimpan ulang data user yang sudah diupdate (data stress/song dsb).
+     */
+    public void saveUser(UserData updatedUser) {
+        UserList userList = loadUserList();
+        List<UserData> users = userList.getUsers();
+
+        for (int i = 0; i < users.size(); i++) {
+            UserData user = users.get(i);
+            if (user.getUsername().equals(updatedUser.getUsername())) {
+                // Update data satu per satu
+                user.setNama(updatedUser.getNama());
+                user.setEmail(updatedUser.getEmail());
+                user.setPhone(updatedUser.getPhone());
+                user.setPassword(updatedUser.getPassword());
+                break;
+            }
+        }
+
+        saveUserList(userList);
+    }
+
+    /**
+     * Mengambil UserList lengkap dari file.
+     */
     private UserList loadUserList() {
         try {
             File file = new File(FILE_NAME);
@@ -91,7 +120,7 @@ public class UserServiceXStream {
     }
 
     /**
-     * Simpan daftar user ke XML
+     * Menyimpan seluruh UserList ke file XML.
      */
     private void saveUserList(UserList userList) {
         try (FileOutputStream fos = new FileOutputStream(FILE_NAME)) {
@@ -100,4 +129,14 @@ public class UserServiceXStream {
             e.printStackTrace();
         }
     }
+
+    public void deleteUser(String username) {
+        List<UserData> allUsers = loadUsers(); // ✅ pakai method yang sudah ada
+        allUsers.removeIf(u -> u.getUsername().equalsIgnoreCase(username));
+
+        UserList updatedList = new UserList();
+        updatedList.setUsers(allUsers);
+        saveUserList(updatedList);
+    }
+
 }

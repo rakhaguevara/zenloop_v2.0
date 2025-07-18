@@ -17,6 +17,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import model.SessionManager;
+import model.UserData;
 
 public class SidebarController {
 
@@ -31,6 +33,12 @@ public class SidebarController {
     private Text homepageText, jurnalArchiveText, stresStatisticText, zenBotAitext,
             findYourKonselorText, relaxMusicText, communityText, historyText,
             settingText, fAQText;
+
+    @FXML
+    private Label nameUser;
+
+    @FXML
+    private Label zenloopEmail;
 
     private HBox activeItem = null;
 
@@ -52,6 +60,18 @@ public class SidebarController {
     public void initialize() {
         instance = this;
         System.out.println("Sidebar loaded");
+
+        if (SessionManager.isLoggedIn()) {
+            UserData user = SessionManager.getCurrentUser();
+            nameUser.setText(user.getUsername());
+            // nameUser.setText(user.getNama());
+            zenloopEmail.setText(user.getEmail());
+            System.out.println("Logged in as: " + user.getNama() + " | Email: " + user.getEmail());
+        } else {
+            nameUser.setText("Your Name");
+            zenloopEmail.setText("ZenEmail");
+        }
+
         // Set default active item
         setActiveItem(homepageItem, icon1, "/app/resource/icon1Act.png");
     }

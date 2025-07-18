@@ -4,9 +4,9 @@ public enum PageConfig {
     HOMEPAGE("/view/DashboardZen/homepage.fxml", true),
     JURNAL_ARCHIVE("/view/DashboardZen/journalArchive.fxml", true),
     STRES_STATISTIC("/view/DashboardZen/stressStatistic.fxml", true),
-    ZEN_BOT_AI("/view/NotFindPage/nfp.fxml", false), // Hide rightbar
+    ZEN_BOT_AI("/view/aiView.fxml", false), // Hide rightbar
     FIND_KONSELOR("/view/NotFindPage/nfp.fxml", false),
-    RELAX_MUSIC("/view/NotFindPage/nfp.fxml", false), // Hide rightbar
+    RELAX_MUSIC("/view/DashboardZen/musicPage.fxml", false), // Hide rightbar
     COMMUNITY("/view/NotFindPage/nfp.fxml", true),
     HISTORY("/view/NotFindPage/nfp.fxml", false),
     SETTING("/view/DashboardZen/Setting.fxml", false), // Hide rightbar

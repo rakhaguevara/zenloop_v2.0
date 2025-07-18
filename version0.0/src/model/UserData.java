@@ -5,14 +5,13 @@ import java.util.List;
 
 public class UserData {
     private String nama, username, email, password, role, phone, address;
+    private List<StressHarian> stressList = new ArrayList<>();
+    private List<Song> songList = new ArrayList<>();
 
-    // untuk xtream
-
-    public UserData() {
-
+    public List<StressHarian> getStressList() {
+        return stressList;
     }
 
-    // Logiin Needed
     public UserData(String username, String email, String password, String role) {
         this.username = username;
         this.email = email;
@@ -20,47 +19,32 @@ public class UserData {
         this.role = role;
     }
 
-    // Profile
-    public UserData(String nama, String username, String email, String password, String role, String phone,
-            String address) {
-        this.nama = nama;
-        this.username = username;
-        this.email = email;
-        this.password = password;
-        this.role = role;
-        this.phone = phone;
-    }
-
     public void setNama(String nama) {
         this.nama = nama;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setStressList(List<StressHarian> stressList) {
+        this.stressList = stressList;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public List<Song> getSongList() {
+        return songList;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setSongList(List<Song> songList) {
+        this.songList = songList;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void addStressData(StressHarian stressData) {
+        this.stressList.add(stressData);
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void addSong(Song song) {
+        this.songList.add(song);
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getNama() {
-        return nama;
+    public String getRole() {
+        return role;
     }
 
     public String getUsername() {
@@ -71,19 +55,36 @@ public class UserData {
         return email;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public String getRole() {
-        return role;
+    public String getNama() {
+        return nama;
     }
 
     public String getPhone() {
         return phone;
     }
 
-    public String getAddress() {
-        return address;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
 }

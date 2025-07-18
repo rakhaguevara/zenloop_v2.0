@@ -13,7 +13,6 @@ import model.UserData;
 import util.UserServiceXStream;
 
 public class RegisterController {
-
     @FXML
     private PasswordField tfConfPass;
 
@@ -59,17 +58,24 @@ public class RegisterController {
             return;
         }
 
+        if (!email.contains("@")) {
+            util.AlertUtil.showAlert(Alert.AlertType.ERROR, "Invalid Email", "Email must contain '@'.");
+            return;
+        }
+
         if (!password.equals(confirmPassword)) {
             util.AlertUtil.showAlert(Alert.AlertType.ERROR, "Password Mismatch", "Passwords do not match.");
             return;
         }
 
         // Buat user baru dan simpan
-        UserData newUser = new UserData();
-        newUser.setUsername(username);
-        newUser.setEmail(email);
-        newUser.setPassword(password); // Untuk keamanan, sebaiknya di-hash
-        newUser.setRole(role);
+        String nama = tfUsername.getText().trim();
+        if (nama.isEmpty()) {
+            util.AlertUtil.showAlert(Alert.AlertType.WARNING, "Form Error", "Please enter your name.");
+            return;
+        }
+
+        UserData newUser = new UserData(username, email, password, role);
 
         UserServiceXStream service = new UserServiceXStream();
 
@@ -89,7 +95,8 @@ public class RegisterController {
         tfUserEmail.clear();
         tfpassFieldRegister.clear();
         tfConfPass.clear();
-        cbRoleRegist.setValue("User");
+        cbRoleRegist.setValue("Zenloopers");
+
     }
 
     @FXML

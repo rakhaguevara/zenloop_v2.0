@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -13,9 +21,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="845.0" prefWidth="250.0"
-   xmlns="http://javafx.com/javafx/23.0.1"
-   xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.sidebar.SidebarController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="845.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.sidebar.SidebarController">
    <children>
       <AnchorPane prefHeight="845.0" prefWidth="250.0">
          <VBox.margin>
@@ -347,7 +353,7 @@
                               </ImageView>
                               <Circle fx:id="imgProfile" fill="#d1d2d3" layoutX="50.0" layoutY="45.0" radius="31.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="14.0" />
                               <Label fx:id="nameUser" layoutX="95.0" layoutY="28.0" prefHeight="17.0" prefWidth="122.0" text="Your Name" />
-                              <Label fx:id="zenloopCode" layoutX="95.0" layoutY="40.0" prefHeight="17.0" prefWidth="122.0" text="ZenId" AnchorPane.topAnchor="48.0" />
+                              <Label fx:id="zenloopEmail" layoutX="95.0" layoutY="40.0" prefHeight="17.0" prefWidth="122.0" text="email" AnchorPane.topAnchor="48.0" />
                            </children>
                         </AnchorPane>
                      </children>

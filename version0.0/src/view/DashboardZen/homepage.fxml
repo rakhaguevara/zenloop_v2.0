@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
@@ -45,14 +47,14 @@
                                  <children>
                                     <AnchorPane prefHeight="323.0" prefWidth="627.0">
                                        <children>
-                                          <BarChart fx:id="tvStress" layoutX="25.0" layoutY="16.0" prefHeight="292.0" prefWidth="581.0" style="-fx-background-color: white;" AnchorPane.topAnchor="14.0">
+                                          <LineChart fx:id="tvStress" layoutX="22.0" layoutY="12.0" prefHeight="290.0" prefWidth="584.0" style="-fx-background-color: white;" AnchorPane.topAnchor="15.0">
                                              <xAxis>
                                                 <CategoryAxis side="BOTTOM" />
                                              </xAxis>
                                              <yAxis>
                                                 <NumberAxis side="LEFT" />
                                              </yAxis>
-                                          </BarChart>
+                                          </LineChart>
                                        </children>
                                     </AnchorPane>
                                  </children>
@@ -81,24 +83,226 @@
                      <children>
                         <AnchorPane prefHeight="306.0" prefWidth="940.0">
                            <children>
-                              <VBox layoutX="12.0" layoutY="62.0" prefHeight="220.0" prefWidth="916.0">
+                              <VBox layoutX="26.0" layoutY="62.0" prefHeight="216.0" prefWidth="887.0" styleClass="sc">
                                  <children>
-                                    <Pane prefHeight="58.0" prefWidth="916.0">
-                                       <VBox.margin>
-                                          <Insets top="16.0" />
-                                       </VBox.margin>
-                                    </Pane>
-                                    <Pane prefHeight="54.0" prefWidth="916.0">
-                                       <VBox.margin>
-                                          <Insets top="8.0" />
-                                       </VBox.margin>
-                                    </Pane>
-                                    <Pane prefHeight="58.0" prefWidth="916.0">
-                                       <VBox.margin>
-                                          <Insets top="8.0" />
-                                       </VBox.margin>
-                                    </Pane>
+                                    <ScrollPane prefHeight="200.0" prefWidth="200.0" styleClass="scr">
+                                       <content>
+                                          <VBox prefHeight="200.0" prefWidth="870.0" stylesheets="@../content.css">
+                                             <children>
+                                                <HBox prefHeight="81.0" prefWidth="885.0" styleClass="card" stylesheets="@../content.css">
+                                                   <children>
+                                                      <Circle fill="DODGERBLUE" radius="22.0" stroke="BLACK" strokeType="INSIDE">
+                                                         <HBox.margin>
+                                                            <Insets left="24.0" top="16.0" />
+                                                         </HBox.margin>
+                                                      </Circle>
+                                                      <VBox prefHeight="81.0" prefWidth="155.0">
+                                                         <children>
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Journaling For Today">
+                                                               <VBox.margin>
+                                                                  <Insets bottom="8.0" left="16.0" top="32.0" />
+                                                               </VBox.margin>
+                                                            </Text>
+                                                         </children>
+                                                         <HBox.margin>
+                                                            <Insets left="16.0" />
+                                                         </HBox.margin>
+                                                      </VBox>
+                                                      <VBox prefHeight="81.0" prefWidth="130.0">
+                                                         <children>
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="30 mnt">
+                                                               <VBox.margin>
+                                                                  <Insets left="48.0" top="32.0" />
+                                                               </VBox.margin>
+                                                            </Text>
+                                                         </children>
+                                                         <HBox.margin>
+                                                            <Insets left="170.0" />
+                                                         </HBox.margin>
+                                                      </VBox>
+                                                      <VBox prefHeight="81.0" prefWidth="130.0">
+                                                         <children>
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Complete">
+                                                               <VBox.margin>
+                                                                  <Insets left="40.0" top="32.0" />
+                                                               </VBox.margin>
+                                                            </Text>
+                                                         </children>
+                                                         <HBox.margin>
+                                                            <Insets left="180.0" />
+                                                         </HBox.margin>
+                                                      </VBox>
+                                                   </children>
+                                                   <opaqueInsets>
+                                                      <Insets bottom="16.0" />
+                                                   </opaqueInsets>
+                                                </HBox>
+                                                <HBox prefHeight="81.0" prefWidth="885.0" styleClass="card" stylesheets="@../content.css">
+                                                   <children>
+                                                      <Circle fill="DODGERBLUE" radius="22.0" stroke="BLACK" strokeType="INSIDE">
+                                                         <HBox.margin>
+                                                            <Insets left="24.0" top="16.0" />
+                                                         </HBox.margin>
+                                                      </Circle>
+                                                      <VBox prefHeight="81.0" prefWidth="155.0">
+                                                         <children>
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Running">
+                                                               <VBox.margin>
+                                                                  <Insets bottom="8.0" left="16.0" top="32.0" />
+                                                               </VBox.margin>
+                                                            </Text>
+                                                         </children>
+                                                         <HBox.margin>
+                                                            <Insets left="16.0" />
+                                                         </HBox.margin>
+                                                      </VBox>
+                                                      <VBox prefHeight="81.0" prefWidth="130.0">
+                                                         <children>
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="30 mnt">
+                                                               <VBox.margin>
+                                                                  <Insets left="48.0" top="32.0" />
+                                                               </VBox.margin>
+                                                            </Text>
+                                                         </children>
+                                                         <HBox.margin>
+                                                            <Insets left="170.0" />
+                                                         </HBox.margin>
+                                                      </VBox>
+                                                      <VBox prefHeight="81.0" prefWidth="130.0">
+                                                         <children>
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Complete">
+                                                               <VBox.margin>
+                                                                  <Insets left="40.0" top="32.0" />
+                                                               </VBox.margin>
+                                                            </Text>
+                                                         </children>
+                                                         <HBox.margin>
+                                                            <Insets left="180.0" />
+                                                         </HBox.margin>
+                                                      </VBox>
+                                                   </children>
+                                                   <opaqueInsets>
+                                                      <Insets bottom="16.0" />
+                                                   </opaqueInsets>
+                                                   <VBox.margin>
+                                                      <Insets bottom="8.0" top="8.0" />
+                                                   </VBox.margin>
+                                                </HBox>
+                                                <HBox prefHeight="81.0" prefWidth="885.0" styleClass="card" stylesheets="@../content.css">
+                                                   <children>
+                                                      <Circle fill="DODGERBLUE" radius="22.0" stroke="BLACK" strokeType="INSIDE">
+                                                         <HBox.margin>
+                                                            <Insets left="24.0" top="16.0" />
+                                                         </HBox.margin>
+                                                      </Circle>
+                                                      <VBox prefHeight="81.0" prefWidth="155.0">
+                                                         <children>
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sleep 8 Hours">
+                                                               <VBox.margin>
+                                                                  <Insets bottom="8.0" left="16.0" top="32.0" />
+                                                               </VBox.margin>
+                                                            </Text>
+                                                         </children>
+                                                         <HBox.margin>
+                                                            <Insets left="16.0" />
+                                                         </HBox.margin>
+                                                      </VBox>
+                                                      <VBox prefHeight="81.0" prefWidth="130.0">
+                                                         <children>
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="30 mnt">
+                                                               <VBox.margin>
+                                                                  <Insets left="48.0" top="32.0" />
+                                                               </VBox.margin>
+                                                            </Text>
+                                                         </children>
+                                                         <HBox.margin>
+                                                            <Insets left="170.0" />
+                                                         </HBox.margin>
+                                                      </VBox>
+                                                      <VBox prefHeight="81.0" prefWidth="130.0">
+                                                         <children>
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Complete">
+                                                               <VBox.margin>
+                                                                  <Insets left="40.0" top="32.0" />
+                                                               </VBox.margin>
+                                                            </Text>
+                                                         </children>
+                                                         <HBox.margin>
+                                                            <Insets left="180.0" />
+                                                         </HBox.margin>
+                                                      </VBox>
+                                                   </children>
+                                                   <opaqueInsets>
+                                                      <Insets bottom="16.0" />
+                                                   </opaqueInsets>
+                                                   <VBox.margin>
+                                                      <Insets bottom="8.0" top="8.0" />
+                                                   </VBox.margin>
+                                                </HBox>
+                                                <HBox prefHeight="81.0" prefWidth="885.0" styleClass="card" stylesheets="@../content.css">
+                                                   <children>
+                                                      <Circle fill="DODGERBLUE" radius="22.0" stroke="BLACK" strokeType="INSIDE">
+                                                         <HBox.margin>
+                                                            <Insets left="24.0" top="16.0" />
+                                                         </HBox.margin>
+                                                      </Circle>
+                                                      <VBox prefHeight="81.0" prefWidth="155.0">
+                                                         <children>
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Make a coffe">
+                                                               <VBox.margin>
+                                                                  <Insets bottom="8.0" left="16.0" top="32.0" />
+                                                               </VBox.margin>
+                                                            </Text>
+                                                         </children>
+                                                         <HBox.margin>
+                                                            <Insets left="16.0" />
+                                                         </HBox.margin>
+                                                      </VBox>
+                                                      <VBox prefHeight="81.0" prefWidth="130.0">
+                                                         <children>
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="30 mnt">
+                                                               <VBox.margin>
+                                                                  <Insets left="48.0" top="32.0" />
+                                                               </VBox.margin>
+                                                            </Text>
+                                                         </children>
+                                                         <HBox.margin>
+                                                            <Insets left="170.0" />
+                                                         </HBox.margin>
+                                                      </VBox>
+                                                      <VBox prefHeight="81.0" prefWidth="130.0">
+                                                         <children>
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Complete">
+                                                               <VBox.margin>
+                                                                  <Insets left="40.0" top="32.0" />
+                                                               </VBox.margin>
+                                                            </Text>
+                                                         </children>
+                                                         <HBox.margin>
+                                                            <Insets left="180.0" />
+                                                         </HBox.margin>
+                                                      </VBox>
+                                                   </children>
+                                                   <opaqueInsets>
+                                                      <Insets bottom="16.0" />
+                                                   </opaqueInsets>
+                                                   <VBox.margin>
+                                                      <Insets bottom="8.0" top="8.0" />
+                                                   </VBox.margin>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </content>
+                                       <stylesheets>
+                                          <URL value="@../scroll.css" />
+                                          <URL value="@../content.css" />
+                                       </stylesheets>
+                                    </ScrollPane>
                                  </children>
+                                 <stylesheets>
+                                    <URL value="@../scroll.css" />
+                                    <URL value="@../content.css" />
+                                 </stylesheets>
                               </VBox>
                            </children>
                         </AnchorPane>
