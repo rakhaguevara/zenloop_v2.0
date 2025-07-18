@@ -1,0 +1,3 @@
+# ignore secret file
+.env
+config.properties
