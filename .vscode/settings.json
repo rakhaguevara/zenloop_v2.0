@@ -29,6 +29,24 @@
         "/Users/rakhaguevara/Downloads/zenloop/kumpulan-jar/httpcomponents-client-5.5-bin/lib/httpcore5-testing-5.3.4.jar",
         "/Users/rakhaguevara/Downloads/zenloop/kumpulan-jar/httpcomponents-client-5.5-bin/lib/slf4j-api-1.7.36.jar",
         "/Users/rakhaguevara/Downloads/zenloop/kumpulan-jar/httpcomponents-client-5.5-bin/lib/httpclient5-testing-5.5.jar",
-        "/Users/rakhaguevara/Downloads/zenloop/kumpulan-jar/httpcomponents-client-5.5-bin/lib/rxjava-3.1.9.jar"
+        "/Users/rakhaguevara/Downloads/zenloop/kumpulan-jar/httpcomponents-client-5.5-bin/lib/rxjava-3.1.9.jar",
+        "version0.0/lib/commons-cli-1.9.0.jar",
+        "version0.0/lib/commons-logging-1.2.jar",
+        "version0.0/lib/httpclient5-5.5.jar",
+        "version0.0/lib/httpclient5-cache-5.5.jar",
+        "version0.0/lib/httpclient5-fluent-5.5.jar",
+        "version0.0/lib/httpclient5-testing-5.5.jar",
+        "version0.0/lib/httpcore5-5.3.4.jar",
+        "version0.0/lib/httpcore5-5.3.4-tests.jar",
+        "version0.0/lib/httpcore5-h2-5.3.4.jar",
+        "version0.0/lib/httpcore5-reactive-5.3.4.jar",
+        "version0.0/lib/httpcore5-testing-5.3.4.jar",
+        "version0.0/lib/json-20230618.jar",
+        "version0.0/lib/reactive-streams-1.0.4.jar",
+        "version0.0/lib/rxjava-2.2.21.jar",
+        "version0.0/lib/rxjava-3.1.9.jar",
+        "version0.0/lib/slf4j-api-1.7.36.jar",
+        "version0.0/lib/slf4j-nop-1.7.36.jar",
+        "version0.0/lib/xstream-1.4.20.jar"
     ]
 }
