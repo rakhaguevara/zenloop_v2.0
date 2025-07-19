@@ -7,6 +7,7 @@ public class UserData {
     private String nama, username, email, password, role, phone, address;
     private List<StressHarian> stressList = new ArrayList<>();
     private List<Song> songList = new ArrayList<>();
+    private String profileImagePath;
 
     public List<StressHarian> getStressList() {
         return stressList;
@@ -17,6 +18,14 @@ public class UserData {
         this.email = email;
         this.password = password;
         this.role = role;
+    }
+
+    public String getProfileImagePath() {
+        return profileImagePath;
+    }
+
+    public void setProfileImagePath(String profileImagePath) {
+        this.profileImagePath = profileImagePath;
     }
 
     public void setNama(String nama) {
