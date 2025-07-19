@@ -1,6 +1,9 @@
 package controller;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 
 import javafx.event.ActionEvent;
@@ -8,7 +11,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.SessionManager;
 import model.UserData;
@@ -45,6 +53,7 @@ public class SettingController {
             tfName.setText(currentUser.getNama());
             tfPhoneNum.setText(currentUser.getPhone() != null ? currentUser.getPhone() : "");
             tfPassword.setText(currentUser.getPassword());
+            setProfileImage(currentUser.getProfileImagePath());
         } else {
             System.err.println("⚠️ Tidak ada user yang login.");
         }
@@ -113,6 +122,51 @@ public class SettingController {
     // saveUserList(userList);
     // }
 
+    // handle change profile
+    @FXML
+    void handleChangeProfile(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Pilih Foto Profil");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg"));
+
+        File selectedFile = fileChooser.showOpenDialog(ccProfileImg.getScene().getWindow());
+
+        if (selectedFile != null) {
+            try {
+                // Buat folder penyimpanan profil jika belum ada
+                File dir = new File("user_profiles");
+                if (!dir.exists()) {
+                    dir.mkdirs();
+                }
+
+                // Simpan nama file berdasarkan username
+                String username = SessionManager.getCurrentUser().getUsername(); // pastikan ada SessionManager
+                String ext = selectedFile.getName().substring(selectedFile.getName().lastIndexOf("."));
+                File destFile = new File(dir, username + ext);
+
+                // Copy file ke folder internal aplikasi
+                Files.copy(selectedFile.toPath(), destFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+
+                // Update path ke user
+                UserData currentUser = SessionManager.getCurrentUser();
+                currentUser.setProfileImagePath(destFile.getAbsolutePath());
+
+                // Tampilkan di circle
+                setProfileImage(destFile.getAbsolutePath());
+
+                // Simpan ke file (XStream/XML/JSON/database sesuai struktur proyekmu)
+                new UserServiceXStream().saveUser(currentUser);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+                // AlertUtil.showError("Gagal mengubah foto profil.");
+                AlertUtil.showAlert(AlertType.ERROR, "Gagal mengubah foto", "Gagal Meng Upload Foto");
+
+            }
+        }
+    }
+
     @FXML
     void handleChangeDeleteAccount(ActionEvent event) {
         UserData currentUser = SessionManager.getCurrentUser();
@@ -146,6 +200,29 @@ public class SettingController {
         SessionManager.logout();
         AlertUtil.showAlert(Alert.AlertType.INFORMATION, "Logout", "Anda berhasil logout.");
         // TODO: Redirect ke login page
+    }
+
+    private void setProfileImage(String path) {
+        if (path != null && !path.isEmpty()) {
+            File file = new File(path);
+            if (file.exists()) {
+                Image image = new Image(file.toURI().toString(), false);
+
+                // Buat pattern agar gambar memenuhi lingkaran
+                ImagePattern pattern = new ImagePattern(image,
+                        0, 0, 1, 1, true); // true → skalakan proporsional penuh
+
+                ccProfileImg.setFill(pattern);
+            } else {
+                setDefaultProfileImage();
+            }
+        } else {
+            setDefaultProfileImage();
+        }
+    }
+
+    private void setDefaultProfileImage() {
+        ccProfileImg.setFill(javafx.scene.paint.Color.LIGHTGRAY);
     }
 
     // Fungsi tidak digunakan tapi tetap ada jika dipanggil dari FXML

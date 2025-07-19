@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="845.0" prefWidth="265.0"
-   xmlns="http://javafx.com/javafx/8"
-   xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="845.0" prefWidth="265.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane fx:id="rightBarPane" prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -35,7 +38,7 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <VBox prefHeight="278.0" prefWidth="260.0">
+                  <VBox prefHeight="43.0" prefWidth="260.0">
                      <children>
                         <HBox prefHeight="42.0" prefWidth="260.0">
                            <children>
@@ -97,24 +100,23 @@
                               </Label>
                            </children>
                         </HBox>
-                        <VBox prefHeight="235.0" prefWidth="260.0">
-                           <children>
-                              <HBox prefHeight="75.0" prefWidth="260.0" />
-                              <HBox prefHeight="75.0" prefWidth="260.0">
-                                 <VBox.margin>
-                                    <Insets top="4.0" />
-                                 </VBox.margin>
-                              </HBox>
-                              <HBox prefHeight="75.0" prefWidth="260.0">
-                                 <padding>
-                                    <Insets top="4.0" />
-                                 </padding>
-                                 <VBox.margin>
-                                    <Insets top="4.0" />
-                                 </VBox.margin>
-                              </HBox>
-                           </children>
-                        </VBox>
+                        <VBox prefHeight="226.0" prefWidth="260.0" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="234.0" prefWidth="285.0">
+                     <children>
+                        <ScrollPane prefHeight="230.0" prefWidth="285.0" stylesheets="@../scroll.css">
+                           <VBox.margin>
+                              <Insets left="6.0" />
+                           </VBox.margin>
+                           <content>
+                              <VBox prefHeight="374.0" prefWidth="250.0" style="-fx-background-color: #F5F7F9;">
+                                 <children>
+                                    <HBox prefHeight="67.0" prefWidth="218.0" styleClass="card-2" stylesheets="@../content.css" />
+                                 </children>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
                      </children>
                   </VBox>
                   <VBox prefHeight="49.0" prefWidth="260.0">
