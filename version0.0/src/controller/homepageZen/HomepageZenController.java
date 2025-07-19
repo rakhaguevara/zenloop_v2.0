@@ -18,7 +18,6 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.text.Text;
 import model.StressHarian;
 
 public class HomepageZenController {
@@ -28,9 +27,6 @@ public class HomepageZenController {
 
     @FXML
     private Button btnToJournal;
-
-    @FXML
-    private Button txtMarkComplete, txtMarkComplete1, txtMarkComplete2;
 
     @FXML
     private LineChart<String, Number> tvStress;
@@ -69,11 +65,6 @@ public class HomepageZenController {
         }
     }
 
-    @FXML
-    private void handleCompleteAction(ActionEvent event) {
-        markAsComplete();
-    }
-
     private void muatDariXML() {
         try {
             String username = model.SessionManager.getCurrentUser().getUsername();
@@ -91,16 +82,6 @@ public class HomepageZenController {
             refreshLineChartPerMinggu(list);
         } catch (Exception e) {
             System.out.println("⚠️ Gagal memuat XML stress user di homepage: " + e.getMessage());
-        }
-    }
-
-    private void markAsComplete() {
-        if ("Mark Complete".equals(txtMarkComplete.getText())) {
-            txtMarkComplete.setText("Complete");
-            txtMarkComplete.setStyle("-fx-text-fill: #015C55; -fx-font-weight: bold;");
-        } else {
-            txtMarkComplete.setText("Mark Complete");
-            txtMarkComplete.setStyle("-fx-text-fill: black;");
         }
     }
 

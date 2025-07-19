@@ -13,7 +13,7 @@ public class CalmifyApp extends Application {
     public void start(Stage stage) throws IOException {
 
         // FXMLLoader fxmlLoader = new
-        // FXMLLoader(getClass().getResource("/view/aiView.fxml"));
+        // FXMLLoader(getClass().getResource("/version0.0/src/view/aiView.fxml"));
         // FXMLLoader fxmlLoader = new
         // FXMLLoader(getClass().getResource("/view/DashboardZen/musicPage.fxml"));
 

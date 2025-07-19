@@ -1,21 +1,10 @@
 <users>
   <users>
     <user>
-      <nama>Rakha Dzikra Guevara</nama>
       <username>rakha</username>
       <email>rakha@gmail.com</email>
       <password>1234</password>
       <role>Zenloopers</role>
-      <phone>081374567890</phone>
-      <profileImagePath>D:\kampus\zenlop\zenloop_v2.0\user_profiles\rakha.png</profileImagePath>
-      <stressList/>
-      <songList/>
-    </user>
-    <user>
-      <username>drRakha</username>
-      <email>drRakha@gmail.com</email>
-      <password>1234</password>
-      <role>Proffessional</role>
       <stressList/>
       <songList/>
     </user>

@@ -1,7 +1,5 @@
 package controller.sidebar;
 
-import java.io.File;
-
 import javax.swing.Action;
 
 import controller.HomeController;
@@ -17,8 +15,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.ImagePattern;
-import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.SessionManager;
@@ -32,9 +28,6 @@ public class SidebarController {
 
     @FXML
     private ImageView icon1, icon2, icon3, icon4, icon5, icon6, icon7, icon8, icon9, icon10;
-
-    @FXML
-    private Circle imgProfile;
 
     @FXML
     private Text homepageText, jurnalArchiveText, stresStatisticText, zenBotAitext,
@@ -73,8 +66,6 @@ public class SidebarController {
             nameUser.setText(user.getUsername());
             // nameUser.setText(user.getNama());
             zenloopEmail.setText(user.getEmail());
-            setProfileImage(user.getProfileImagePath());
-
             System.out.println("Logged in as: " + user.getNama() + " | Email: " + user.getEmail());
         } else {
             nameUser.setText("Your Name");
@@ -204,20 +195,6 @@ public class SidebarController {
         } catch (Exception e) {
             System.err.println("Error in logout process: " + e.getMessage());
             e.printStackTrace();
-        }
-    }
-
-    private void setProfileImage(String path) {
-        if (path != null && !path.isEmpty()) {
-            File file = new File(path);
-            if (file.exists()) {
-                Image image = new Image(file.toURI().toString());
-                imgProfile.setFill(new ImagePattern(image));
-            } else {
-                imgProfile.setFill(javafx.scene.paint.Color.LIGHTGRAY);
-            }
-        } else {
-            imgProfile.setFill(javafx.scene.paint.Color.LIGHTGRAY);
         }
     }
 

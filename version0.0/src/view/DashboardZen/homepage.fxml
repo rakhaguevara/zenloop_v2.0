@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,9 +22,8 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="homePage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="845.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.homepageZen.HomepageZenController">
+<AnchorPane fx:id="homePage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="845.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.homepageZen.HomepageZenController">
    <children>
       <ImageView fitHeight="840.0" fitWidth="940.0">
          <image>
@@ -76,50 +83,37 @@
                      <children>
                         <AnchorPane prefHeight="306.0" prefWidth="940.0">
                            <children>
-                              <VBox layoutX="26.0" layoutY="62.0" prefHeight="216.0" prefWidth="901.0" style="-fx-background-color: transparent;">
+                              <VBox layoutX="26.0" layoutY="62.0" prefHeight="216.0" prefWidth="887.0" styleClass="sc">
                                  <children>
-                                    <ScrollPane prefHeight="200.0" prefWidth="564.0" style="-fx-background-color: white;" stylesheets="@../scroll.css">
+                                    <ScrollPane prefHeight="200.0" prefWidth="200.0" styleClass="scr">
                                        <content>
-                                          <VBox prefHeight="200.0" prefWidth="888.0" style="-fx-background-color: white;" styleClass="scroll-pane" stylesheets="@../content.css">
+                                          <VBox prefHeight="200.0" prefWidth="870.0" stylesheets="@../content.css">
                                              <children>
-                                                <HBox prefHeight="77.0" prefWidth="872.0" styleClass="card" stylesheets="@../content.css">
+                                                <HBox prefHeight="81.0" prefWidth="885.0" styleClass="card" stylesheets="@../content.css">
                                                    <children>
-                                                      <Pane prefHeight="55.0" prefWidth="57.0" style="-fx-background-color: white; -fx-border-radius: circle;" styleClass="rounded-pane" stylesheets="@../circle.css">
+                                                      <Circle fill="DODGERBLUE" radius="22.0" stroke="BLACK" strokeType="INSIDE">
                                                          <HBox.margin>
-                                                            <Insets left="8.0" />
+                                                            <Insets left="24.0" top="16.0" />
                                                          </HBox.margin>
-                                                         <children>
-                                                            <ImageView fitHeight="29.0" fitWidth="26.0" layoutX="15.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@../../app/resource/jurnalVec.png" />
-                                                               </image>
-                                                            </ImageView>
-                                                         </children>
-                                                      </Pane>
-                                                      <VBox prefHeight="12.0" prefWidth="153.0">
+                                                      </Circle>
+                                                      <VBox prefHeight="81.0" prefWidth="155.0">
                                                          <children>
                                                             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Journaling For Today">
                                                                <VBox.margin>
-                                                                  <Insets bottom="24.0" left="24.0" top="16.0" />
+                                                                  <Insets bottom="8.0" left="16.0" top="32.0" />
                                                                </VBox.margin>
-                                                               <font>
-                                                                  <Font size="13.0" />
-                                                               </font>
                                                             </Text>
                                                          </children>
                                                          <HBox.margin>
                                                             <Insets left="16.0" />
                                                          </HBox.margin>
                                                       </VBox>
-                                                      <VBox prefHeight="29.0" prefWidth="123.0">
+                                                      <VBox prefHeight="81.0" prefWidth="130.0">
                                                          <children>
                                                             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="30 mnt">
                                                                <VBox.margin>
-                                                                  <Insets left="32.0" top="16.0" />
+                                                                  <Insets left="48.0" top="32.0" />
                                                                </VBox.margin>
-                                                               <font>
-                                                                  <Font size="13.0" />
-                                                               </font>
                                                             </Text>
                                                          </children>
                                                          <HBox.margin>
@@ -128,11 +122,11 @@
                                                       </VBox>
                                                       <VBox prefHeight="81.0" prefWidth="130.0">
                                                          <children>
-                                                            <Button fx:id="txtMarkComplete1" onAction="#handleCompleteAction" style="-fx-background-color: transparent; -fx-text-fill: #000000; -fx-font-size: 13px; -fx-cursor: hand;" text="Mark Complete">
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Complete">
                                                                <VBox.margin>
-                                                                  <Insets left="16.0" top="16.0" />
-                                                               </VBox.margin></Button>
-
+                                                                  <Insets left="40.0" top="32.0" />
+                                                               </VBox.margin>
+                                                            </Text>
                                                          </children>
                                                          <HBox.margin>
                                                             <Insets left="180.0" />
@@ -142,48 +136,32 @@
                                                    <opaqueInsets>
                                                       <Insets bottom="16.0" />
                                                    </opaqueInsets>
-                                                   <VBox.margin>
-                                                      <Insets bottom="8.0" left="8.0" right="8.0" top="16.0" />
-                                                   </VBox.margin>
                                                 </HBox>
-                                                <HBox prefHeight="94.0" prefWidth="901.0" styleClass="card" stylesheets="@../content.css">
+                                                <HBox prefHeight="81.0" prefWidth="885.0" styleClass="card" stylesheets="@../content.css">
                                                    <children>
-                                                      <Pane prefHeight="54.0" prefWidth="57.0" style="-fx-background-color: white; -fx-border-radius: circle;" styleClass="rounded-pane" stylesheets="@../circle.css">
+                                                      <Circle fill="DODGERBLUE" radius="22.0" stroke="BLACK" strokeType="INSIDE">
                                                          <HBox.margin>
-                                                            <Insets left="8.0" />
+                                                            <Insets left="24.0" top="16.0" />
                                                          </HBox.margin>
-                                                         <children>
-                                                            <ImageView fitHeight="29.0" fitWidth="26.0" layoutX="15.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@../../app/resource/yogaVec.png" />
-                                                               </image>
-                                                            </ImageView>
-                                                         </children>
-                                                      </Pane>
+                                                      </Circle>
                                                       <VBox prefHeight="81.0" prefWidth="155.0">
                                                          <children>
-                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Daily Yoga">
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Running">
                                                                <VBox.margin>
-                                                                  <Insets bottom="8.0" left="24.0" top="22.0" />
+                                                                  <Insets bottom="8.0" left="16.0" top="32.0" />
                                                                </VBox.margin>
-                                                               <font>
-                                                                  <Font size="13.0" />
-                                                               </font>
                                                             </Text>
                                                          </children>
                                                          <HBox.margin>
                                                             <Insets left="16.0" />
                                                          </HBox.margin>
                                                       </VBox>
-                                                      <VBox prefHeight="38.0" prefWidth="124.0">
+                                                      <VBox prefHeight="81.0" prefWidth="130.0">
                                                          <children>
-                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="20mnt">
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="30 mnt">
                                                                <VBox.margin>
-                                                                  <Insets left="32.0" top="22.0" />
+                                                                  <Insets left="48.0" top="32.0" />
                                                                </VBox.margin>
-                                                               <font>
-                                                                  <Font size="13.0" />
-                                                               </font>
                                                             </Text>
                                                          </children>
                                                          <HBox.margin>
@@ -192,11 +170,11 @@
                                                       </VBox>
                                                       <VBox prefHeight="81.0" prefWidth="130.0">
                                                          <children>
-                                                            <Button fx:id="txtMarkComplete2" onAction="#handleCompleteAction" style="-fx-background-color: transparent; -fx-text-fill: #000000; -fx-font-size: 13px; -fx-cursor: hand;" text="Mark Complete">
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Complete">
                                                                <VBox.margin>
-                                                                  <Insets left="16.0" top="16.0" />
-                                                               </VBox.margin></Button>
-
+                                                                  <Insets left="40.0" top="32.0" />
+                                                               </VBox.margin>
+                                                            </Text>
                                                          </children>
                                                          <HBox.margin>
                                                             <Insets left="180.0" />
@@ -207,47 +185,34 @@
                                                       <Insets bottom="16.0" />
                                                    </opaqueInsets>
                                                    <VBox.margin>
-                                                      <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                                      <Insets bottom="8.0" top="8.0" />
                                                    </VBox.margin>
                                                 </HBox>
-                                                <HBox prefHeight="94.0" prefWidth="901.0" styleClass="card" stylesheets="@../content.css">
+                                                <HBox prefHeight="81.0" prefWidth="885.0" styleClass="card" stylesheets="@../content.css">
                                                    <children>
-                                                      <Pane prefHeight="54.0" prefWidth="57.0" style="-fx-background-color: white; -fx-border-radius: circle;" styleClass="rounded-pane" stylesheets="@../circle.css">
+                                                      <Circle fill="DODGERBLUE" radius="22.0" stroke="BLACK" strokeType="INSIDE">
                                                          <HBox.margin>
-                                                            <Insets left="8.0" />
+                                                            <Insets left="24.0" top="16.0" />
                                                          </HBox.margin>
-                                                         <children>
-                                                            <ImageView fitHeight="29.0" fitWidth="26.0" layoutX="15.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@../../app/resource/excVec.png" />
-                                                               </image>
-                                                            </ImageView>
-                                                         </children>
-                                                      </Pane>
+                                                      </Circle>
                                                       <VBox prefHeight="81.0" prefWidth="155.0">
                                                          <children>
-                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Daily Exercises( Sport etc )">
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sleep 8 Hours">
                                                                <VBox.margin>
-                                                                  <Insets bottom="8.0" left="32.0" top="16.0" />
+                                                                  <Insets bottom="8.0" left="16.0" top="32.0" />
                                                                </VBox.margin>
-                                                               <font>
-                                                                  <Font size="13.0" />
-                                                               </font>
                                                             </Text>
                                                          </children>
                                                          <HBox.margin>
                                                             <Insets left="16.0" />
                                                          </HBox.margin>
                                                       </VBox>
-                                                      <VBox prefHeight="38.0" prefWidth="124.0">
+                                                      <VBox prefHeight="81.0" prefWidth="130.0">
                                                          <children>
-                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="40mnt">
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="30 mnt">
                                                                <VBox.margin>
-                                                                  <Insets left="22.0" top="16.0" />
+                                                                  <Insets left="48.0" top="32.0" />
                                                                </VBox.margin>
-                                                               <font>
-                                                                  <Font size="13.0" />
-                                                               </font>
                                                             </Text>
                                                          </children>
                                                          <HBox.margin>
@@ -256,10 +221,11 @@
                                                       </VBox>
                                                       <VBox prefHeight="81.0" prefWidth="130.0">
                                                          <children>
-                                                            <Button fx:id="txtMarkComplete" onAction="#handleCompleteAction" style="-fx-background-color: transparent; -fx-text-fill: #000000; -fx-font-size: 13px; -fx-cursor: hand;" text="Mark Complete">
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Complete">
                                                                <VBox.margin>
-                                                                  <Insets left="8.0" top="16.0" />
-                                                               </VBox.margin></Button>
+                                                                  <Insets left="40.0" top="32.0" />
+                                                               </VBox.margin>
+                                                            </Text>
                                                          </children>
                                                          <HBox.margin>
                                                             <Insets left="180.0" />
@@ -270,14 +236,73 @@
                                                       <Insets bottom="16.0" />
                                                    </opaqueInsets>
                                                    <VBox.margin>
-                                                      <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                                      <Insets bottom="8.0" top="8.0" />
+                                                   </VBox.margin>
+                                                </HBox>
+                                                <HBox prefHeight="81.0" prefWidth="885.0" styleClass="card" stylesheets="@../content.css">
+                                                   <children>
+                                                      <Circle fill="DODGERBLUE" radius="22.0" stroke="BLACK" strokeType="INSIDE">
+                                                         <HBox.margin>
+                                                            <Insets left="24.0" top="16.0" />
+                                                         </HBox.margin>
+                                                      </Circle>
+                                                      <VBox prefHeight="81.0" prefWidth="155.0">
+                                                         <children>
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Make a coffe">
+                                                               <VBox.margin>
+                                                                  <Insets bottom="8.0" left="16.0" top="32.0" />
+                                                               </VBox.margin>
+                                                            </Text>
+                                                         </children>
+                                                         <HBox.margin>
+                                                            <Insets left="16.0" />
+                                                         </HBox.margin>
+                                                      </VBox>
+                                                      <VBox prefHeight="81.0" prefWidth="130.0">
+                                                         <children>
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="30 mnt">
+                                                               <VBox.margin>
+                                                                  <Insets left="48.0" top="32.0" />
+                                                               </VBox.margin>
+                                                            </Text>
+                                                         </children>
+                                                         <HBox.margin>
+                                                            <Insets left="170.0" />
+                                                         </HBox.margin>
+                                                      </VBox>
+                                                      <VBox prefHeight="81.0" prefWidth="130.0">
+                                                         <children>
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Complete">
+                                                               <VBox.margin>
+                                                                  <Insets left="40.0" top="32.0" />
+                                                               </VBox.margin>
+                                                            </Text>
+                                                         </children>
+                                                         <HBox.margin>
+                                                            <Insets left="180.0" />
+                                                         </HBox.margin>
+                                                      </VBox>
+                                                   </children>
+                                                   <opaqueInsets>
+                                                      <Insets bottom="16.0" />
+                                                   </opaqueInsets>
+                                                   <VBox.margin>
+                                                      <Insets bottom="8.0" top="8.0" />
                                                    </VBox.margin>
                                                 </HBox>
                                              </children>
                                           </VBox>
                                        </content>
+                                       <stylesheets>
+                                          <URL value="@../scroll.css" />
+                                          <URL value="@../content.css" />
+                                       </stylesheets>
                                     </ScrollPane>
                                  </children>
+                                 <stylesheets>
+                                    <URL value="@../scroll.css" />
+                                    <URL value="@../content.css" />
+                                 </stylesheets>
                               </VBox>
                            </children>
                         </AnchorPane>

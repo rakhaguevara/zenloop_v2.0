@@ -193,19 +193,11 @@
 }
 
 .card {
-  -fx-background-color: #F4F4F4;
+  -fx-background-color: white;
   -fx-background-radius: 15;
   -fx-padding: 20;
   -fx-effect: dropshadow(three-pass-box, rgba(95, 94, 88, 0.1), 10, 0, 0, 5);
   -fx-transition: all 0.3s ease;
-  -fx-pref-width: 100;
-}
-
-.card-2 {
-  -fx-background-color: #ffffff;
-  -fx-background-radius: 8;
-  -fx-padding: 10;
-  -fx-effect: dropshadow(three-pass-box, rgba(95, 94, 88, 0.1), 5, 0, 0, 5);
   -fx-pref-width: 100;
 }
 
@@ -220,3 +212,186 @@
   -fx-text-fill: #333;
 }
 
+.card-value {
+  -fx-font-size: 32px;
+  -fx-font-weight: bold;
+  -fx-text-fill: #ff6b35;
+}
+
+.card-sub {
+  -fx-text-fill: #666;
+  -fx-font-size: 14px;
+}
+
+.progress-bar {
+  -fx-accent: linear-gradient(to right, #ff8c42, #ff6b35);
+}
+
+.section-title {
+  -fx-font-size: 20px;
+  -fx-font-weight: bold;
+  -fx-text-fill: #333;
+}
+
+.recommend-box {
+  -fx-background-color: linear-gradient(to bottom right, #fff5f1, #ffeee6);
+  -fx-background-radius: 10;
+  -fx-border-color: #ff6b35;
+  -fx-border-width: 0 0 0 4;
+  -fx-padding: 10;
+}
+
+.meal {
+    -fx-background-color: white;
+    -fx-background-radius: 15;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(three-pass-box, rgba(255, 107, 53, 0.1), 10, 0, 0, 5);
+}
+
+.meal-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+  }
+  
+.meal-value {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ff6b35;
+  }
+  
+.meal-sub {
+    -fx-text-fill: #666;
+    -fx-font-size: 14px;
+  }
+
+.meal-item {
+    -fx-background-color: #fafafa;
+    -fx-background-radius: 10;
+    -fx-padding: 15px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 2, 0, 0, 1);
+}
+
+.meal-item:hover {
+    -fx-background-color: #f0f0f0;
+  }
+
+.meal-name {
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+
+.btn-primary {
+  -fx-background-color: linear-gradient(to right, #ff8c42, #ff6b35);
+  -fx-text-fill: white;
+  -fx-font-weight: bold;
+  -fx-background-radius: 10;
+  -fx-padding: 12 24;
+}
+
+.btn-primary:hover {
+    -fx-background-color: #ff6b35; /* sama dengan default state */
+}
+
+.recommendation {
+    -fx-background-color: white;
+    -fx-background-radius: 15;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(255, 107, 53, 0.1), 20, 0.5, 0, 5);
+}
+
+.recommendation-item {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #fff5f1 0%, #ffeee6 100%);
+    -fx-background-radius: 10px;
+    -fx-padding: 15px;
+    -fx-border-color: #ff6b35 transparent transparent transparent;
+    -fx-border-width: 0 0 0 4px;
+    -fx-border-radius: 10px;
+}
+
+.recommendation-text {
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333;
+    /* line-height tidak langsung didukung, bisa diatur via wrapping & spacing layout */
+}
+
+.btn-primary {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #ff8c42 0%, #ff6b35 100%);
+    -fx-text-fill: white;
+    -fx-background-radius: 10px;
+    -fx-border-color: transparent;
+    -fx-padding: 12px 24px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    /* transition tidak didukung langsung, perlu animation (Timeline) kalau mau smooth hover */
+}
+
+.btn-primary:hover {
+  -fx-effect: dropshadow(three-pass-box, rgba(255, 107, 53, 0.4), 15, 0.2, 0, 5);
+}
+
+.fab-btn {
+  -fx-background-color: linear-gradient(to right, #ff8c42, #ff6b35);
+  -fx-text-fill: white;
+  -fx-font-size: 24px;
+  -fx-shape: "M0,0 h60 v60 h-60 z";
+  -fx-background-radius: 50%;
+  -fx-effect: dropshadow(three-pass-box, rgba(255, 107, 53, 0.3), 10, 0, 0, 5);
+}
+
+.bg {
+  -fx-background-color: white;
+  -fx-background-radius: 15;
+  -fx-padding: 20;
+  -fx-effect: dropshadow(three-pass-box, rgba(255, 107, 53, 0.1), 10, 0, 0, 5);
+  -fx-pref-width: 100;
+}
+
+.date-picker > .text-field {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+}
+
+.spinner > .text-field {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+}
+
+.sp {
+  -fx-background-color: white;
+  -fx-background-radius: 10;
+  -fx-padding: 10 15;
+  -fx-border-color: #ddd;
+  -fx-border-radius: 10;
+}
+
+.sp:focused {
+    -fx-border-color: #ff6b35; /* Warna highlight saat aktif */
+}
+
+.sp:hover {
+    -fx-border-color: #ff6b35; /* Warna highlight saat aktif */
+}
+
+.if {
+  -fx-background-color: white;
+  -fx-background-radius: 10;
+  -fx-padding: 10 15;
+  -fx-border-color: #ddd;
+  -fx-border-radius: 10;
+}
+
+.if:focused {
+    -fx-border-color: #ff6b35; /* Warna highlight saat aktif */
+}
+
+.if:hover {
+    -fx-border-color: #ff6b35; /* Warna highlight saat aktif */
+}
+
+.btn-toggle {
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+    -fx-font-size: 14px;
+}

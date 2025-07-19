@@ -94,7 +94,6 @@ public class UserServiceXStream {
                 user.setEmail(updatedUser.getEmail());
                 user.setPhone(updatedUser.getPhone());
                 user.setPassword(updatedUser.getPassword());
-                user.setProfileImagePath(updatedUser.getProfileImagePath());
                 break;
             }
         }
