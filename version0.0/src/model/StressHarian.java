@@ -8,11 +8,10 @@ public class StressHarian {
     private int quest2;
     private int quest3;
     private int quest4;
-    private int quest5;
 
     // Constructor
     public StressHarian(String tanggal, double rataRata, String keterangan, int quest1, int quest2, int quest3,
-            int quest4, int quest5) {
+            int quest4) {
         this.tanggal = tanggal;
         this.rataRata = rataRata;
         this.keterangan = keterangan;
@@ -20,7 +19,6 @@ public class StressHarian {
         this.quest2 = quest2;
         this.quest3 = quest3;
         this.quest4 = quest4;
-        this.quest5 = quest5;
 
     }
 
@@ -53,10 +51,6 @@ public class StressHarian {
         return quest4;
     }
 
-    public int getQuest5() {
-        return quest5;
-    }
-
     public void setKeterangan(String keterangan) {
         this.keterangan = keterangan;
     }
@@ -75,10 +69,6 @@ public class StressHarian {
 
     public void setQuest4(int quest4) {
         this.quest4 = quest4;
-    }
-
-    public void setQuest5(int quest5) {
-        this.quest5 = quest5;
     }
 
     public void setTanggal(String tanggal) {
