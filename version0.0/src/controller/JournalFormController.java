@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 import model.JournalDataManager;
 import model.JournalEntry;
+import model.SessionManager;
 
 public class JournalFormController implements Initializable {
     @FXML
@@ -109,11 +110,14 @@ public class JournalFormController implements Initializable {
 
         try {
             if (mode == Mode.ADD) {
+                String currentUser = SessionManager.getCurrentUser().getUsername(); // atau getEmail(), getId(), dll
                 JournalEntry newEntry = new JournalEntry(
                         titleField.getText().trim(),
                         contentArea.getText().trim(),
                         moodComboBox.getValue(),
-                        datePicker.getValue());
+                        datePicker.getValue(),
+                        currentUser);
+
                 dataManager.addJournalEntry(newEntry);
                 showSuccessAlert("Journal entry added successfully!");
             } else if (mode == Mode.EDIT && currentEntry != null) {

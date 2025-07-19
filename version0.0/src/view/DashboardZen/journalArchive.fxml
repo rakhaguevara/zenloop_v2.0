@@ -15,7 +15,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="840.0" prefWidth="945.0"
    xmlns="http://javafx.com/javafx/23.0.1"
-   xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainJournalController">
+   xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainJournalController" stylesheets="/view/card-journal.css">
    <children>
       <ImageView fitHeight="840.0" fitWidth="945.0">
          <image>

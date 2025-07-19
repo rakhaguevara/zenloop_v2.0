@@ -19,12 +19,12 @@ public class CalmifyApp extends Application {
 
         // Parent root =
         // FXMLLoader.load(getClass().getResource("/view/DashboardZen/stressStatistic.fxml"));
-        // FXMLLoader fxmlLoader = new
-        // FXMLLoader(getClass().getResource("/view/Banner/banner.fxml"));
-        // Parent root = fxmlLoader.load();
-
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/DashboardZen/journalArchive.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Banner/banner.fxml"));
         Parent root = fxmlLoader.load();
+
+        // FXMLLoader fxmlLoader = new
+        // FXMLLoader(getClass().getResource("/view/DashboardZen/journalArchive.fxml"));
+        // Parent root = fxmlLoader.load();
 
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("/view/style.css").toExternalForm());

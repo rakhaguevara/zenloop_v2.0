@@ -36,11 +36,16 @@ public class MainJournalController implements Initializable {
     private JournalDataManager dataManager;
     private JournalEntry selectedEntry;
 
-    @Override
+    @FXML
     public void initialize(URL location, ResourceBundle resources) {
-        dataManager = new JournalDataManager();
-        setupComponents();
-        refreshJournalList();
+        dataManager = new JournalDataManager(); // atau sesuai implementasimu
+
+        if (journalCardsContainer != null) {
+            setupComponents();
+            refreshJournalList();
+        } else {
+            System.out.println("journalCardsContainer is null!");
+        }
     }
 
     private void setupComponents() {
@@ -66,16 +71,29 @@ public class MainJournalController implements Initializable {
     }
 
     private void refreshJournalList() {
-        if (journalCardsContainer == null) {
-            // Jika belum ada container, cari VBox di ScrollPane
+        if (journalCardsContainer == null)
             return;
-        }
 
         journalCardsContainer.getChildren().clear();
 
+        UserData currentUserData = SessionManager.getCurrentUser();
+        if (currentUserData == null) {
+            System.out.println("[ERROR] Current user belum diset di SessionManager!");
+            return;
+        }
+
+        String username = currentUserData.getUsername();
+
+        if (dataManager.getJournalEntries() == null) {
+            System.out.println("Journal list kosong/null.");
+            return;
+        }
+
         for (JournalEntry entry : dataManager.getJournalEntries()) {
-            HBox journalCard = createJournalCard(entry);
-            journalCardsContainer.getChildren().add(journalCard);
+            if (entry.getOwner() != null && entry.getOwner().equals(username)) {
+                HBox journalCard = createJournalCard(entry);
+                journalCardsContainer.getChildren().add(journalCard);
+            }
         }
     }
 

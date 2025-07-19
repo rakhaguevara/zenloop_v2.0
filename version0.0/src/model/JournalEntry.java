@@ -9,6 +9,7 @@ public class JournalEntry {
     private String content;
     private String mood;
     private LocalDate date;
+    private String owner;
     private static int nextId = 1;
 
     // Constructor default
@@ -18,12 +19,13 @@ public class JournalEntry {
     }
 
     // Constructor dengan parameter
-    public JournalEntry(String title, String content, String mood, LocalDate date) {
+    public JournalEntry(String title, String content, String mood, LocalDate date, String owner) {
         this.id = nextId++;
         this.title = title;
         this.content = content;
         this.mood = mood;
         this.date = date;
+        this.owner = owner;
     }
 
     // Getters and Setters
@@ -48,6 +50,14 @@ public class JournalEntry {
 
     public String getContent() {
         return content;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 
     public void setContent(String content) {
