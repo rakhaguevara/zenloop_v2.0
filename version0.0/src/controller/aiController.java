@@ -110,7 +110,7 @@ public class aiController implements Initializable {
             Platform.runLater(() -> {
                 chatContainer.getChildren().remove(typingWrapper); // hapus indikator
                 Label botBubble = addChatBubble("", false); // bubble kosong dulu
-                simulateTypingEffect(finalReply, botBubble, 30);
+                simulateTypingEffect(finalReply, botBubble, 10);
             });
         }).start();
     }
