@@ -1,8 +1,26 @@
 
-.scroll-pane {
+/* .scroll-pane {
   -fx-background-color: transparent;
 }
 
 .scroll-pane .viewport {
   -fx-background-color: transparent;
+} */
+
+
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar {
+    -fx-opacity: 0;
+}
+
+/* Tambahkan ini untuk content VBox */
+.content-box {
+    -fx-background-color: white;
 }

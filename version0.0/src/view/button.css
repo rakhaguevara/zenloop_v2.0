@@ -5,6 +5,14 @@
     -fx-background-radius: 99;
 }
 
+.button-update-profile{
+    -fx-text-fill: #000000;
+}
+
+.button-update-profile:hover{
+    -fx-text-fill: #015C55;
+}
+
 .button-nextPause{
     -fx-background-color : #444444;
 

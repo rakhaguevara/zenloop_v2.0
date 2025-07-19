@@ -5,6 +5,8 @@ import java.util.List;
 
 public class UserData {
     private String nama, username, email, password, role, phone, address;
+    private String profileImagePath; // path ke foto profil di sistem lokal
+
     private List<StressHarian> stressList = new ArrayList<>();
     private List<Song> songList = new ArrayList<>();
 
@@ -63,6 +65,10 @@ public class UserData {
         return phone;
     }
 
+    public String getProfileImagePath() {
+        return profileImagePath;
+    }
+
     public void setPhone(String phone) {
         this.phone = phone;
     }
@@ -85,6 +91,10 @@ public class UserData {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public void setProfileImagePath(String profileImagePath) {
+        this.profileImagePath = profileImagePath;
     }
 
 }
