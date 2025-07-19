@@ -150,11 +150,11 @@ public class aiController implements Initializable {
         return outerWrapper;
     }
 
-    @FXML
-    private void handleClearAction() {
-        chatContainer.getChildren().clear();
-        addChatBubble("Hallo Aku ZenBot Ai! Asisten mental mu ^_^", false);
-    }
+    // @FXML
+    // private void handleClearAction() {
+    // chatContainer.getChildren().clear();
+    // addChatBubble("Hallo Aku ZenBot Ai! Asisten mental mu ^_^", false);
+    // }
 
     // handel typing bot
     private void simulateTypingEffect(String message, Label label, int typingDelayMillis) {

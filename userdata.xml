@@ -1,10 +1,12 @@
 <users>
   <users>
     <user>
+      <nama>Rakha Dzikra Guevara</nama>
       <username>rakha</username>
       <email>rakha@gmail.com</email>
       <password>1234</password>
       <role>Zenloopers</role>
+      <phone></phone>
       <stressList/>
       <songList/>
     </user>
