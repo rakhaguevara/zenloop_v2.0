@@ -6,9 +6,10 @@
       <email>rakha@gmail.com</email>
       <password>1234</password>
       <role>Zenloopers</role>
-      <phone></phone>
+      <phone>082123123123123</phone>
       <stressList/>
       <songList/>
+      <profileImagePath>D:\kampus\zenlop\zenloop_v2.0\user_profiles\rakha.jpg</profileImagePath>
     </user>
   </users>
 </users>

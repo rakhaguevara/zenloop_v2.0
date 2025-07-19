@@ -89,11 +89,11 @@ public class UserServiceXStream {
         for (int i = 0; i < users.size(); i++) {
             UserData user = users.get(i);
             if (user.getUsername().equals(updatedUser.getUsername())) {
-                // Update data satu per satu
                 user.setNama(updatedUser.getNama());
                 user.setEmail(updatedUser.getEmail());
                 user.setPhone(updatedUser.getPhone());
                 user.setPassword(updatedUser.getPassword());
+                user.setProfileImagePath(updatedUser.getProfileImagePath()); // ✅ tambahkan ini
                 break;
             }
         }
