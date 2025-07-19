@@ -1,0 +1,267 @@
+/* JavaFX CSS Styling untuk Journal Card */
+
+/* ================== ROOT STYLING ================== */
+.root {
+    -fx-background-color: #f5f5f5;
+    -fx-font-family: "System Regular", "Segoe UI", "Arial";
+}
+
+/* ================== CONTAINER/LAYOUT ================== */
+.journal-container {
+    -fx-background-color: transparent;
+    -fx-padding: 20;
+    -fx-spacing: 16;
+}
+
+.journal-header {
+    -fx-padding: 0 0 24 0;
+}
+
+.journal-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1a1a1a;
+}
+
+/* ================== CARD STYLING ================== */
+.journal-card {
+    -fx-background-color: white;
+    -fx-background-radius: 16;
+    /* -fx-padding: 20; */
+    -fx-spacing: 8;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0, 0, 2);
+    
+    /* Border */
+    -fx-border-color: #e5e5e5;
+    -fx-border-width: 1;
+    -fx-border-radius: 16;
+    
+    /* Transition-like effect (JavaFX doesn't have CSS transitions) */
+    -fx-scale-x: 1.0;
+    -fx-scale-y: 1.0;
+    -fx-translate-y: 0;
+}
+
+/* Hover state untuk card */
+/* .journal-card:hover {
+    -fx-background-color: linear-gradient(to bottom right, #a8e6cf 0%, #88d8a3 100%);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 25, 0, 0, 8);
+    -fx-border-color: #7dd3a0;
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+    -fx-translate-y: -2;
+} */
+
+/* Active/Selected state */
+.journal-card.active {
+    -fx-background-color: linear-gradient(to bottom right, #a8e6cf 0%, #88d8a3 100%);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 25, 0, 0, 8);
+    -fx-border-color: #7dd3a0;
+}
+
+/* ================== CARD HEADER ================== */
+.card-header {
+    -fx-padding: 0;
+}
+
+.card-header-hbox {
+    -fx-alignment: center-left;
+    -fx-spacing: 10;
+}
+
+.doctor-name {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1a1a1a;
+}
+
+/* Hover state untuk doctor name */
+.journal-card:hover .doctor-name,
+.journal-card.active .doctor-name {
+    -fx-text-fill: #2d5a3d;
+}
+
+.time-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #666666;
+    -fx-font-weight: normal;
+}
+
+.journal-card:hover .time-label,
+.journal-card.active .time-label {
+    -fx-text-fill: #2d5a3d;
+}
+
+/* ================== CARD CONTENT ================== */
+.card-content {
+    -fx-padding: 0;
+}
+
+.card-content-hbox {
+    -fx-alignment: center-left;
+    -fx-spacing: 10;
+}
+
+.service-type {
+    -fx-font-size: 14px;
+    -fx-text-fill: #888888;
+}
+
+.journal-card:hover .service-type,
+.journal-card.active .service-type {
+    -fx-text-fill: #2d5a3d;
+}
+
+.card-date {
+    -fx-font-size: 14px;
+    -fx-text-fill: #666666;
+    -fx-font-weight: normal;
+}
+
+.journal-card:hover .card-date,
+.journal-card.active .card-date {
+    -fx-text-fill: #2d5a3d;
+}
+
+/* ================== DELETE BUTTON ================== */
+.delete-btn {
+    -fx-background-color: rgba(239, 68, 68, 0.1);
+    -fx-background-radius: 8;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-pref-width: 32;
+    -fx-pref-height: 32;
+    /* -fx-opacity: 0; */
+}
+
+.delete-btn:hover {
+    -fx-background-color: rgba(239, 68, 68, 0.2);
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+
+/* Show delete button on card hover */
+.journal-card:hover .delete-btn,
+.journal-card.active .delete-btn {
+    -fx-opacity: 1;
+}
+
+.delete-icon {
+    -fx-fill: #ef4444;
+    -fx-font-size: 16px;
+}
+
+/* ================== SCROLL PANE ================== */
+.journal-scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.journal-scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.journal-scroll-pane .scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.journal-scroll-pane .scroll-bar .thumb {
+    -fx-background-color: rgba(0,0,0,0.2);
+    -fx-background-radius: 4;
+}
+
+.journal-scroll-pane .scroll-bar .track {
+    -fx-background-color: transparent;
+}
+
+/* ================== ADDITIONAL COMPONENTS ================== */
+
+/* Search Bar (jika ada) */
+.search-field {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-border-color: #e5e5e5;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 12 16;
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333;
+    -fx-prompt-text-fill: #888888;
+}
+
+.search-field:focused {
+    -fx-border-color: #7dd3a0;
+    -fx-effect: dropshadow(gaussian, rgba(125,211,160,0.3), 4, 0, 0, 0);
+}
+
+/* Filter Buttons */
+.filter-btn {
+    -fx-background-color: white;
+    -fx-background-radius: 20;
+    -fx-border-color: #e5e5e5;
+    -fx-border-radius: 20;
+    -fx-border-width: 1;
+    -fx-padding: 8 16;
+    -fx-font-size: 14px;
+    -fx-text-fill: #666666;
+    -fx-cursor: hand;
+}
+
+.filter-btn:hover {
+    -fx-border-color: #7dd3a0;
+    -fx-text-fill: #2d5a3d;
+}
+
+.filter-btn.active {
+    -fx-background-color: #7dd3a0;
+    -fx-text-fill: white;
+    -fx-border-color: #7dd3a0;
+}
+
+/* Floating Action Button (jika ada) */
+.fab {
+    -fx-background-color: linear-gradient(to bottom right, #a8e6cf 0%, #88d8a3 100%);
+    -fx-background-radius: 28;
+    -fx-border-color: transparent;
+    -fx-pref-width: 56;
+    -fx-pref-height: 56;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 12, 0, 0, 4);
+}
+
+.fab:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 16, 0, 0, 6);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.fab-icon {
+    -fx-fill: white;
+    -fx-font-size: 24px;
+}
+
+/* ================== ANIMATIONS (Using PseudoClass) ================== */
+
+/* Card entrance animation */
+.journal-card.slide-in {
+    -fx-translate-x: -100;
+    -fx-opacity: 0;
+}
+
+.journal-card.slide-in-active {
+    -fx-translate-x: 0;
+    -fx-opacity: 1;
+}
+
+/* Card exit animation */
+.journal-card.slide-out {
+    -fx-translate-x: 100;
+    -fx-opacity: 0;
+}
+
+.button-add{
+    -fx-background-color : #015C55;
+    -fx-text-fill: #ffffff;
+    -fx-effect: dropshadow(gaussian, rgba(164, 86, 86, 0.15), 6, 0.2, 0, 2);
+}
