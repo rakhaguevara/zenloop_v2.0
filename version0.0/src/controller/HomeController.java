@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -7,6 +8,10 @@ import javafx.scene.Parent;
 import javafx.scene.chart.BarChart;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import model.SessionManager;
+import model.Song;
+import model.songService;
+
 import java.io.IOException;
 
 import controller.routingControll.PageConfig;
@@ -26,6 +31,8 @@ public class HomeController {
 
     private static HomeController instance;
     private PageConfig currentPage;
+    private controller.homepageZen.MusicController musicController;
+    private controller.rightbar.rightbarController rightbarCtrl;
 
     public HomeController() {
         instance = this;
@@ -41,11 +48,25 @@ public class HomeController {
         // Load default page (homepage)
         loadPage(PageConfig.HOMEPAGE);
         staticTvStress = tvStress;
+
+        String username = SessionManager.getCurrentUser().getUsername();
+        songService.loadSongs(username); // Pastikan dipanggil sebelum akses
+
+        ObservableList<Song> lagu = songService.getSongs();
+        System.out.println("Jumlah lagu: " + lagu.size());
+
+        // rightbarCtrl.setMusicController(musicController);
+        // rightbarCtrl.bindToMusicList(musicController.getSongList());
+
+        songService.loadSongs(username); // Hanya sekali saat login
+
     }
 
     // Method to load different pages using PageConfig enum
     public void loadPage(PageConfig pageConfig) {
         try {
+            util.AudioManager.stop();
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource(pageConfig.getFxmlPath()));
             Parent page = loader.load();
 

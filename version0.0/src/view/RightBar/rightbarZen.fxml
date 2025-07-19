@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+
+<?import java.lang.String?>
+
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -14,8 +17,10 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="845.0" prefWidth="265.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="845.0" prefWidth="265.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.rightbar.rightbarController">
+
       <AnchorPane fx:id="rightBarPane" prefHeight="200.0" prefWidth="200.0">
          <children>
             <ImageView fitHeight="840.0" fitWidth="260.0">
@@ -100,6 +105,225 @@
                               </Label>
                            </children>
                         </HBox>
+
+                        <VBox prefHeight="235.0" prefWidth="260.0">
+                           <children>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="253.0" prefWidth="256.0" stylesheets="@../transparent-scroll.css">
+                                 <VBox.margin>
+                                    <Insets bottom="4.0" left="4.0" />
+                                 </VBox.margin>
+                                 <content>
+                                    <VBox prefHeight="234.0" prefWidth="256.0" stylesheets="@../transparent-scroll.css">
+                                       <styleClass>
+                                          <String fx:value="transparent-scroll" />
+                                          <String fx:value="scroll-bar" />
+                                          <String fx:value="viewport" />
+                                       </styleClass>
+                                       <children>
+                                          <HBox prefHeight="56.0" prefWidth="240.0" styleClass="card" stylesheets="@../card-rightbar.css">
+                                             <VBox.margin>
+                                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                             </VBox.margin>
+                                             <children>
+                                                <VBox prefHeight="56.0" prefWidth="62.0">
+                                                   <children>
+                                                      <ImageView fitHeight="29.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../../app/resource/drImage.png" />
+                                                         </image>
+                                                         <VBox.margin>
+                                                            <Insets left="16.0" top="14.0" />
+                                                         </VBox.margin>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                                <VBox prefHeight="56.0" prefWidth="125.0">
+                                                   <children>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Muhammad Guevara, M.Psi">
+                                                         <font>
+                                                            <Font size="8.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets left="4.0" top="16.0" />
+                                                         </VBox.margin>
+                                                      </Text>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mental Health Support">
+                                                         <font>
+                                                            <Font size="7.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets left="4.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </Text>
+                                                   </children>
+                                                </VBox>
+                                                <VBox prefHeight="56.0" prefWidth="52.0">
+                                                   <children>
+                                                      <Text fill="#8d8d8d" strokeType="OUTSIDE" strokeWidth="0.0" text="12.00">
+                                                         <font>
+                                                            <Font size="8.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets left="16.0" top="16.0" />
+                                                         </VBox.margin>
+                                                      </Text>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Online">
+                                                         <font>
+                                                            <Font size="7.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets left="16.0" />
+                                                         </VBox.margin>
+                                                      </Text>
+                                                   </children>
+                                                </VBox>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0">
+                                                   <font>
+                                                      <Font size="8.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="56.0" prefWidth="240.0" styleClass="card" stylesheets="@../card-rightbar.css">
+                                             <children>
+                                                <VBox prefHeight="56.0" prefWidth="62.0">
+                                                   <children>
+                                                      <ImageView fitHeight="29.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../../app/resource/bahlul.png" />
+                                                         </image>
+                                                         <VBox.margin>
+                                                            <Insets left="16.0" top="14.0" />
+                                                         </VBox.margin>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                                <VBox prefHeight="56.0" prefWidth="125.0">
+                                                   <children>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bahlil Subwiyonto M.psi">
+                                                         <font>
+                                                            <Font size="8.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets left="4.0" top="16.0" />
+                                                         </VBox.margin>
+                                                      </Text>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NPD Specialist">
+                                                         <font>
+                                                            <Font size="7.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets left="4.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </Text>
+                                                   </children>
+                                                </VBox>
+                                                <VBox prefHeight="56.0" prefWidth="52.0">
+                                                   <children>
+                                                      <Text fill="#8d8d8d" strokeType="OUTSIDE" strokeWidth="0.0" text="19.00">
+                                                         <font>
+                                                            <Font size="8.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets left="16.0" top="16.0" />
+                                                         </VBox.margin>
+                                                      </Text>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Online">
+                                                         <font>
+                                                            <Font size="7.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets left="16.0" />
+                                                         </VBox.margin>
+                                                      </Text>
+                                                   </children>
+                                                </VBox>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0">
+                                                   <font>
+                                                      <Font size="8.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets bottom="8.0" left="8.0" right="8.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <HBox prefHeight="56.0" prefWidth="240.0" styleClass="card" stylesheets="@../card-rightbar.css">
+                                             <children>
+                                                <VBox prefHeight="56.0" prefWidth="62.0">
+                                                   <children>
+                                                      <ImageView fitHeight="29.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../../app/resource/bahlul.png" />
+                                                         </image>
+                                                         <VBox.margin>
+                                                            <Insets left="16.0" top="14.0" />
+                                                         </VBox.margin>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                                <VBox prefHeight="56.0" prefWidth="125.0">
+                                                   <children>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bahlil Subwiyonto M.psi">
+                                                         <font>
+                                                            <Font size="8.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets left="4.0" top="16.0" />
+                                                         </VBox.margin>
+                                                      </Text>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NPD Specialist">
+                                                         <font>
+                                                            <Font size="7.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets left="4.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </Text>
+                                                   </children>
+                                                </VBox>
+                                                <VBox prefHeight="56.0" prefWidth="52.0">
+                                                   <children>
+                                                      <Text fill="#8d8d8d" strokeType="OUTSIDE" strokeWidth="0.0" text="19.00">
+                                                         <font>
+                                                            <Font size="8.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets left="16.0" top="16.0" />
+                                                         </VBox.margin>
+                                                      </Text>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Online">
+                                                         <font>
+                                                            <Font size="7.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets left="16.0" />
+                                                         </VBox.margin>
+                                                      </Text>
+                                                   </children>
+                                                </VBox>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0">
+                                                   <font>
+                                                      <Font size="8.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets bottom="8.0" left="8.0" right="8.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </content>
+                                 <styleClass>
+                                    <String fx:value="transparent-scroll" />
+                                    <String fx:value="scroll-bar" />
+                                    <String fx:value="viewport" />
+                                 </styleClass>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+=======
                         <VBox prefHeight="226.0" prefWidth="260.0" />
                      </children>
                   </VBox>
@@ -117,6 +341,7 @@
                               </VBox>
                            </content>
                         </ScrollPane>
+
                      </children>
                   </VBox>
                   <VBox prefHeight="49.0" prefWidth="260.0">
@@ -125,7 +350,7 @@
                            <children>
                               <Button fx:id="btnToConsult" mnemonicParsing="false" prefHeight="38.0" prefWidth="228.0" styleClass="rightbar-button" stylesheets="@../style.css" text="Schedule a new consultan">
                                  <HBox.margin>
-                                    <Insets left="15.0" />
+                                    <Insets left="15.0" top="6.0" />
                                  </HBox.margin>
                                  <font>
                                     <Font size="10.0" />
@@ -137,9 +362,24 @@
                   </VBox>
                   <VBox prefHeight="278.0" prefWidth="260.0">
                      <children>
-                        <Button fx:id="btnAddMusic" mnemonicParsing="false" prefHeight="32.0" prefWidth="31.0" style="-fx-background-color: transparent;">
+                        <Button fx:id="btnAddMusic" mnemonicParsing="false" prefHeight="41.0" prefWidth="31.0" style="-fx-background-color: transparent;">
                            <VBox.margin>
                               <Insets left="220.0" top="4.0" />
+                           </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="btnPauseRight" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" styleClass="button-play" stylesheets="@../button.css">
+                           <graphic>
+                              <ImageView fitHeight="9.0" fitWidth="9.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color: ;">
+                                 <image>
+                                    <Image url="@../../app/resource/pause.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <VBox.margin>
+                              <Insets left="16.0" top="24.0" />
                            </VBox.margin>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -151,17 +391,62 @@
                      <children>
                         <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #F5F7F9;">
                            <children>
-                              <Label layoutX="92.0" layoutY="14.0" text="Judul Lagu">
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="114.0" layoutY="38.0" text="Artist" />
+                              <Label fx:id="labelTitle" layoutX="29.0" layoutY="14.0" prefHeight="25.0" prefWidth="213.0" style="-fx-font-size: 16px; -fx-text-overrun: ellipsis;" wrapText="false" />
+
+                              <Label fx:id="labelArtist" layoutX="72.0" layoutY="39.0" prefHeight="20.0" prefWidth="128.0" style="-fx-text-overrun: ellipsis;" wrapText="false" />
                            </children>
                         </Pane>
                      </children>
                   </VBox>
-                  <VBox prefHeight="82.0" prefWidth="260.0" />
+                  <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #F5F7F9;">
+                     <children>
+                        <Button fx:id="btnPreviousMusic" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="33.0" styleClass="button-nextPause" stylesheets="@../button.css">
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../app/resource/previous.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <HBox.margin>
+                              <Insets left="69.0" top="27.0" />
+                           </HBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="btnPlayMusicRight" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="58.0" styleClass="button-play" stylesheets="@../button.css">
+                           <graphic>
+                              <ImageView fitHeight="40.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color: ;">
+                                 <image>
+                                    <Image url="@../../app/resource/play.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <HBox.margin>
+                              <Insets left="10.0" top="18.0" />
+                           </HBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button graphicTextGap="0.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="33.0" styleClass="button-nextPause" stylesheets="@../button.css">
+                           <graphic>
+                              <ImageView fx:id="btnNextMusic" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../app/resource/next.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <HBox.margin>
+                              <Insets left="8.0" top="27.0" />
+                           </HBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </HBox>
                </children>
             </VBox>
          </children>

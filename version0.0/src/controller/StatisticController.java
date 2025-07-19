@@ -70,7 +70,6 @@ public class StatisticController {
                 tfTest2.setText(String.valueOf(selected.getQuest2()));
                 tfTest3.setText(String.valueOf(selected.getQuest3()));
                 tfTest4.setText(String.valueOf(selected.getQuest4()));
-                tfTest5.setText(String.valueOf(selected.getQuest5()));
                 datePicker.setValue(LocalDate.parse(selected.getTanggal()));
             }
         });
@@ -85,11 +84,9 @@ public class StatisticController {
             int quest2 = Integer.parseInt(tfTest2.getText());
             int quest3 = Integer.parseInt(tfTest3.getText());
             int quest4 = Integer.parseInt(tfTest4.getText());
-            int quest5 = Integer.parseInt(tfTest5.getText());
 
             if (quest1 < 0 || quest1 > 10 || quest2 < 0 || quest2 > 10 ||
-                    quest3 < 0 || quest3 > 10 || quest4 < 0 || quest4 > 10 ||
-                    quest5 < 0 || quest5 > 10) {
+                    quest3 < 0 || quest3 > 10 || quest4 < 0 || quest4 > 10) {
                 AlertUtil.showAlert(Alert.AlertType.WARNING, "Validasi", "Nilai harus antara 0 sampai 10.");
                 return;
             }
@@ -105,11 +102,11 @@ public class StatisticController {
                 return;
             }
 
-            double rata2 = (quest1 + quest2 + quest3 + quest4 + quest5) / 5.0;
+            double rata2 = (quest1 + quest2 + quest3 + quest4) / 4.0;
             String keterangan = getKeterangan(rata2);
 
             riwayatData.add(
-                    new StressHarian(tanggal.toString(), rata2, keterangan, quest1, quest2, quest3, quest4, quest5));
+                    new StressHarian(tanggal.toString(), rata2, keterangan, quest1, quest2, quest3, quest4));
             tabelStressStatistic.refresh();
             refreshLineChart();
             simpanKeXML();
@@ -134,17 +131,15 @@ public class StatisticController {
             int quest2 = Integer.parseInt(tfTest2.getText());
             int quest3 = Integer.parseInt(tfTest3.getText());
             int quest4 = Integer.parseInt(tfTest4.getText());
-            int quest5 = Integer.parseInt(tfTest5.getText());
             LocalDate tanggal = datePicker.getValue();
 
-            double rata2 = (quest1 + quest2 + quest3 + quest4 + quest5) / 5.0;
+            double rata2 = (quest1 + quest2 + quest3 + quest4) / 4.0;
             String keterangan = getKeterangan(rata2);
 
             selected.setQuest1(quest1);
             selected.setQuest2(quest2);
             selected.setQuest3(quest3);
             selected.setQuest4(quest4);
-            selected.setQuest5(quest5);
             selected.setTanggal(tanggal.toString());
             selected.setRataRata(rata2);
             selected.setKeterangan(keterangan);
@@ -261,7 +256,6 @@ public class StatisticController {
         tfTest2.clear();
         tfTest3.clear();
         tfTest4.clear();
-        tfTest5.clear();
         datePicker.setValue(null);
     }
 }
