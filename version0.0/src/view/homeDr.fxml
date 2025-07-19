@@ -12,10 +12,10 @@
         <fx:include fx:id="sidebarPaneDr" source="/view/Sidebar/sidebarDr.fxml" />
     </left>
 
-    <!-- Right Bar -->
+    <!-- Right Bar
     <right>
         <fx:include fx:id="rightBarInclude" source="/view/RightBar/rightbarZen.fxml" />
-    </right>
+    </right> -->
 
     <!-- Main content area - now using AnchorPane for dynamic content loading -->
     <center>
