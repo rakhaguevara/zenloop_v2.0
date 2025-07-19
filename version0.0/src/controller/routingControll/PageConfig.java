@@ -5,7 +5,7 @@ public enum PageConfig {
     JURNAL_ARCHIVE("/view/DashboardZen/journalArchive.fxml", true),
     STRES_STATISTIC("/view/DashboardZen/stressStatistic.fxml", true),
     ZEN_BOT_AI("/view/aiView.fxml", false), // Hide rightbar
-    FIND_KONSELOR("/view/NotFindPage/nfp.fxml", false),
+    FIND_KONSELOR("/view/DashboardZen/findKonselor.fxml", false),
     RELAX_MUSIC("/view/DashboardZen/musicPage.fxml", false), // Hide rightbar
     COMMUNITY("/view/NotFindPage/nfp.fxml", true),
     HISTORY("/view/NotFindPage/nfp.fxml", false),
