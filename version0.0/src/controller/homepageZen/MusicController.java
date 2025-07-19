@@ -2,9 +2,12 @@ package controller.homepageZen;
 
 import java.io.File;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,7 +20,6 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import model.SessionManager;
 import model.Song;
-import model.songService;
 import util.MusicXMLHandler;
 
 public class MusicController implements Initializable {
@@ -43,14 +45,22 @@ public class MusicController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        // Ambil user login aktif
         username = SessionManager.getCurrentUser().getUsername();
 
-        // ✅ Ambil langsung dari SongService
-        songList = songService.getSongs();
+        // Inisialisasi kolom tabel
         titleColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getTitle()));
-        table.setItems(songList);
 
-        System.out.println("✅ Lagu dimuat: " + songList.size());
+        try {
+            List<Song> loadedSongs = MusicXMLHandler.loadSongs(username);
+            songList = FXCollections.observableArrayList(loadedSongs != null ? loadedSongs : new ArrayList<>());
+            table.setItems(songList);
+            System.out.println("✅ Lagu dimuat: " + songList.size());
+        } catch (Exception e) {
+            e.printStackTrace();
+            songList = FXCollections.observableArrayList();
+            table.setItems(songList);
+        }
     }
 
     @FXML
@@ -64,9 +74,14 @@ public class MusicController implements Initializable {
             String title = file.getName();
             Song song = new Song(title, path);
             songList.add(song);
-            MusicXMLHandler.saveSongs(songList, username); // ✅ Gunakan list yang sudah dimuat
+            MusicXMLHandler.saveSongs(new ArrayList<>(songList), username);
 
-            showAlert("Lagu Ditambahkan", "Lagu \"" + title + "\" berhasil ditambahkan!");
+            // 🎉 Tampilkan notifikasi
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Lagu Ditambahkan");
+            alert.setHeaderText(null);
+            alert.setContentText("Lagu \"" + title + "\" berhasil ditambahkan!");
+            alert.showAndWait();
         }
     }
 
@@ -75,7 +90,7 @@ public class MusicController implements Initializable {
         Song selected = table.getSelectionModel().getSelectedItem();
         if (selected != null) {
             songList.remove(selected);
-            MusicXMLHandler.saveSongs(songList, username);
+            MusicXMLHandler.saveSongs(new ArrayList<>(songList), username);
         }
     }
 
@@ -90,7 +105,7 @@ public class MusicController implements Initializable {
                 selected.setTitle(file.getName());
                 selected.setPath(file.toURI().toString());
                 table.refresh();
-                MusicXMLHandler.saveSongs(songList, username);
+                MusicXMLHandler.saveSongs(new ArrayList<>(songList), username);
             }
         } else {
             System.out.println("⚠️ Pilih lagu yang ingin di-update.");
@@ -101,15 +116,28 @@ public class MusicController implements Initializable {
     void playSong(ActionEvent event) {
         Song selected = table.getSelectionModel().getSelectedItem();
         if (selected != null) {
-            util.AudioManager.play(selected); // ✅ Ganti ke AudioManager
-            labelMusic.setText("Playing: " + selected.getTitle());
+            if (mediaPlayer != null) {
+                mediaPlayer.stop();
+            }
+
+            try {
+                Media media = new Media(selected.getPath());
+                mediaPlayer = new MediaPlayer(media);
+                mediaPlayer.play();
+                labelMusic.setText("Playing: " + selected.getTitle());
+            } catch (Exception e) {
+                System.out.println("❌ Gagal memutar lagu: " + e.getMessage());
+                labelMusic.setText("Error playing song.");
+            }
         }
     }
 
     @FXML
     void stopSong(ActionEvent event) {
-        util.AudioManager.stop(); // ✅ Ganti ke AudioManager
-        labelMusic.setText("Stopped");
+        if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            labelMusic.setText("Stopped");
+        }
     }
 
     @FXML
@@ -128,33 +156,5 @@ public class MusicController implements Initializable {
             table.getSelectionModel().select(index - 1);
             playSong(null);
         }
-    }
-
-    public void playSelected(Song song) {
-        try {
-            if (mediaPlayer != null)
-                mediaPlayer.stop();
-
-            Media media = new Media(song.getPath());
-            mediaPlayer = new MediaPlayer(media);
-            mediaPlayer.play();
-            labelMusic.setText("Playing: " + song.getTitle());
-
-        } catch (Exception e) {
-            labelMusic.setText("Error playing song.");
-            System.out.println("❌ Error: " + e.getMessage());
-        }
-    }
-
-    public ObservableList<Song> getSongList() {
-        return songList;
-    }
-
-    private void showAlert(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
     }
 }

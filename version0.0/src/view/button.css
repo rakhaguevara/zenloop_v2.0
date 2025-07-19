@@ -1,6 +1,6 @@
 .button-play{
     -fx-background-color : #015C55;
-
+    -fx-border-color: rgba(0, 0, 0, 0.356);
     -fx-effect: dropshadow(gaussian, rgba(164, 86, 86, 0.15), 6, 0.2, 0, 2);
     -fx-background-radius: 99;
 }
@@ -15,7 +15,7 @@
 
 .button-nextPause{
     -fx-background-color : #444444;
-
+    -fx-border-color: rgba(0, 0, 0, 0.356);
     -fx-effect: dropshadow(gaussian, rgba(164, 86, 86, 0.15), 6, 0.2, 0, 2);
     -fx-background-radius: 99;
 }
@@ -24,7 +24,7 @@
 .button-updatemusic{
     -fx-background-color : #015C55;
     -fx-text-fill: #ffffff;
-
+    -fx-border-color: rgba(0, 0, 0, 0.356);
     -fx-effect: dropshadow(gaussian, rgba(164, 86, 86, 0.15), 6, 0.2, 0, 2);
 }
 
@@ -32,7 +32,7 @@
 .button-delete{
     -fx-background-color : white;
     -fx-text-fill: #444444;
-
+    -fx-border-color: rgba(0, 0, 0, 0.356);
     -fx-border-radius: 8;    
 }
 
