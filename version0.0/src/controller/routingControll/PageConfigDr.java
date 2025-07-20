@@ -4,7 +4,7 @@ public enum PageConfigDr {
     HOMEPAGE_DR("/view/NotFindPage/nfp.fxml", false),
     PATIENT_DASHBOARD_DR("/view/DashboardProf/patientArchive.fxml", false),
     YOUR_CLINIC("/view/NotFindPage/nfp.fxml", false),
-    ZEN_BOT_AI_DR("/view/DashboardProf/chatbotDr.fxml", true),
+    ZEN_BOT_AI_DR("/view/DashboardProf/chatBotDr.fxml", false),
     SETTING_DR("/view/DashboardProf/settingDr.fxml", false),
     FAQ_DR("/view/DashboardProf/faqDr.fxml", false);
 

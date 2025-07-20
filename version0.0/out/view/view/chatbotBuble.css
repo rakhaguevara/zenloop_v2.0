@@ -1,0 +1,75 @@
+
+.user-bubble {
+    -fx-background-color: #1a776f;
+    -fx-padding: 10px;
+    -fx-background-radius: 15px;
+    -fx-font-size: 14px;
+    -fx-text-fill: white;
+}
+
+.bot-bubble {
+    -fx-background-color: #f1f0f0;
+    -fx-padding: 10px;
+    -fx-background-radius: 15px;
+    -fx-font-size: 14px;
+    -fx-text-fill: black;
+}
+
+
+/* Hapus background dan border */
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+/* Buat isi ScrollPane transparan */
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+/* Hilangkan scroll bar */
+.scroll-bar:horizontal,
+.scroll-bar:vertical {
+    -fx-opacity: 0;
+    -fx-pref-width: 0;
+    -fx-pref-height: 0;
+    -fx-background-color: transparent;
+}
+
+/* Optional: hapus highlight saat fokus */
+.scroll-pane:focused {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+
+.input-wrapper {
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+    -fx-padding: 8px;
+    -fx-alignment: center-left;
+        -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 6, 0.5, 0, 2);
+}
+
+.styled-input {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-font-size: 14px;
+    -fx-text-fill: #333;
+    -fx-prompt-text-fill: #999;
+-fx-padding: 0px 51px 0px 15px;
+ /* kanan 43 (ukuran tombol) + 8px jarak */
+}
+
+.send-button {
+    -fx-background-color: #015C55;
+    -fx-background-radius: 30%;
+    -fx-cursor: hand;
+    -fx-pref-width: 43px;
+    -fx-pref-height: 43px;
+    -fx-translate-x: -8px; /* geser ke kiri 8px dari ujung kanan */
+}
+

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="840.0" prefWidth="1190.0" stylesheets="@../chatbotBuble.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.homeDr.aiControllerDr">
+
+   <children>
+
+      <ImageView fitHeight="840.0" fitWidth="1190.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../app/resource/aiPage.png" />
+         </image>
+      </ImageView>
+
+      <ScrollPane fx:id="chatScrollPane" fitToWidth="true" hbarPolicy="NEVER" prefHeight="675.0" prefWidth="1135.0" vbarPolicy="NEVER" AnchorPane.leftAnchor="28.0" AnchorPane.topAnchor="72.0">
+         <content>
+            <VBox fx:id="chatContainer" spacing="10.0">
+               <padding>
+                  <Insets bottom="10" left="10" right="10" top="10" />
+               </padding>
+            </VBox>
+         </content>
+      </ScrollPane>
+
+
+      <HBox alignment="CENTER_LEFT" prefHeight="58.0" spacing="0" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="32.0">
+
+         <StackPane fx:id="inputWrapper" prefHeight="58.0" prefWidth="1180.0" styleClass="input-wrapper">
+
+            <TextField fx:id="inputField" prefHeight="22.0" prefWidth="1070.0" promptText="Hello Doctor, What can i help you?" styleClass="styled-input" />
+
+
+            <Button fx:id="sendButton" onAction="#handleSendAction" prefHeight="40.0" prefWidth="56.0" styleClass="send-button" StackPane.alignment="CENTER_RIGHT">
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../app/resource/sendVec.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <StackPane.margin>
+                  <Insets right="-4.0" />
+               </StackPane.margin>
+            </Button>
+
+         </StackPane>
+      </HBox>
+   </children>
+</AnchorPane>

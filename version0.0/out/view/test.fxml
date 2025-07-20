@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import javafx.fxml.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8"
+    xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TestController" prefWidth="1190.0" prefHeight="840.0">
+
+    <!-- Sidebar -->
+    <left>
+        <fx:include fx:id="sidebarPane" source="/view/Sidebar/sidebar.fxml"/>
+    </left>
+
+    <!-- Sidebar -->
+    <!-- <right>
+        <fx:include fx:id="rightBarPane" source="/view/RightBar/rightbarZen.fxml"/>
+    </right> -->
+
+    <!-- Konten utama di tengah -->
+    <center>
+        <fx:include fx:id="notFindPage" source="/view/NotFindPage/nfp.fxml"/>
+    </center>
+
+</BorderPane>

@@ -1,0 +1,69 @@
+.button-play{
+    -fx-background-color : #015C55;
+
+    -fx-effect: dropshadow(gaussian, rgba(164, 86, 86, 0.15), 6, 0.2, 0, 2);
+    -fx-background-radius: 99;
+}
+
+.button-nextPause{
+    -fx-background-color : #444444;
+
+    -fx-effect: dropshadow(gaussian, rgba(164, 86, 86, 0.15), 6, 0.2, 0, 2);
+    -fx-background-radius: 99;
+}
+
+
+.button-updatemusic{
+    -fx-background-color : #015C55;
+    -fx-text-fill: #ffffff;
+
+    -fx-effect: dropshadow(gaussian, rgba(164, 86, 86, 0.15), 6, 0.2, 0, 2);
+}
+
+
+.button-delete{
+    -fx-background-color : white;
+    -fx-text-fill: #444444;
+
+    -fx-border-radius: 8;    
+}
+
+.custom-slider .thumb {
+    -fx-background-color: #015C55; /* warna lingkaran */
+    -fx-background-radius: 50%;
+    -fx-pref-width: 24px;
+    -fx-pref-height: 24px;
+}
+
+
+.image-thumb .thumb {
+    -fx-background-color: transparent;
+    -fx-background-image: url("/resource/icon1.png");
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-padding: 16; /* menyesuaikan dengan ukuran gambar */
+}
+
+
+.button-markasdone{
+
+
+}
+
+.button-markasdone:focused {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-insets: 0;
+    -fx-effect: none;
+    -fx-background-color: transparent;
+}
+
+.button-markasdone:pressed {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-insets: 0;
+    -fx-effect: none;
+}

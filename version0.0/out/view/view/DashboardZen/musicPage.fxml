@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="840.0" prefWidth="1190.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.homepageZen.MusicController">
+    <children>
+        <ImageView fitHeight="840.0" fitWidth="1190.0" layoutX="48.0" layoutY="-11.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="-0.0">
+            <image>
+                <Image url="@../../app/resource/MusicDashboard.png" />
+            </image>
+        </ImageView>
+        <VBox layoutX="142.0" layoutY="130.0" prefHeight="840.0" prefWidth="1190.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <AnchorPane prefHeight="564.0" prefWidth="1190.0">
+                    <children>
+                        <TableView fx:id="table" layoutX="94.0" layoutY="144.0" prefHeight="425.0" prefWidth="1128.0" AnchorPane.leftAnchor="31.0" AnchorPane.topAnchor="130.0">
+                            <columns>
+                                <TableColumn fx:id="titleColumn" prefWidth="1127.000005722046" text="Your Music" />
+                            </columns>
+                        </TableView>
+                        <Button fx:id="btnAddMusic" layoutX="1113.0" layoutY="74.0" mnemonicParsing="false" onAction="#addSong" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: transparent;">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                    </children>
+                </AnchorPane>
+                <AnchorPane prefHeight="70.0" prefWidth="1190.0">
+                    <children>
+                        <HBox layoutX="836.0" layoutY="-15.0" prefHeight="100.0" prefWidth="351.0">
+                            <children>
+                                <Button fx:id="btnDeleteMusic" mnemonicParsing="false" onAction="#deleteSong" prefHeight="37.0" prefWidth="115.0" styleClass="button-delete" stylesheets="@../button.css" text="Delete">
+                                    <HBox.margin>
+                                        <Insets left="85.0" top="32.0" />
+                                    </HBox.margin>
+                                </Button>
+                                <Button fx:id="btnUpdateMusic" mnemonicParsing="false" onAction="#updateSong" prefHeight="37.0" prefWidth="115.0" styleClass="button-updatemusic" stylesheets="@../button.css" text="Update Music">
+                                    <HBox.margin>
+                                        <Insets left="9.0" top="32.0" />
+                                    </HBox.margin>
+                                </Button>
+                            </children>
+                        </HBox>
+                    </children>
+                </AnchorPane>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                    <children>
+                        <Text fx:id="labelMusic" layoutX="616.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Music" AnchorPane.leftAnchor="600.0">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Text>
+                        <Button fx:id="btnPause" graphicTextGap="0.0" layoutX="562.0" layoutY="100.0" mnemonicParsing="false" onAction="#stopSong" prefHeight="70.0" prefWidth="70.0" styleClass="button-play" stylesheets="@../button.css" AnchorPane.leftAnchor="570.0" AnchorPane.topAnchor="80.0">
+                            <graphic>
+                                <ImageView fitHeight="30.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color: ;">
+                                    <image>
+                                        <Image url="@../../app/resource/pause.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button graphicTextGap="0.0" layoutX="572.0" layoutY="110.0" mnemonicParsing="false" onAction="#nextSong" prefHeight="50.0" prefWidth="50.0" styleClass="button-nextPause" stylesheets="@../button.css" AnchorPane.leftAnchor="730.0" AnchorPane.topAnchor="90.0">
+                            <graphic>
+                                <ImageView fx:id="btnNextMusic" fitHeight="40.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../app/resource/next.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="btnPreviousMusic" graphicTextGap="0.0" layoutX="582.0" layoutY="120.0" mnemonicParsing="false" onAction="#prevSong" prefHeight="50.0" prefWidth="50.0" styleClass="button-nextPause" stylesheets="@../button.css" AnchorPane.leftAnchor="500.0" AnchorPane.topAnchor="90.0">
+                            <graphic>
+                                <ImageView fitHeight="40.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../app/resource/previous.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="btnPlayMusic" graphicTextGap="0.0" layoutX="572.0" layoutY="110.0" mnemonicParsing="false" onAction="#playSong" prefHeight="70.0" prefWidth="70.0" styleClass="button-play" stylesheets="@../button.css" AnchorPane.leftAnchor="650.0" AnchorPane.topAnchor="80.0">
+                            <graphic>
+                                <ImageView fitHeight="40.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color: ;">
+                                    <image>
+                                        <Image url="@../../app/resource/play.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                    </children>
+                </AnchorPane>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

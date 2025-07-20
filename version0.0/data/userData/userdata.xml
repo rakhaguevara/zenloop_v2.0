@@ -1,0 +1,31 @@
+<users>
+  <users>
+    <user>
+      <nama>Rakha Dzikra Guevara</nama>
+      <username>rakha</username>
+      <email>rakha@gmail.com</email>
+      <password>123456</password>
+      <role>Zenloopers</role>
+      <phone>08123123123</phone>
+      <stressList/>
+      <songList/>
+      <profileImagePath>/Users/rakhaguevara/Documents/smester-2/zenloop/zenloop/version0.0/user_profiles/rakha.png</profileImagePath>
+    </user>
+    <user>
+      <username>drZenloop</username>
+      <email>zenloop@gmail.com</email>
+      <password>123456</password>
+      <role>Proffessional</role>
+      <stressList/>
+      <songList/>
+    </user>
+    <user>
+      <username>drZen</username>
+      <email>123@asdas</email>
+      <password>123456</password>
+      <role>Proffessional</role>
+      <stressList/>
+      <songList/>
+    </user>
+  </users>
+</users>

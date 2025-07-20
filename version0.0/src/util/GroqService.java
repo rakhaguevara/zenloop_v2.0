@@ -13,28 +13,7 @@ import java.io.*;
 
 public class GroqService {
 
-    private static final String API_KEY;
-
-    static {
-        API_KEY = loadApiKeyFromEnv();
-        if (API_KEY == null || API_KEY.trim().isEmpty()) {
-            throw new RuntimeException("GROQ_API_KEY tidak ditemukan atau kosong di file .env");
-        }
-    }
-
-    private static String loadApiKeyFromEnv() {
-        try (BufferedReader reader = new BufferedReader(new FileReader(".env"))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                if (line.trim().startsWith("GROQ_API_KEY=")) {
-                    return line.substring("GROQ_API_KEY=".length()).trim();
-                }
-            }
-        } catch (IOException e) {
-            throw new RuntimeException("❌ Gagal membaca file .env: " + e.getMessage(), e);
-        }
-        return null;
-    }
+    private static final String API_KEY = "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";
 
     public static String askGroq(String userInput) {
         try {

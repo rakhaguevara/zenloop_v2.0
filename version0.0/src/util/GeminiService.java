@@ -6,37 +6,9 @@ import java.net.URL;
 
 public class GeminiService {
 
-    private static String GEMINI_API_KEY;
+    private static final String GEMINI_API_KEY = "AIzaSyB0zdmxHxrPn75LBQVRkyjTKp78OUz4L8M";
 
-    // ✅ Letakkan endpoint di luar method
     private static final String ENDPOINT = "https://generativelanguage.googleapis.com/v1/models/gemini-2.5-pro:generateContent";
-
-    static {
-        loadApiKeyFromEnv();
-    }
-
-    private static void loadApiKeyFromEnv() {
-        File envFile = new File(".env");
-        if (!envFile.exists()) {
-            throw new RuntimeException("❌ Gagal membaca file .env: file tidak ditemukan");
-        }
-
-        try (BufferedReader reader = new BufferedReader(new FileReader(envFile))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                if (line.startsWith("GEMINI_API_KEY=")) {
-                    GEMINI_API_KEY = line.substring("GEMINI_API_KEY=".length()).trim();
-                    return;
-                }
-            }
-        } catch (IOException e) {
-            throw new RuntimeException("❌ Gagal membaca file .env: " + e.getMessage());
-        }
-
-        if (GEMINI_API_KEY == null || GEMINI_API_KEY.isEmpty()) {
-            throw new RuntimeException("❌ GEMINI_API_KEY tidak ditemukan dalam file .env");
-        }
-    }
 
     public static String generateContent(String prompt) {
         try {
@@ -64,8 +36,8 @@ public class GeminiService {
             while ((inputLine = in.readLine()) != null) {
                 response.append(inputLine);
             }
-            in.close();
 
+            in.close();
             return response.toString();
 
         } catch (IOException e) {
@@ -74,7 +46,7 @@ public class GeminiService {
         }
     }
 
-    // Escape karakter yang bermasalah di JSON seperti tanda kutip
+    // Escape karakter untuk JSON string
     private static String escapeJson(String text) {
         return text.replace("\\", "\\\\").replace("\"", "\\\"").replace("\n", "\\n");
     }

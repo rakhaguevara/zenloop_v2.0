@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="601.0" prefWidth="736.0"
+   xmlns="http://javafx.com/javafx/23.0.1"
+   xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.homeDr.PatientFormController">
+   <children>
+      <ImageView fitHeight="629.0" fitWidth="736.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../app/resource/patientForm.png" />
+         </image>
+      </ImageView>
+      <VBox layoutX="10.0" layoutY="10.0" prefHeight="579.0" prefWidth="719.0" spacing="15.0">
+         <children>
+            <Button fx:id="btnDeletePatient" mnemonicParsing="false" styleClass="button-cancel" stylesheets="@../style.css" text="Delete Patient">
+               <VBox.margin>
+                  <Insets left="585.0" top="20.0" />
+               </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <VBox spacing="8.0">
+               <children>
+                  <Label style="-fx-font-weight: bold;" text="Name Patient">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="titleFieldName" prefHeight="38.0" prefWidth="656.0" promptText="Journal Title" text="Patient Name">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets top="-15.0" />
+               </VBox.margin>
+            </VBox>
+            <HBox spacing="15.0">
+               <children>
+                  <VBox spacing="8.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label style="-fx-font-weight: bold;" text="Date of birth *" />
+                        <DatePicker fx:id="dateOfBirth" maxWidth="Infinity" prefHeight="32.0" prefWidth="153.0" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label style="-fx-font-weight: bold;" text="Status *" />
+                        <ComboBox fx:id="patientStatusComBox" maxWidth="Infinity" prefHeight="33.0" prefWidth="180.0" promptText="Patient Status" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <VBox spacing="8.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label style="-fx-font-weight: bold;" text="Patient Issue *" />
+                  <TextArea fx:id="patientIssue" prefRowCount="12" prefWidth="520.0" promptText="Patient issue.." wrapText="true" VBox.vgrow="ALWAYS" />
+               </children>
+            </VBox>
+            <Separator />
+            <HBox alignment="CENTER_RIGHT" spacing="10.0">
+               <children>
+                  <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#handleCancel" prefHeight="34.0" prefWidth="99.0" text="Cancel" />
+                  <Button fx:id="savePatientButton" defaultButton="true" disable="true" mnemonicParsing="false" onAction="#handleSave" prefHeight="34.0" prefWidth="84.0" styleClass="button-add" stylesheets="@../card-journal.css" text="Save" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

@@ -10,7 +10,7 @@ import java.util.List;
 
 public class MusicXMLHandler {
 
-    private static final String DIR_PATH = "data/music/"; // perubahan ke dalam folder 'data/music'
+    private static final String DIR_PATH = "data/music/";
     private static final XStream xstream = new XStream(new StaxDriver());
 
     static {

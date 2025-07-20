@@ -1,0 +1,3 @@
+Main-Class: app.ZenloopApp
+Class-Path: lib/xstream-1.4.20.jar lib/slf4j-nop-1.7.36.jar lib/commons-logging-1.2.jar lib/json-20230618.jar lib/commons-cli-1.9.0.jar lib/httpclient5-5.5.jar lib/httpclient5-cache-5.5.jar lib/httpclient5-fluent-5.5.jar lib/httpclient5-testing-5.5.jar lib/httpcore5-5.3.4-tests.jar lib/httpcore5-5.3.4.jar lib/httpcore5-h2-5.3.4.jar lib/httpcore5-reactive-5.3.4.jar lib/httpcore5-testing-5.3.4.jar lib/reactive-streams-1.0.4.jar lib/rxjava-2.2.21.jar lib/rxjava-3.1.9.jar lib/slf4j-api-1.7.36.jar
+

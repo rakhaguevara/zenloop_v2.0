@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="478.0" prefWidth="736.0"
+    xmlns="http://javafx.com/javafx/23.0.1"
+    xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.JournalFormController">
+
+    <children>
+        <ImageView fitHeight="650.0" fitWidth="736.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../app/resource/mynaui_send.png" />
+            </image>
+        </ImageView>
+        <VBox prefHeight="464.0" prefWidth="560.0" spacing="15.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+
+            <children>
+                <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Write Your Actiity Here!" />
+
+                <VBox spacing="8.0">
+                    <children>
+                        <Label style="-fx-font-weight: bold;" text="Title *" />
+                        <TextField fx:id="titleField" prefHeight="38.0" prefWidth="656.0" promptText="Journal Title" />
+                    </children>
+                </VBox>
+
+                <HBox spacing="15.0">
+                    <children>
+                        <VBox spacing="8.0" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label style="-fx-font-weight: bold;" text="Date *" />
+                                <DatePicker fx:id="datePicker" maxWidth="Infinity" prefHeight="32.0" prefWidth="153.0" />
+                            </children>
+                        </VBox>
+                        <VBox spacing="8.0" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label style="-fx-font-weight: bold;" text="Mood Today *" />
+                                <ComboBox fx:id="moodComboBox" maxWidth="Infinity" prefHeight="33.0" prefWidth="180.0" promptText="How are you feeling?" />
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+
+                <VBox spacing="8.0" VBox.vgrow="ALWAYS">
+                    <children>
+                        <Label style="-fx-font-weight: bold;" text="Content *" />
+                        <TextArea fx:id="contentArea" prefRowCount="12" prefWidth="520.0" promptText="Write your thoughts here..." wrapText="true" VBox.vgrow="ALWAYS" />
+                    </children>
+                </VBox>
+
+                <Separator />
+
+                <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                    <children>
+                        <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#handleCancel" prefHeight="34.0" prefWidth="99.0" text="Cancel" />
+                        <Button fx:id="saveButton" defaultButton="true" disable="true" mnemonicParsing="false" onAction="#handleSave" prefHeight="34.0" prefWidth="84.0" styleClass="button-add" stylesheets="@card-journal.css" text="Save" />
+                    </children>
+                </HBox>
+            </children>
+
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+        </VBox>
+    </children>
+</AnchorPane>
