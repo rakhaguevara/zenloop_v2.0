@@ -18,5 +18,13 @@
       <stressList/>
       <songList/>
     </user>
+    <user>
+      <username>rakha</username>
+      <email>rakha@gmail.com</email>
+      <password>rakha1234</password>
+      <role>Zenloopers</role>
+      <stressList/>
+      <songList/>
+    </user>
   </users>
 </users>

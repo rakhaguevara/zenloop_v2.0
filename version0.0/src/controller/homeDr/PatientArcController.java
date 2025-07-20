@@ -1,5 +1,6 @@
 package controller.homeDr;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -57,6 +58,9 @@ public class PatientArcController implements Initializable {
     @FXML
     private Button btnClearPatient;
 
+    @FXML
+    private Button btnDeletePastPatients;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setupTableColumns();
@@ -99,6 +103,8 @@ public class PatientArcController implements Initializable {
         btnAddPatient.setOnAction(event -> openPatientForm(null));
         btnEditPatientInfo.setOnAction(event -> editSelectedPatient());
         btnClearPatient.setOnAction(event -> movePatientToPast());
+        btnDeletePastPatients.setOnAction(this::handleDeletePastPatients);
+
     }
 
     private void openPatientForm(Patient patient) {
@@ -164,6 +170,27 @@ public class PatientArcController implements Initializable {
         } else {
             showAlert("Warning", "Please select a patient to move to past patients.", Alert.AlertType.WARNING);
         }
+    }
+
+    @FXML
+    private void handleDeletePastPatients(ActionEvent event) {
+        Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmation.setTitle("Delete All Past Patients");
+        confirmation.setHeaderText("Are you sure you want to delete all past patients?");
+        confirmation.setContentText("This will remove all records from past patients and clear the XML file.");
+
+        confirmation.showAndWait().ifPresent(response -> {
+            if (response == ButtonType.OK) {
+                // Kosongkan ObservableList past patients
+                PatientService.getPastPatients().clear();
+
+                // Kosongkan file XML
+                String username = SessionManager.getCurrentUser().getUsername();
+                PatientXmlHandler.clearPastPatientsXml(username);
+
+                showAlert("Success", "All past patients deleted successfully!", Alert.AlertType.INFORMATION);
+            }
+        });
     }
 
     private void showAlert(String title, String message, Alert.AlertType type) {

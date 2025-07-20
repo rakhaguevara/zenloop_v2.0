@@ -107,4 +107,23 @@ public class PatientXmlHandler {
         }
     }
 
+    public static void clearPastPatientsXml(String username) {
+        try {
+            String folderPath = "data/past_patient_doctor_" + username;
+            String filePath = folderPath + "/doctor_" + username + "_pastPatients.xml";
+            File file = new File(filePath);
+            if (file.exists()) {
+                FileOutputStream fos = new FileOutputStream(file);
+                String emptyXml = "<patients></patients>";
+                fos.write(emptyXml.getBytes());
+                fos.close();
+                System.out.println("✅ Past patients XML dikosongkan: " + file.getPath());
+            } else {
+                System.out.println("⚠️ File tidak ditemukan: " + file.getPath());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

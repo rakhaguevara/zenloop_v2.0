@@ -20,7 +20,10 @@ import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import org.json.JSONObject;
 import org.json.JSONArray;
+
+import util.GeminiService;
 import util.GroqService;
+import util.MarkdownFormatter;
 
 public class aiController implements Initializable {
 
@@ -49,35 +52,56 @@ public class aiController implements Initializable {
         showWelcomeMessage();
     }
 
+    // ini grok service first line
+    // =====================================================================================
     // @FXML
     // private void handleSendAction() {
     // String userInput = inputField.getText();
     // if (userInput == null || userInput.trim().isEmpty())
     // return;
 
-    // chatArea.appendText("You : " + userInput + "\n");
+    // addChatBubble(userInput, true); // Tampilkan bubble dari user
     // inputField.clear();
 
-    // // Tampilkan placeholder mengetik
-    // chatArea.appendText("Bot: sedang menulis...\n");
+    // // Tampilkan indikator mengetik
+    // HBox typingWrapper = addTypingIndicatorBubble();
 
-    // // Jalankan request di thread terpisah
-    // new Thread(() -> {
-    // String botReply = GroqService.cleanMarkdown(GroqService.askGroq(userInput));
-
-    // // Update UI di thread JavaFX
-    // Platform.runLater(() -> {
-    // String currentText = chatArea.getText();
-    // int typingIndex = currentText.lastIndexOf("Bot: sedang menulis...");
-    // if (typingIndex != -1) {
-    // chatArea.replaceText(typingIndex, currentText.length(), "Bot: " + botReply +
-    // "\n");
-    // } else {
-    // chatArea.appendText("Bot: " + botReply + "\n");
+    // // Hapus welcomeBox jika masih ada
+    // if (welcomeBox != null && chatContainer.getChildren().contains(welcomeBox)) {
+    // chatContainer.getChildren().remove(welcomeBox);
+    // welcomeBox = null;
     // }
+
+    // new Thread(() -> {
+    // String botReply;
+
+    // if (userInput.trim().equalsIgnoreCase("halo")) {
+    // botReply = "Hello there, I'm ZenAI, your personal assistant 😊, what can I
+    // help you with today?";
+    // } else if (isBahasaIndonesia(userInput)) {
+    // botReply = "Sorry, I only understand English. Please ask your question in
+    // English.";
+    // } else {
+    // String rawResponse = GroqService.askGroq(userInput);
+    // botReply = GroqService.cleanMarkdown(rawResponse);
+    // }
+
+    // String finalReply = botReply;
+
+    // // Tampilkan balasan di UI JavaFX thread
+    // Platform.runLater(() -> {
+    // chatContainer.getChildren().remove(typingWrapper); // hapus indikator
+    // Label botBubble = addChatBubble("", false); // bubble kosong
+    // simulateTypingEffect(finalReply, botBubble, 10); // efek ketik
     // });
     // }).start();
     // }
+
+    // ini grok service last line
+    // =====================================================================================
+
+    // ini Gemini service Frist line
+    // =====================================================================================
     @FXML
     private void handleSendAction() {
         String userInput = inputField.getText();
@@ -90,6 +114,7 @@ public class aiController implements Initializable {
         // Tampilkan indikator mengetik
         HBox typingWrapper = addTypingIndicatorBubble();
 
+        // Hapus welcome box jika masih ada
         if (welcomeBox != null && chatContainer.getChildren().contains(welcomeBox)) {
             chatContainer.getChildren().remove(welcomeBox);
             welcomeBox = null;
@@ -99,22 +124,26 @@ public class aiController implements Initializable {
             String botReply;
 
             if (userInput.trim().equalsIgnoreCase("halo")) {
-                botReply = "Hello there, I'm ZenAI, your personal assistant 😊, what can i help you today?";
-            } else if (isBahasaIndonesia(userInput)) {
-                botReply = "Sorry, I only understand English. Please ask your question in English.";
+                botReply = "Hello there, I'm ZenAI, your personal assistant 😊, what can I help you with today?";
             } else {
-                botReply = GroqService.cleanMarkdown(GroqService.askGroq(userInput));
+                String rawResponse = GeminiService.generateContent(userInput);
+                String rawReply = extractGeminiReply(rawResponse);
+                botReply = MarkdownFormatter.clean(rawReply);
+
             }
 
             String finalReply = botReply;
+
             Platform.runLater(() -> {
-                chatContainer.getChildren().remove(typingWrapper); // hapus indikator
-                Label botBubble = addChatBubble("", false); // bubble kosong dulu
-                simulateTypingEffect(finalReply, botBubble, 10);
+                chatContainer.getChildren().remove(typingWrapper); // Hapus indikator
+                Label botBubble = addChatBubble("", false); // Bubble kosong dahulu
+                simulateTypingEffect(finalReply, botBubble, 10); // Efek ketik
             });
         }).start();
     }
 
+    // ini Gemini service Lastt line
+    // =====================================================================================
     private Label addChatBubble(String message, boolean isUser) {
         Label bubble = new Label(message);
         bubble.setWrapText(true);
@@ -238,6 +267,41 @@ public class aiController implements Initializable {
         tt.setDelay(Duration.millis(delayMillis));
         return tt;
     }
+
+    // Config gemini awal
+    // ==========================================================================
+    private String extractGeminiReply(String rawJson) {
+        try {
+            JSONObject json = new JSONObject(rawJson);
+
+            if (!json.has("candidates")) {
+                // Coba ambil pesan error jika ada
+                if (json.has("error")) {
+                    JSONObject err = json.getJSONObject("error");
+                    return "Gemini Error: " + err.optString("message", "Unknown error");
+                }
+
+                return "No candidates found in Gemini response.";
+            }
+
+            JSONArray candidates = json.getJSONArray("candidates");
+            if (candidates.length() > 0) {
+                JSONObject content = candidates.getJSONObject(0).getJSONObject("content");
+                JSONArray parts = content.getJSONArray("parts");
+                if (parts.length() > 0) {
+                    return parts.getJSONObject(0).getString("text");
+                }
+            }
+
+            return "No valid reply found in Gemini response.";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "Sorry, something went wrong parsing the response.";
+        }
+    }
+
+    // Config gemini akhir
+    // ==========================================================================
 
     private boolean isBahasaIndonesia(String input) {
         String lower = input.toLowerCase();

@@ -44,14 +44,20 @@
                         <Button fx:id="btnEditPatientInfo" layoutX="1005.0" layoutY="16.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="148.0" styleClass="button-edit" stylesheets="@../style.css" text="Edit" AnchorPane.leftAnchor="842.0" AnchorPane.topAnchor="6.0" />
                     </children>
                 </AnchorPane>
-                <Button fx:id="btnClearPatient" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" styleClass="button-add" stylesheets="@../card-journal.css" text="Add Here" VBox.vgrow="NEVER">
-                    <cursor>
+            <AnchorPane prefHeight="63.0" prefWidth="1190.0">
+               <children>
+                      <Button fx:id="btnClearPatient" layoutX="1040.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" styleClass="button-add" stylesheets="@../card-journal.css" text="Swap Down" AnchorPane.leftAnchor="1040.0" AnchorPane.topAnchor="29.0">
+                          <cursor>
+                              <Cursor fx:constant="HAND" />
+                          </cursor>
+                      </Button>
+                  <Button fx:id="btnDeletePastPatients" layoutX="940.0" layoutY="29.0" mnemonicParsing="false" onAction="#handleDeletePastPatients" prefHeight="25.0" prefWidth="90.0" styleClass="button-logout" stylesheets="@../style.css" text="Clear">
+                     <cursor>
                         <Cursor fx:constant="HAND" />
-                    </cursor>
-                    <VBox.margin>
-                        <Insets bottom="15.0" left="1019.0" top="24.0" />
-                    </VBox.margin>
-                </Button>
+                     </cursor>
+                  </Button>
+               </children>
+            </AnchorPane>
                 <TableView fx:id="tablePastPatient" prefHeight="242.0" prefWidth="1096.0" styleClass="table-column-header" stylesheets="@../style.css">
                     <columns>
                         <TableColumn fx:id="colNamePatientPast" prefWidth="199.0" text="Name" />

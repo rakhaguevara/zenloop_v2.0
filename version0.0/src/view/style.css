@@ -86,7 +86,7 @@
     -fx-background-color : white;
     -fx-text-fill: #E76B6B;
     -fx-border-color: rgba(0, 0, 0, 0.356);
-    -fx-border-radius: 8;    
+    -fx-border-radius: 4;    
 }
 
 .button-logout:hover{
