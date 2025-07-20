@@ -47,7 +47,7 @@ public class StatisticController {
     @FXML
     private DatePicker datePicker;
 
-    // private XYChart.Series<String, Number> dataMingguan = new XYChart.Series<>();
+    private XYChart.Series<String, Number> dataMingguan = new XYChart.Series<>();
     private ObservableList<StressHarian> riwayatData = FXCollections.observableArrayList();
     private final String[] hariMinggu = { "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu" };
 
@@ -55,7 +55,7 @@ public class StatisticController {
     public void initialize() {
         if (hariAxis != null) {
             hariAxis.setCategories(FXCollections.observableArrayList(Arrays.asList(hariMinggu)));
-            // lineChartStress.getData().add(dataMingguan);
+            lineChartStress.getData().add(dataMingguan);
         }
 
         kolomTanggal.setCellValueFactory(new PropertyValueFactory<>("tanggal"));

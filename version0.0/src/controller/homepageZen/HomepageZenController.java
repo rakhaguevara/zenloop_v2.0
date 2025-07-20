@@ -77,8 +77,7 @@ public class HomepageZenController {
     private void muatDariXML() {
         try {
             String username = model.SessionManager.getCurrentUser().getUsername();
-            String path = "data_stress_tabel_" + username + ".xml";
-
+            String path = "data/stress_statistic/user_statistic_data/data_stress_tabel_" + username + ".xml";
             FileReader reader = new FileReader(path);
             XStream xstream = new XStream(new StaxDriver());
             xstream.allowTypes(new Class[] { StressHarian.class, ArrayList.class });
