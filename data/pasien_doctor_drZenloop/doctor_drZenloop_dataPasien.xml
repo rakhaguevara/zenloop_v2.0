@@ -1,0 +1,11 @@
+<patients>
+  <patient>
+    <patientId>1</patientId>
+    <name>Rakha Dzikra Guevara</name>
+    <dateOfBirth>2025-07-19</dateOfBirth>
+    <status>Active Treatment</status>
+    <patientIssue>Bipolar and insecurity detected</patientIssue>
+    <dateConsultation>2025-07-20</dateConsultation>
+    <createdBy>drZenloop</createdBy>
+  </patient>
+</patients>
