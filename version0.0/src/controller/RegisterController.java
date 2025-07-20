@@ -67,9 +67,9 @@ public class RegisterController {
             util.AlertUtil.showAlert(Alert.AlertType.ERROR, "Password Mismatch", "Passwords do not match.");
             return;
         }
-        if (password.length() < 1 || password.length() > 6) {
+        if (password.length() < 6) {
             util.AlertUtil.showAlert(Alert.AlertType.ERROR, "Invalid Password",
-                    "Password must be 1 to 6 or long");
+                    "Password must be 1 to 6 wrods or long");
             return;
         }
 

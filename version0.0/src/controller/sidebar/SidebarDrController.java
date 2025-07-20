@@ -19,6 +19,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import model.SessionManager;
+import model.UserData;
 
 public class SidebarDrController {
 
@@ -42,7 +44,20 @@ public class SidebarDrController {
 
     @FXML
     public void initialize() {
-        // Set default active menu
+        System.out.println("Sidebar Dr loaded");
+
+        if (SessionManager.isLoggedIn()) {
+            UserData user = SessionManager.getCurrentUser();
+            nameUserDr.setText(user.getUsername());
+            zenloopCodeDr.setText(user.getEmail());
+            setProfileImage(user.getProfileImagePath());
+
+            System.out.println("Logged in as: " + user.getNama() + " | Email: " + user.getEmail());
+        } else {
+            nameUserDr.setText("Doctor Name");
+            zenloopCodeDr.setText("Zenloop Email");
+        }
+
         setActiveItem(homepageItemDr, icon1Dr, "/app/resource/icon1Act.png");
     }
 
@@ -135,6 +150,26 @@ public class SidebarDrController {
         } catch (Exception e) {
             System.err.println("Failed to load active icon: " + activeIconPath);
             e.printStackTrace();
+        }
+    }
+
+    private void setProfileImage(String imagePath) {
+        if (imagePath != null && !imagePath.isEmpty()) {
+            try {
+                Image image = new Image(getClass().getResourceAsStream(imagePath));
+                imgProfileDr.setFill(new javafx.scene.paint.ImagePattern(image));
+            } catch (Exception e) {
+                System.err.println("Failed to load profile image: " + e.getMessage());
+                e.printStackTrace();
+            }
+        } else {
+            // Default avatar jika imagePath null
+            try {
+                Image image = new Image(getClass().getResourceAsStream("/app/resource/defaultProfile.png"));
+                imgProfileDr.setFill(new javafx.scene.paint.ImagePattern(image));
+            } catch (Exception e) {
+                System.err.println("Failed to load default profile image.");
+            }
         }
     }
 

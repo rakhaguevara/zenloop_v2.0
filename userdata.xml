@@ -1,0 +1,20 @@
+<users>
+  <users>
+    <user>
+      <username>zenloop</username>
+      <email>zenloop@gmail.com</email>
+      <password>zenloop123</password>
+      <role>Zenloopers</role>
+      <stressList/>
+      <songList/>
+    </user>
+    <user>
+      <username>drZenloop</username>
+      <email>drzen@gmail.com</email>
+      <password>zenloop123</password>
+      <role>Proffessional</role>
+      <stressList/>
+      <songList/>
+    </user>
+  </users>
+</users>

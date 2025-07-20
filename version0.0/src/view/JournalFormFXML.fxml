@@ -14,14 +14,16 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="478.0" prefWidth="736.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.JournalFormController">
+<AnchorPane prefHeight="478.0" prefWidth="736.0"
+    xmlns="http://javafx.com/javafx/23.0.1"
+    xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.JournalFormController">
 
     <children>
-      <ImageView fitHeight="650.0" fitWidth="736.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../app/resource/mynaui_send.png" />
-         </image>
-      </ImageView>
+        <ImageView fitHeight="650.0" fitWidth="736.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../app/resource/mynaui_send.png" />
+            </image>
+        </ImageView>
         <VBox prefHeight="464.0" prefWidth="560.0" spacing="15.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
 
             <children>

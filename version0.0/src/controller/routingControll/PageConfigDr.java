@@ -4,9 +4,9 @@ public enum PageConfigDr {
     HOMEPAGE_DR("/view/NotFindPage/nfp.fxml", false),
     PATIENT_DASHBOARD_DR("/view/NotFindPage/nfp.fxml", false),
     YOUR_CLINIC("/view/NotFindPage/nfp.fxml", false),
-    ZEN_BOT_AI_DR("/view/NotFindPage/nfp.fxml", true),
-    SETTING_DR("/view/NotFindPage/nfp.fxml", false),
-    FAQ_DR("/view/NotFindPage/nfp.fxml", false);
+    ZEN_BOT_AI_DR("/view/DashboardProf/chatbotDr.fxml", true),
+    SETTING_DR("/view/DashboardProf/settingDr.fxml", false),
+    FAQ_DR("/view/DashboardProf/faqDr.fxml", false);
 
     private final String fxmlPath;
     private final boolean showRightbar;
