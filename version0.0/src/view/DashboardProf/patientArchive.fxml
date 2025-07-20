@@ -10,10 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="840.0" prefWidth="1190.0"
-    xmlns="http://javafx.com/javafx/23.0.1"
-    xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="840.0" prefWidth="1190.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.homeDr.PatientArcController">
     <children>
         <ImageView fitHeight="840.0" fitWidth="1190.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -47,7 +44,7 @@
                         <Button fx:id="btnEditPatientInfo" layoutX="1005.0" layoutY="16.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="148.0" styleClass="button-edit" stylesheets="@../style.css" text="Edit" AnchorPane.leftAnchor="842.0" AnchorPane.topAnchor="6.0" />
                     </children>
                 </AnchorPane>
-                <Button fx:id="btnClearPatient" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" styleClass="button-add" stylesheets="@../card-journal.css" text="Clear" VBox.vgrow="NEVER">
+                <Button fx:id="btnClearPatient" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" styleClass="button-add" stylesheets="@../card-journal.css" text="Add Here" VBox.vgrow="NEVER">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>

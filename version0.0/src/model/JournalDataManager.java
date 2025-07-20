@@ -10,12 +10,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JournalDataManager {
-    private static final String XML_FILE = "journal_entries.xml";
+    private static final String XML_FILE = "data/journal_archive/journal_entries.xml";
+    private String username;
+
     private ObservableList<JournalEntry> journalEntries;
     private XStream xstream;
     private String id;
 
-    public JournalDataManager() {
+    public JournalDataManager(String username) {
+        this.username = username;
         journalEntries = FXCollections.observableArrayList();
         initializeXStream();
         loadDataFromXML();
@@ -32,7 +35,11 @@ public class JournalDataManager {
     }
 
     public void loadDataFromXML() {
-        File file = new File(XML_FILE);
+        File dir = new File("data/journal_archive");
+        if (!dir.exists())
+            dir.mkdirs();
+
+        File file = new File(generateFileName());
         if (!file.exists()) {
             journalEntries.clear();
             return;
@@ -50,18 +57,26 @@ public class JournalDataManager {
         }
     }
 
+    public ObservableList<JournalEntry> getJournalEntries() {
+        return journalEntries;
+    }
+
     public void simpanKeXML() {
-        try (FileWriter writer = new FileWriter(XML_FILE)) {
+        try {
+            File dir = new File("data/journal_archive");
+            if (!dir.exists())
+                dir.mkdirs();
+
+            String filePath = generateFileName();
+            FileWriter writer = new FileWriter(filePath);
             xstream.toXML(new ArrayList<>(journalEntries), writer);
-            System.out.println("Journal entries saved successfully to " + XML_FILE);
+            writer.close();
+
+            System.out.println("Journal entries saved to: " + filePath);
         } catch (IOException e) {
             System.err.println("Error saving journal entries: " + e.getMessage());
             e.printStackTrace();
         }
-    }
-
-    public ObservableList<JournalEntry> getJournalEntries() {
-        return journalEntries;
     }
 
     public void addJournalEntry(JournalEntry entry) {
@@ -92,6 +107,12 @@ public class JournalDataManager {
             }
         }
         return null;
+    }
+
+    private String generateFileName() {
+        // Menggunakan tanggal sekarang untuk nama file
+        String tanggal = LocalDate.now().toString(); // atau bisa pakai ID jurnal
+        return "data/journal_archive/journal_" + username + "_archive_" + tanggal + ".xml";
     }
 
 }

@@ -110,7 +110,7 @@ public class JournalFormController implements Initializable {
 
         try {
             if (mode == Mode.ADD) {
-                String currentUser = SessionManager.getCurrentUser().getUsername(); // atau getEmail(), getId(), dll
+                String currentUser = SessionManager.getCurrentUser().getUsername();
                 JournalEntry newEntry = new JournalEntry(
                         titleField.getText().trim(),
                         contentArea.getText().trim(),

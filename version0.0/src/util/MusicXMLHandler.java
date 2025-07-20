@@ -10,7 +10,7 @@ import java.util.List;
 
 public class MusicXMLHandler {
 
-    private static final String DIR_PATH = "data_music/";
+    private static final String DIR_PATH = "data/music/"; // perubahan ke dalam folder 'data/music'
     private static final XStream xstream = new XStream(new StaxDriver());
 
     static {
@@ -24,7 +24,7 @@ public class MusicXMLHandler {
     }
 
     /**
-     * Memuat lagu milik user berdasarkan username.
+     * Memuat lagu milik user berdasarkan username dari folder data/music
      */
     public static List<Song> loadSongs(String username) {
         File file = new File(DIR_PATH + username + "_songs.xml");
@@ -41,13 +41,13 @@ public class MusicXMLHandler {
     }
 
     /**
-     * Menyimpan lagu milik user ke file pribadi berdasarkan username.
+     * Menyimpan lagu milik user ke folder data/music berdasarkan username.
      */
     public static void saveSongs(List<Song> songs, String username) {
         try {
             File dir = new File(DIR_PATH);
             if (!dir.exists())
-                dir.mkdirs();
+                dir.mkdirs(); // buat folder data/music jika belum ada
 
             File file = new File(DIR_PATH + username + "_songs.xml");
 
@@ -55,8 +55,10 @@ public class MusicXMLHandler {
                 xstream.toXML(new ArrayList<>(songs), writer);
             }
 
+            System.out.println("✅ Lagu berhasil disimpan di: " + file.getPath());
+
         } catch (Exception e) {
-            e.printStackTrace();
+            System.err.println("❌ Gagal menyimpan lagu: " + e.getMessage());
         }
     }
 }

@@ -38,7 +38,7 @@ public class MainJournalController implements Initializable {
 
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
-        dataManager = new JournalDataManager(); // atau sesuai implementasimu
+        this.dataManager = new JournalDataManager(SessionManager.getCurrentUser().getUsername());
 
         if (journalCardsContainer != null) {
             setupComponents();

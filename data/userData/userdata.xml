@@ -1,16 +1,18 @@
 <users>
   <users>
     <user>
+      <nama>Rakha Dzikra Guevara</nama>
       <username>zenloop</username>
       <email>zenloop@gmail.com</email>
       <password>zenloop123</password>
       <role>Zenloopers</role>
+      <phone>08137656123</phone>
       <stressList/>
       <songList/>
     </user>
     <user>
       <username>drZenloop</username>
-      <email>drzen@gmail.com</email>
+      <email>zenloopdr@gmail.com</email>
       <password>zenloop123</password>
       <role>Proffessional</role>
       <stressList/>
