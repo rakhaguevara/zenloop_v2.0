@@ -3,12 +3,14 @@ package controller.rightbar;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -17,10 +19,14 @@ import model.Song;
 import model.SessionManager;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import controller.HomeController;
+import controller.sidebar.SidebarController;
 
 public class rightbarController implements Initializable {
 
@@ -38,6 +44,9 @@ public class rightbarController implements Initializable {
 
     @FXML
     private AnchorPane rightBarPane;
+
+    @FXML
+    private BorderPane mainContentPane;
 
     // private List<Song> songList = new ArrayList<>();
     // private ObservableList<Song> songList = FXCollections.observableArrayList();
@@ -61,6 +70,21 @@ public class rightbarController implements Initializable {
         btnNextMusic.setOnMouseClicked(e -> nextSong());
         btnPreviousMusic.setOnAction(e -> prevSong());
         btnAddMusic.setOnAction(e -> addSong());
+    }
+
+    @FXML
+    private void handleToConsult() {
+
+        SidebarController sidebar = SidebarController.getInstance();
+
+        if (sidebar != null) {
+            sidebar.handleFindYourKonselorClick();
+        }
+
+        if (HomeController.getInstance() != null) {
+            HomeController.getInstance().showFindYourKonselor();
+        }
+
     }
 
     private void playSong() {

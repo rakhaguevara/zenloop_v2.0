@@ -24,7 +24,6 @@ public enum PageConfigDr {
         return showRightbar;
     }
 
-    // Utility method to get enum by path
     public static PageConfigDr getByPath(String path) {
         for (PageConfigDr config : values()) {
             if (config.getFxmlPath().equals(path)) {

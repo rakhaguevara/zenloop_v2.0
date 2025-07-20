@@ -17,7 +17,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="homePage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="845.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.homepageZen.HomepageZenController">
+<AnchorPane fx:id="homePage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="845.0" prefWidth="940.0"
+   xmlns="http://javafx.com/javafx/23.0.1"
+   xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.homepageZen.HomepageZenController">
    <children>
       <ImageView fitHeight="840.0" fitWidth="940.0">
          <image>
@@ -129,7 +131,7 @@
                                                       </VBox>
                                                       <VBox prefHeight="81.0" prefWidth="130.0">
                                                          <children>
-                                                            <Button fx:id="txtMarkComplete1" onAction="#handleCompleteAction" style="-fx-background-color: transparent; -fx-text-fill: #000000; -fx-font-size: 13px; -fx-cursor: hand;" text="Mark Complete">
+                                                            <Button fx:id="txtMarkComplete1" onAction="#markAsComplete1" style="-fx-background-color: transparent; -fx-text-fill: #000000; -fx-font-size: 13px; -fx-cursor: hand; -fx-focus-color: transparent; -fx-border-color: transparent; -fx-faint-focus-color: transparent;" styleClass="button-markasdone" stylesheets="@../button.css" text="Mark Complete">
                                                                <VBox.margin>
                                                                   <Insets left="16.0" top="16.0" />
                                                                </VBox.margin>
@@ -194,7 +196,7 @@
                                                       </VBox>
                                                       <VBox prefHeight="81.0" prefWidth="130.0">
                                                          <children>
-                                                            <Button fx:id="txtMarkComplete2" onAction="#handleCompleteAction" style="-fx-background-color: transparent; -fx-text-fill: #000000; -fx-font-size: 13px; -fx-cursor: hand;" text="Mark Complete">
+                                                            <Button fx:id="txtMarkComplete2" onAction="#markAsComplete2" style="-fx-background-color: transparent; -fx-text-fill: #000000; -fx-font-size: 13px; -fx-cursor: hand;" text="Mark Complete">
                                                                <VBox.margin>
                                                                   <Insets left="16.0" top="16.0" />
                                                                </VBox.margin>

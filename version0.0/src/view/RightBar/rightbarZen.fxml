@@ -327,7 +327,7 @@
                      <children>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Button fx:id="btnToConsult" mnemonicParsing="false" prefHeight="38.0" prefWidth="228.0" styleClass="rightbar-button" stylesheets="@../style.css" text="Schedule a new consultan">
+                              <Button fx:id="btnToConsult" onAction="#handleToConsult" mnemonicParsing="false" prefHeight="38.0" prefWidth="228.0" styleClass="rightbar-button" stylesheets="@../style.css" text="Schedule a new consultan">
                                  <HBox.margin>
                                     <Insets left="15.0" top="6.0" />
                                  </HBox.margin>
@@ -388,7 +388,7 @@
                               </ImageView>
                            </graphic>
                            <HBox.margin>
-                              <Insets left="69.0" top="27.0" />
+                              <Insets left="65.0" top="27.0" />
                            </HBox.margin>
                            <cursor>
                               <Cursor fx:constant="HAND" />

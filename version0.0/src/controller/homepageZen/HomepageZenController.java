@@ -104,6 +104,28 @@ public class HomepageZenController {
         }
     }
 
+    @FXML
+    private void markAsComplete1(ActionEvent event) {
+        if ("Mark Complete".equals(txtMarkComplete1.getText())) {
+            txtMarkComplete1.setText("Complete");
+            txtMarkComplete1.setStyle("-fx-text-fill: #015C55; -fx-font-weight: bold;");
+        } else {
+            txtMarkComplete1.setText("Mark Complete");
+            txtMarkComplete1.setStyle("-fx-text-fill: black;");
+        }
+    }
+
+    @FXML
+    private void markAsComplete2(ActionEvent event) {
+        if ("Mark Complete".equals(txtMarkComplete2.getText())) {
+            txtMarkComplete2.setText("Complete");
+            txtMarkComplete2.setStyle("-fx-text-fill: #015C55; -fx-font-weight: bold;");
+        } else {
+            txtMarkComplete2.setText("Mark Complete");
+            txtMarkComplete2.setStyle("-fx-text-fill: black;");
+        }
+    }
+
     private void refreshLineChartPerMinggu(List<StressHarian> riwayatData) {
         XYChart.Series<String, Number> series = new XYChart.Series<>();
         series.setName("Rata-Rata Mingguan");

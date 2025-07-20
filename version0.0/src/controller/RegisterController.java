@@ -67,6 +67,11 @@ public class RegisterController {
             util.AlertUtil.showAlert(Alert.AlertType.ERROR, "Password Mismatch", "Passwords do not match.");
             return;
         }
+        if (password.length() < 1 || password.length() > 6) {
+            util.AlertUtil.showAlert(Alert.AlertType.ERROR, "Invalid Password",
+                    "Password must be 1 to 6 or long");
+            return;
+        }
 
         // Buat user baru dan simpan
         String nama = tfUsername.getText().trim();

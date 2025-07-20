@@ -13,6 +13,7 @@ public class JournalDataManager {
     private static final String XML_FILE = "journal_entries.xml";
     private ObservableList<JournalEntry> journalEntries;
     private XStream xstream;
+    private String id;
 
     public JournalDataManager() {
         journalEntries = FXCollections.observableArrayList();
@@ -70,7 +71,8 @@ public class JournalDataManager {
 
     public void updateJournalEntry(JournalEntry updatedEntry) {
         for (int i = 0; i < journalEntries.size(); i++) {
-            if (journalEntries.get(i).getId() == updatedEntry.getId()) {
+            JournalEntry entry = journalEntries.get(i);
+            if (entry.getId() == updatedEntry.getId()) {
                 journalEntries.set(i, updatedEntry);
                 simpanKeXML();
                 break;
@@ -91,4 +93,5 @@ public class JournalDataManager {
         }
         return null;
     }
+
 }
