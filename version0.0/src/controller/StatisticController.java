@@ -215,8 +215,15 @@ public class StatisticController {
     private void simpanKeXML() {
         try {
             String username = model.SessionManager.getCurrentUser().getUsername();
-            String path = "data_stress_tabel_" + username + ".xml";
-            FileWriter writer = new FileWriter(path);
+            String folderPath = "data/stress_statistic/user_statistic_data/";
+            String filePath = folderPath + "data_stress_tabel_" + username + ".xml";
+
+            File dir = new File(folderPath);
+            if (!dir.exists()) {
+                dir.mkdirs(); // Buat folder jika belum ada
+            }
+
+            FileWriter writer = new FileWriter(filePath);
             XStream xstream = new XStream(new DomDriver());
 
             xstream.alias("stress", StressHarian.class);
@@ -233,8 +240,9 @@ public class StatisticController {
     private void muatDariXML() {
         try {
             String username = model.SessionManager.getCurrentUser().getUsername();
-            String path = "data_stress_tabel_" + username + ".xml";
-            File file = new File(path);
+            String filePath = "data/stress_statistic/user_statistic_data/data_stress_tabel_" + username + ".xml";
+
+            File file = new File(filePath);
             if (!file.exists())
                 return;
 

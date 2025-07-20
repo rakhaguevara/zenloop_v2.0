@@ -13,7 +13,8 @@ import java.util.List;
 
 public class UserServiceXStream {
 
-    private static final String FILE_NAME = "userdata.xml";
+    private static final String DIR_PATH = "data/userData/";
+    private static final String FILE_NAME = DIR_PATH + "userdata.xml";
     private XStream xstream;
 
     public UserServiceXStream() {
@@ -47,9 +48,6 @@ public class UserServiceXStream {
         return null;
     }
 
-    /**
-     * Mengecek apakah username sudah terdaftar.
-     */
     public boolean isUsernameTaken(String username) {
         for (UserData user : loadUsers()) {
             if (user.getUsername().equalsIgnoreCase(username)) {
@@ -59,16 +57,10 @@ public class UserServiceXStream {
         return false;
     }
 
-    /**
-     * Mengembalikan seluruh user dari file XML.
-     */
     public List<UserData> loadUsers() {
         return loadUserList().getUsers();
     }
 
-    /**
-     * Mengembalikan daftar user yang memiliki role tertentu.
-     */
     public List<UserData> getUsersByRole(String role) {
         List<UserData> filtered = new ArrayList<>();
         for (UserData user : loadUsers()) {
@@ -79,9 +71,6 @@ public class UserServiceXStream {
         return filtered;
     }
 
-    /**
-     * Menyimpan ulang data user yang sudah diupdate (data stress/song dsb).
-     */
     public void saveUser(UserData updatedUser) {
         UserList userList = loadUserList();
         List<UserData> users = userList.getUsers();
@@ -93,7 +82,7 @@ public class UserServiceXStream {
                 user.setEmail(updatedUser.getEmail());
                 user.setPhone(updatedUser.getPhone());
                 user.setPassword(updatedUser.getPassword());
-                user.setProfileImagePath(updatedUser.getProfileImagePath()); // ✅ tambahkan ini
+                user.setProfileImagePath(updatedUser.getProfileImagePath());
                 break;
             }
         }
@@ -101,9 +90,6 @@ public class UserServiceXStream {
         saveUserList(userList);
     }
 
-    /**
-     * Mengambil UserList lengkap dari file.
-     */
     private UserList loadUserList() {
         try {
             File file = new File(FILE_NAME);
@@ -119,11 +105,14 @@ public class UserServiceXStream {
         }
     }
 
-    /**
-     * Menyimpan seluruh UserList ke file XML.
-     */
     private void saveUserList(UserList userList) {
-        try (FileOutputStream fos = new FileOutputStream(FILE_NAME)) {
+        try {
+            File dir = new File(DIR_PATH);
+            if (!dir.exists()) {
+                dir.mkdirs(); // Pastikan folder "data/userData" ada
+            }
+
+            FileOutputStream fos = new FileOutputStream(FILE_NAME);
             xstream.toXML(userList, fos);
         } catch (Exception e) {
             e.printStackTrace();
@@ -131,12 +120,11 @@ public class UserServiceXStream {
     }
 
     public void deleteUser(String username) {
-        List<UserData> allUsers = loadUsers(); // ✅ pakai method yang sudah ada
+        List<UserData> allUsers = loadUsers();
         allUsers.removeIf(u -> u.getUsername().equalsIgnoreCase(username));
 
         UserList updatedList = new UserList();
         updatedList.setUsers(allUsers);
         saveUserList(updatedList);
     }
-
 }
