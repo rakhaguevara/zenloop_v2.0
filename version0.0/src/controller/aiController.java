@@ -129,7 +129,6 @@ public class aiController implements Initializable {
                 String rawResponse = GeminiService.generateContent(userInput);
                 String rawReply = extractGeminiReply(rawResponse);
                 botReply = MarkdownFormatter.clean(rawReply);
-
             }
 
             String finalReply = botReply;
