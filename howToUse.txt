@@ -1,4 +1,6 @@
 Open jar ZenloopApp -> register new user (SignUp)  -> only select "zenloopers" or "Proffessional" becauze, others Role cant open the app  - >  Back to login page  -> input registered user -> enter zenloop -> enjoy our app ^_^
 
 
+Lokasi fitur tugas asd  -> register terlebih dahulu -> register menggunakan role "Proffessional" -> masuk ke dashboard -> pilih menu Patient Archive
+
 
