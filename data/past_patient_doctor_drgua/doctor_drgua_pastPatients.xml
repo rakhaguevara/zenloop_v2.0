@@ -1,0 +1,23 @@
+<patients>
+  <size>2</size>
+  <validElements>
+    <patient>
+      <patientId>1</patientId>
+      <name>rakha</name>
+      <dateOfBirth>2025-07-15</dateOfBirth>
+      <status>Completed</status>
+      <patientIssue>mental health</patientIssue>
+      <dateConsultation>2025-07-22</dateConsultation>
+      <createdBy>drgua</createdBy>
+    </patient>
+    <patient>
+      <patientId>1</patientId>
+      <name>rakha</name>
+      <dateOfBirth>2025-07-16</dateOfBirth>
+      <status>Active Treatment</status>
+      <patientIssue>sadas</patientIssue>
+      <dateConsultation>2025-07-22</dateConsultation>
+      <createdBy>drgua</createdBy>
+    </patient>
+  </validElements>
+</patients>

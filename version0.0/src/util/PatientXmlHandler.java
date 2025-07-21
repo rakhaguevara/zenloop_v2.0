@@ -112,4 +112,42 @@ public class PatientXmlHandler {
             e.printStackTrace();
         }
     }
+
+    public static void saveQueuePatients(ArrayList<Patient> queueList, String doctorUsername) {
+        try {
+            String folderName = "data/queue_patient_doctor_" + doctorUsername;
+            String fileName = "doctor_" + doctorUsername + "_queuePatients.xml";
+
+            File folder = new File(folderName);
+            folder.mkdirs();
+
+            File file = new File(folder, fileName);
+            try (Writer writer = new OutputStreamWriter(new FileOutputStream(file), "UTF-8")) {
+                xstream.marshal(queueList, new PrettyPrintWriter(writer));
+            }
+
+            System.out.println("✅ Queue patients disimpan ke: " + file.getPath());
+        } catch (Exception e) {
+            System.err.println("❌ Gagal menyimpan queue patients: " + e.getMessage());
+        }
+    }
+
+    public static ArrayList<Patient> loadQueuePatients(String doctorUsername) {
+        String filePath = "data/queue_patient_doctor_" + doctorUsername + "/doctor_" + doctorUsername
+                + "_queuePatients.xml";
+        File file = new File(filePath);
+        if (!file.exists()) {
+            return new ArrayList<>();
+        }
+
+        try (FileInputStream fis = new FileInputStream(file)) {
+            ArrayList<Patient> loadedList = (ArrayList<Patient>) xstream.fromXML(fis);
+            loadedList.rebuildArrayAfterLoad();
+            return loadedList;
+        } catch (Exception e) {
+            System.err.println("❌ Gagal memuat queue patients dari XML: " + e.getMessage());
+            return new ArrayList<>();
+        }
+    }
+
 }

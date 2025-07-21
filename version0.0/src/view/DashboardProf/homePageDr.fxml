@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import javafx.scene.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
@@ -21,115 +22,119 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="homePage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-    minWidth="-Infinity" prefHeight="845.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/8"
-    xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.homepageZen.HomepageZenController">
-    <children>
-        <ImageView fitHeight="840.0" fitWidth="940.0">
-            <image>
-                <Image url="@../../app/resource/homepageuser.png" />
-            </image>
-        </ImageView>
-        <HBox prefHeight="840.0" prefWidth="940.0">
-            <children>
-                <VBox prefHeight="840.0" prefWidth="940.0">
-                    <children>
-                        <VBox prefHeight="221.0" prefWidth="940.0">
-                            <children>
-                                <AnchorPane prefHeight="222.0" prefWidth="940.0" />
-                            </children>
-                        </VBox>
-                        <VBox prefHeight="324.0" prefWidth="940.0">
-                            <children>
-                                <HBox prefHeight="326.0" prefWidth="940.0">
-                                    <children>
-                                        <HBox prefHeight="324.0" prefWidth="627.0">
-                                            <children>
-                                                <AnchorPane prefHeight="323.0" prefWidth="627.0">
-                                                    <children>
-                                                        <BarChart fx:id="tvStress" layoutX="25.0"
-                                                            layoutY="16.0" prefHeight="292.0"
-                                                            prefWidth="581.0"
-                                                            style="-fx-background-color: white;"
-                                                            AnchorPane.topAnchor="14.0">
-                                                            <xAxis>
-                                                                <CategoryAxis side="BOTTOM" />
-                                                            </xAxis>
-                                                            <yAxis>
-                                                                <NumberAxis side="LEFT" />
-                                                            </yAxis>
-                                                        </BarChart>
-                                                    </children>
-                                                </AnchorPane>
-                                            </children>
-                                        </HBox>
-                                        <HBox prefHeight="324.0" prefWidth="312.0">
-                                            <children>
-                                                <AnchorPane prefHeight="323.0" prefWidth="314.0">
-                                                    <children>
-                                                        <Button fx:id="btnToJournal" layoutX="180.0"
-                                                            layoutY="252.0" mnemonicParsing="false"
-                                                            onAction="#handleToJournal"
-                                                            prefHeight="44.0" prefWidth="102.0"
-                                                            styleClass="button-saveChange"
-                                                            stylesheets="@../style.css"
-                                                            text="Start Writing!">
-                                                            <font>
-                                                                <Font size="10.0" />
-                                                            </font>
-                                                            <cursor>
-                                                                <Cursor fx:constant="HAND" />
-                                                            </cursor>
-                                                        </Button>
-                                                    </children>
-                                                </AnchorPane>
-                                            </children>
-                                        </HBox>
-                                    </children>
-                                </HBox>
-                            </children>
-                        </VBox>
-                        <VBox prefHeight="297.0" prefWidth="940.0">
-                            <children>
-                                <AnchorPane prefHeight="306.0" prefWidth="940.0">
-                                    <children>
-                                        <VBox layoutX="12.0" layoutY="62.0" prefHeight="220.0"
-                                            prefWidth="916.0">
-                                            <children>
-                                                <Pane prefHeight="58.0" prefWidth="916.0">
-                                                    <VBox.margin>
-                                                        <Insets top="16.0" />
-                                                    </VBox.margin>
-                                                </Pane>
-                                                <Pane prefHeight="54.0" prefWidth="916.0">
-                                                    <VBox.margin>
-                                                        <Insets top="8.0" />
-                                                    </VBox.margin>
-                                                </Pane>
-                                                <Pane prefHeight="58.0" prefWidth="916.0">
-                                                    <VBox.margin>
-                                                        <Insets top="8.0" />
-                                                    </VBox.margin>
-                                                </Pane>
-                                            </children>
-                                        </VBox>
-                                    </children>
-                                </AnchorPane>
-                            </children>
-                        </VBox>
-                    </children>
-                </VBox>
-            </children>
-        </HBox>
-        <Button fx:id="btnToStressCheck" layoutX="406.0" layoutY="125.0" mnemonicParsing="false"
-            onAction="#handleToStress" prefHeight="44.0" prefWidth="161.0"
-            styleClass="button-saveChange" stylesheets="@../style.css" text="Quick Mental Check-In">
-            <font>
-                <Font size="10.0" />
-            </font>
-            <cursor>
-                <Cursor fx:constant="HAND" />
-            </cursor>
-        </Button>
-    </children>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+   prefHeight="840.0" prefWidth="1190.0" xmlns="http://javafx.com/javafx/8"
+   xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.homeDr.HomepageDrController">
+   <children>
+      <ImageView fitHeight="840.0" fitWidth="1190.0" layoutX="127.0" layoutY="78.0"
+         pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0"
+         AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../../app/resource/dashboardDr.png" />
+         </image>
+      </ImageView>
+      <VBox prefHeight="840.0" prefWidth="1190.0">
+         <children>
+            <VBox prefHeight="364.0" prefWidth="1190.0">
+               <children>
+                  <HBox prefHeight="409.0" prefWidth="1190.0">
+                     <children>
+                        <AnchorPane prefHeight="364.0" prefWidth="352.0">
+                           <children>
+                              <Button layoutX="38.0" layoutY="284.0" mnemonicParsing="false"
+                                 prefHeight="41.0" prefWidth="283.0" styleClass="button-add"
+                                 text="Edit Information">
+                                 <stylesheets>
+                                    <URL value="@../content.css" />
+                                    <URL value="@../button.css" />
+                                 </stylesheets>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="364.0" prefWidth="475.0">
+                           <children>
+                              <Label fx:id="totalOnGoinPatient" layoutX="140.0" layoutY="229.0"
+                                 text="1">
+                                 <font>
+                                    <Font size="34.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="totalDonePatient" layoutX="280.0" layoutY="236.0"
+                                 text="10">
+                                 <font>
+                                    <Font size="34.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="475.0" prefWidth="1190.0">
+               <children>
+                  <HBox prefHeight="480.0" prefWidth="1190.0">
+                     <children>
+                        <AnchorPane prefHeight="475.0" prefWidth="821.0">
+                           <children>
+                              <TableView fx:id="tableHistoryMedical" layoutX="40.0" layoutY="47.0"
+                                 prefHeight="391.0" prefWidth="744.0"
+                                 styleClass="table-column-header">
+                                 <columns>
+                                    <TableColumn fx:id="NamePatient" prefWidth="229.9999771118164"
+                                       text="Name" />
+                                    <TableColumn fx:id="dateConsult" prefWidth="199.99996948242188"
+                                       text="Date Consultation" />
+                                    <TableColumn fx:id="statusPatient"
+                                       prefWidth="294.07952880859375" text="status" />
+                                 </columns>
+                                 <stylesheets>
+                                    <URL value="@../style.css" />
+                                    <URL value="@../content.css" />
+                                 </stylesheets>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="475.0" prefWidth="361.0">
+                           <children>
+                              <TableView fx:id="tableQueuePatient" layoutX="25.0" layoutY="59.0"
+                                 prefHeight="339.0" prefWidth="305.0"
+                                 styleClass="table-column-header">
+                                 <columns>
+                                    <TableColumn fx:id="NamePatientQueue"
+                                       prefWidth="134.2525634765625" text="Name" />
+                                    <TableColumn fx:id="dateConsultQueue"
+                                       prefWidth="151.74749755859375" text="Date In" />
+                                 </columns>
+                                 <stylesheets>
+                                    <URL value="@../style.css" />
+                                    <URL value="@../content.css" />
+                                 </stylesheets>
+                              </TableView>
+                              <Button fx:id="addFromTablePatient" layoutX="289.0" layoutY="11.0"
+                                 mnemonicParsing="false" prefHeight="33.0" prefWidth="41.0"
+                                 styleClass="button-add" text="+">
+                                 <stylesheets>
+                                    <URL value="@../content.css" />
+                                    <URL value="@../button.css" />
+                                 </stylesheets>
+                              </Button>
+                              <Button fx:id="btnDoneQueue" layoutX="219.0" layoutY="406.0"
+                                 mnemonicParsing="false" prefHeight="30.0" prefWidth="110.0"
+                                 styleClass="button-add" text="Button">
+                                 <stylesheets>
+                                    <URL value="@../content.css" />
+                                    <URL value="@../button.css" />
+                                 </stylesheets>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
 </AnchorPane>
