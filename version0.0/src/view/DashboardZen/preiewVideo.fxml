@@ -5,16 +5,30 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.web.WebView?>
 
+<AnchorPane xmlns="http://javafx.com/javafx/9"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="controller.VideoPlayerController"
+    prefHeight="652.0" prefWidth="1037.0">
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="652.0" prefWidth="1037.0"
-    xmlns="http://javafx.com/javafx/23.0.1"
-    xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <ImageView fitHeight="652.0" fitWidth="1037.0" layoutX="-48.0" layoutY="-15.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="-0.0" AnchorPane.topAnchor="0.0">
+        <!-- Background Image -->
+        <ImageView mouseTransparent="true"
+            preserveRatio="false"
+            pickOnBounds="true"
+            AnchorPane.topAnchor="0.0"
+            AnchorPane.bottomAnchor="0.0"
+            AnchorPane.leftAnchor="0.0"
+            AnchorPane.rightAnchor="0.0">
             <image>
                 <Image url="@../../app/resource/videoPlay.png" />
             </image>
         </ImageView>
-        <WebView fx:id="videoPlayContent" layoutX="18.0" layoutY="22.0" prefHeight="614.0" prefWidth="998.0" />
+
+        <!-- WebView for Embedded Video -->
+        <WebView fx:id="videoPlayContent"
+            AnchorPane.topAnchor="20.0"
+            AnchorPane.bottomAnchor="20.0"
+            AnchorPane.leftAnchor="20.0"
+            AnchorPane.rightAnchor="20.0" />
     </children>
 </AnchorPane>

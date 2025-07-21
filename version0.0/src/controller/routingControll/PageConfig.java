@@ -8,7 +8,7 @@ public enum PageConfig {
     FIND_KONSELOR("/view/DashboardZen/findKonselor.fxml", false),
     RELAX_MUSIC("/view/DashboardZen/musicPage.fxml", false),
     COMMUNITY("/view/NotFindPage/nfp.fxml", true),
-    HISTORY("/view/NotFindPage/nfp.fxml", false),
+    HISTORY("/view/DashboardZen/RelaxContent.fxml", false),
     SETTING("/view/DashboardZen/Setting.fxml", false),
     FAQ("/view/DashboardZen/faq.fxml", false);
 
