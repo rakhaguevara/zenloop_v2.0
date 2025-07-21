@@ -15,6 +15,9 @@ public class ZenloopApp extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
+        // FXMLLoader fxmlLoader = new
+        // FXMLLoader(getClass().getResource("/view/DashboardZen/RelaxContent.fxml"));
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Banner/banner.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);

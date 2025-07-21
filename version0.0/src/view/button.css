@@ -22,8 +22,15 @@
 
 
 .button-delete{
-    -fx-background-color : white;
-    -fx-text-fill: #444444;
+    -fx-background-color : #CE2929;
+    -fx-text-fill: white;
+
+    -fx-border-radius: 8;    
+}
+
+.button-delete:hover{
+    -fx-background-color : #b62a2a;
+    -fx-text-fill: white;
 
     -fx-border-radius: 8;    
 }
@@ -67,3 +74,23 @@
     -fx-background-insets: 0;
     -fx-effect: none;
 }
+
+.button-add {
+    -fx-background-color: #015C55; /* warna dasar */
+    -fx-text-fill: white;
+    -fx-cursor: hand; /* membuat kursor tangan saat hover */
+    -fx-font-size: 10px;
+    -fx-background-radius: 6px;
+    -fx-border-radius: 6px;
+    -fx-padding: 6 12;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 2, 0.5, 0, 1);
+    -fx-transition: all 0.3s ease;
+}
+
+.button-add:hover {
+    -fx-background-color: #024a44; /* warna saat hover */
+    -fx-scale-x: 1.05; /* efek zoom */
+    -fx-scale-y: 1.05;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 6, 0.5, 0, 2);
+}
+
