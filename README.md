@@ -8,7 +8,7 @@
 ## 🌟 About ZENLOOP
 **Zenloop** is an AI-powered mental health app that helps users monitor stress levels, build daily self-care routines, and connect securely with mental health professionals. Powered by Gemini for reflective conversations and Grok for fast, real-time emotional support, Zenloop delivers a personalized, intelligent, and empathetic experience — helping you feel calmer, more focused, and emotionally balanced every day.
 
-  <img src="docs/ui/ui-design-main-future.png" alt="SIGAP UI" width="800"/>
+  <img src="version0.0/src/app/resource/3.png" alt="ZENLOOP UI" width="1000" height="1000"/>
 </div>
 
 ## 🖼️ Background & Motivation
