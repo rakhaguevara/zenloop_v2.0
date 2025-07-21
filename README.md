@@ -170,12 +170,12 @@ Zenloop/
 ## 👨‍💻 Contributors
 This project was developed as part of the Google Solution Challenge 2025 by:
 - Rakha Dzikra Guevara - Project Manager (Hacker, Hipster, Hustler)
-- Hilmy Andrian S
-- M Bintang Satriaji E
-- Prima Uziel Nasution
+- Hilmy Andrian S  - Hacker
+- M Bintang Satriaji E - Hipster
+- Prima Uziel Nasution - Hacker
 
 ## 📄 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed by BuzzerPDI Team
 
 ## 🙏 Acknowledgements
 - Informatic Expo 2025
