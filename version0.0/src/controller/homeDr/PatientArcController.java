@@ -17,7 +17,6 @@ import util.PatientXmlHandler;
 
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class PatientArcController implements Initializable {
@@ -57,33 +56,31 @@ public class PatientArcController implements Initializable {
     private Button btnEditPatientInfo;
     @FXML
     private Button btnClearPatient;
-
     @FXML
     private Button btnDeletePastPatients;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setupTableColumns();
-        bindTableToModel(); // Langsung binding ke model
         setupButtonEvents();
-        // ✅ Ambil username dari session
+
         String username = SessionManager.getCurrentUser().getUsername();
 
-        // ✅ Load data pasien aktif dan arsip sesuai dokter yang login
         PatientService.loadPatientsFromXml(username);
         PatientService.loadPastPatientsFromXml(username);
 
+        refreshAllTables();
     }
 
     private void setupTableColumns() {
-        // Active patients table columns
+        // Active patients
         colNamePatient.setCellValueFactory(new PropertyValueFactory<>("name"));
         colDateOfBirth.setCellValueFactory(new PropertyValueFactory<>("dateOfBirth"));
         colPattientIssue.setCellValueFactory(new PropertyValueFactory<>("patientIssue"));
         colDateConsult.setCellValueFactory(new PropertyValueFactory<>("dateConsultation"));
         colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
 
-        // Past patients table columns
+        // Past patients
         colNamePatientPast.setCellValueFactory(new PropertyValueFactory<>("name"));
         colDateOfBirthPast.setCellValueFactory(new PropertyValueFactory<>("dateOfBirth"));
         colPattientIssuePast.setCellValueFactory(new PropertyValueFactory<>("patientIssue"));
@@ -91,20 +88,30 @@ public class PatientArcController implements Initializable {
         colStatusPast.setCellValueFactory(new PropertyValueFactory<>("status"));
     }
 
-    private void bindTableToModel() {
-        // Direct binding ke ObservableList di model - AUTO SYNC!
-        tablePatientInformation.setItems(PatientService.getActivePatients());
-        tablePastPatient.setItems(PatientService.getPastPatients());
+    public void refreshAllTables() {
+        refreshActivePatientTable();
+        refreshPastPatientTable();
+    }
 
-        // Tidak perlu manual refresh lagi karena ObservableList otomatis sync
+    private void refreshActivePatientTable() {
+        tablePatientInformation.getItems().clear();
+        for (Patient p : PatientService.getActivePatients()) {
+            tablePatientInformation.getItems().add(p);
+        }
+    }
+
+    private void refreshPastPatientTable() {
+        tablePastPatient.getItems().clear();
+        for (Patient p : PatientService.getPastPatients()) {
+            tablePastPatient.getItems().add(p);
+        }
     }
 
     private void setupButtonEvents() {
-        btnAddPatient.setOnAction(event -> openPatientForm(null));
-        btnEditPatientInfo.setOnAction(event -> editSelectedPatient());
-        btnClearPatient.setOnAction(event -> movePatientToPast());
+        btnAddPatient.setOnAction(e -> openPatientForm(null));
+        btnEditPatientInfo.setOnAction(e -> editSelectedPatient());
+        btnClearPatient.setOnAction(e -> movePatientToPast());
         btnDeletePastPatients.setOnAction(this::handleDeletePastPatients);
-
     }
 
     private void openPatientForm(Patient patient) {
@@ -123,72 +130,68 @@ public class PatientArcController implements Initializable {
             stage.setResizable(false);
             stage.showAndWait();
 
+            refreshAllTables();
         } catch (Exception e) {
             showAlert("Error", "Failed to open patient form: " + e.getMessage(), Alert.AlertType.ERROR);
         }
     }
 
     private void editSelectedPatient() {
-        Patient selectedPatient = tablePatientInformation.getSelectionModel().getSelectedItem();
-        if (selectedPatient != null) {
-            openPatientForm(selectedPatient);
+        Patient selected = tablePatientInformation.getSelectionModel().getSelectedItem();
+        if (selected != null) {
+            openPatientForm(selected);
         } else {
             showAlert("Warning", "Please select a patient to edit.", Alert.AlertType.WARNING);
         }
     }
 
     private void movePatientToPast() {
-        Patient selectedPatient = tablePatientInformation.getSelectionModel().getSelectedItem();
-        if (selectedPatient != null) {
-            if (!"Completed".equalsIgnoreCase(selectedPatient.getStatus())) {
-                showAlert("Warning", "Only patients with status 'Completed' can be archived.",
-                        Alert.AlertType.WARNING);
-                return;
-            }
-
-            Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
-            confirmation.setTitle("Move to Past Patients");
-            confirmation.setHeaderText("Move patient to past patients archive?");
-            confirmation.setContentText("This will move the patient from active to past patients list.");
-
-            confirmation.showAndWait().ifPresent(response -> {
-                if (response == ButtonType.OK) {
-                    boolean moved = PatientService.moveToPast(selectedPatient.getPatientId());
-                    if (moved) {
-                        // ✅ Simpan ke XML folder khusus past patient
-                        String username = SessionManager.getCurrentUser().getUsername();
-                        PatientXmlHandler.savePastPatients(
-                                new ArrayList<>(PatientService.getPastPatients()), username);
-
-                        showAlert("Success", "Patient moved to past patients successfully!",
-                                Alert.AlertType.INFORMATION);
-                    } else {
-                        showAlert("Error", "Failed to move patient!", Alert.AlertType.ERROR);
-                    }
-                }
-            });
-        } else {
-            showAlert("Warning", "Please select a patient to move to past patients.", Alert.AlertType.WARNING);
+        Patient selected = tablePatientInformation.getSelectionModel().getSelectedItem();
+        if (selected == null) {
+            showAlert("Warning", "Please select a patient to move.", Alert.AlertType.WARNING);
+            return;
         }
+
+        if (!"Completed".equalsIgnoreCase(selected.getStatus())) {
+            showAlert("Warning", "Only patients with status 'Completed' can be archived.",
+                    Alert.AlertType.WARNING);
+            return;
+        }
+
+        Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
+        confirm.setTitle("Archive Patient");
+        confirm.setHeaderText("Move this patient to past archive?");
+        confirm.setContentText("This action cannot be undone.");
+
+        confirm.showAndWait().ifPresent(response -> {
+            if (response == ButtonType.OK) {
+                boolean success = PatientService.moveToPast(selected.getPatientId());
+                if (success) {
+                    String username = SessionManager.getCurrentUser().getUsername();
+                    PatientXmlHandler.savePastPatients(PatientService.getPastPatients(), username);
+                    refreshAllTables();
+                    showAlert("Success", "Patient archived successfully.", Alert.AlertType.INFORMATION);
+                } else {
+                    showAlert("Error", "Failed to archive patient.", Alert.AlertType.ERROR);
+                }
+            }
+        });
     }
 
     @FXML
     private void handleDeletePastPatients(ActionEvent event) {
-        Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
-        confirmation.setTitle("Delete All Past Patients");
-        confirmation.setHeaderText("Are you sure you want to delete all past patients?");
-        confirmation.setContentText("This will remove all records from past patients and clear the XML file.");
+        Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
+        confirm.setTitle("Delete Past Patients");
+        confirm.setHeaderText("This will delete all past patients.");
+        confirm.setContentText("Are you sure? This action is permanent.");
 
-        confirmation.showAndWait().ifPresent(response -> {
+        confirm.showAndWait().ifPresent(response -> {
             if (response == ButtonType.OK) {
-                // Kosongkan ObservableList past patients
                 PatientService.getPastPatients().clear();
-
-                // Kosongkan file XML
                 String username = SessionManager.getCurrentUser().getUsername();
                 PatientXmlHandler.clearPastPatientsXml(username);
-
-                showAlert("Success", "All past patients deleted successfully!", Alert.AlertType.INFORMATION);
+                refreshPastPatientTable();
+                showAlert("Success", "All past patients deleted.", Alert.AlertType.INFORMATION);
             }
         });
     }
@@ -201,7 +204,6 @@ public class PatientArcController implements Initializable {
         alert.showAndWait();
     }
 
-    // Optional: Method untuk debugging atau monitoring
     public void printPatientStats() {
         System.out.println("Active Patients: " + PatientService.getActivePatients().size());
         System.out.println("Past Patients: " + PatientService.getPastPatients().size());

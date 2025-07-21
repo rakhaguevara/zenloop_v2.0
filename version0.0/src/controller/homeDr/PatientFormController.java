@@ -6,13 +6,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import model.*;
+
+import util.PatientXmlHandler;
 
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
-import model.*;
-import util.PatientXmlHandler;
 
 public class PatientFormController implements Initializable {
 
@@ -31,8 +31,8 @@ public class PatientFormController implements Initializable {
     @FXML
     private Button savePatientButton;
 
-    private Patient currentPatient; // Untuk mode edit
-    private PatientArcController parentController; // Reference ke archive controller
+    private Patient currentPatient;
+    private PatientArcController parentController;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -42,15 +42,10 @@ public class PatientFormController implements Initializable {
 
     private void setupStatusComboBox() {
         patientStatusComBox.setItems(FXCollections.observableArrayList(
-                "Active Treatment",
-                "Follow-up",
-                "Consultation",
-                "Emergency",
-                "Completed"));
+                "Active Treatment", "Follow-up", "Consultation", "Completed"));
     }
 
     private void setupValidation() {
-        // Enable save button only when required fields are filled
         savePatientButton.disableProperty().bind(
                 titleFieldName.textProperty().isEmpty()
                         .or(dateOfBirth.valueProperty().isNull())
@@ -85,17 +80,13 @@ public class PatientFormController implements Initializable {
             String issue = patientIssue.getText().trim();
 
             PatientService.validatePatientData(name, dob, status, issue);
-
             String username = SessionManager.getCurrentUser().getUsername();
 
             if (currentPatient == null) {
-                // Tambah pasien baru
                 PatientService.addNewPatient(name, dob, status, issue, username);
                 showAlert("Success", "Patient added successfully!", Alert.AlertType.INFORMATION);
             } else {
-                // Edit pasien
-                boolean updated = PatientService.updatePatient(
-                        currentPatient.getPatientId(), name, dob, status, issue);
+                boolean updated = PatientService.updatePatient(currentPatient.getPatientId(), name, dob, status, issue);
                 if (updated) {
                     showAlert("Success", "Patient updated successfully!", Alert.AlertType.INFORMATION);
                 } else {
@@ -104,10 +95,11 @@ public class PatientFormController implements Initializable {
                 }
             }
 
-            // ✅ Simpan ke file XML
-            PatientXmlHandler.saveToXml(
-                    new ArrayList<>(PatientService.getActivePatients()),
-                    username);
+            PatientXmlHandler.saveToXml(PatientService.getActivePatients(), username);
+
+            if (parentController != null) {
+                parentController.refreshAllTables();
+            }
 
             closeWindow();
 
@@ -135,13 +127,14 @@ public class PatientFormController implements Initializable {
                 if (response == ButtonType.OK) {
                     boolean deleted = PatientService.deletePatient(currentPatient.getPatientId());
                     if (deleted) {
-                        // ✅ Simpan ulang data ke XML sesuai dokter yang sedang login
                         String username = SessionManager.getCurrentUser().getUsername();
-                        PatientXmlHandler.saveToXml(
-                                new ArrayList<>(PatientService.getActivePatients()),
-                                username);
-
+                        PatientXmlHandler.saveToXml(PatientService.getActivePatients(), username);
                         showAlert("Success", "Patient deleted successfully!", Alert.AlertType.INFORMATION);
+
+                        if (parentController != null) {
+                            parentController.refreshAllTables();
+                        }
+
                         closeWindow();
                     } else {
                         showAlert("Error", "Failed to delete patient!", Alert.AlertType.ERROR);

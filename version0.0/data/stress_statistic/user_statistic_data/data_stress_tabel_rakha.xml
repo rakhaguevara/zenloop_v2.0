@@ -8,4 +8,13 @@
     <quest3>4</quest3>
     <quest4>6</quest4>
   </stress>
+  <stress>
+    <tanggal>2025-07-21</tanggal>
+    <rataRata>6.25</rataRata>
+    <keterangan>Lumayan</keterangan>
+    <quest1>4</quest1>
+    <quest2>6</quest2>
+    <quest3>7</quest3>
+    <quest4>8</quest4>
+  </stress>
 </list>

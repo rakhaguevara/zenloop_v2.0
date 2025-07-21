@@ -3,12 +3,9 @@ package util;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.PrettyPrintWriter;
 import com.thoughtworks.xstream.io.xml.DomDriver;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import model.Patient;
 
 import java.io.*;
-import java.util.List;
 
 public class PatientXmlHandler {
 
@@ -17,17 +14,15 @@ public class PatientXmlHandler {
     static {
         XStream.setupDefaultSecurity(xstream);
         xstream.allowTypesByWildcard(new String[] {
-                "model.**"
+                "model.**",
+                "util.**"
         });
         xstream.alias("patient", Patient.class);
-        xstream.alias("patients", List.class);
+        xstream.alias("patients", ArrayList.class); // alias root
+        xstream.alias("PatientsFix", Object[].class);
     }
 
-    /**
-     * Simpan daftar pasien ke file XML di dalam folder
-     * data/pasien_doctor_<username>
-     */
-    public static void saveToXml(List<Patient> patientList, String doctorUsername) {
+    public static void saveToXml(ArrayList<Patient> patientList, String doctorUsername) {
         try {
             String folderName = "data/pasien_doctor_" + doctorUsername;
             String fileName = "doctor_" + doctorUsername + "_dataPasien.xml";
@@ -46,29 +41,24 @@ public class PatientXmlHandler {
         }
     }
 
-    /**
-     * Load data pasien aktif dari folder data/pasien_doctor_<username>
-     */
-    public static ObservableList<Patient> loadFromXml(String doctorUsername) {
+    public static ArrayList<Patient> loadFromXml(String doctorUsername) {
         String filePath = "data/pasien_doctor_" + doctorUsername + "/doctor_" + doctorUsername + "_dataPasien.xml";
         File file = new File(filePath);
         if (!file.exists()) {
-            return FXCollections.observableArrayList();
+            return new ArrayList<>();
         }
 
         try (FileInputStream fis = new FileInputStream(file)) {
-            List<Patient> list = (List<Patient>) xstream.fromXML(fis);
-            return FXCollections.observableArrayList(list);
+            ArrayList<Patient> loadedList = (ArrayList<Patient>) xstream.fromXML(fis);
+            loadedList.rebuildArrayAfterLoad(); // penting agar array internal kembali valid
+            return loadedList;
         } catch (Exception e) {
             System.err.println("❌ Gagal memuat data pasien dari XML: " + e.getMessage());
-            return FXCollections.observableArrayList();
+            return new ArrayList<>();
         }
     }
 
-    /**
-     * Simpan daftar pasien arsip ke folder data/past_patient_doctor_<username>
-     */
-    public static void savePastPatients(List<Patient> pastPatientList, String doctorUsername) {
+    public static void savePastPatients(ArrayList<Patient> pastPatientList, String doctorUsername) {
         try {
             String folderName = "data/past_patient_doctor_" + doctorUsername;
             String fileName = "doctor_" + doctorUsername + "_pastPatients.xml";
@@ -87,36 +77,33 @@ public class PatientXmlHandler {
         }
     }
 
-    /**
-     * Load daftar pasien arsip dari folder data/past_patient_doctor_<username>
-     */
-    public static ObservableList<Patient> loadPastPatients(String doctorUsername) {
+    public static ArrayList<Patient> loadPastPatients(String doctorUsername) {
         String filePath = "data/past_patient_doctor_" + doctorUsername + "/doctor_" + doctorUsername
                 + "_pastPatients.xml";
         File file = new File(filePath);
         if (!file.exists()) {
-            return FXCollections.observableArrayList();
+            return new ArrayList<>();
         }
 
         try (FileInputStream fis = new FileInputStream(file)) {
-            List<Patient> list = (List<Patient>) xstream.fromXML(fis);
-            return FXCollections.observableArrayList(list);
+            ArrayList<Patient> loadedList = (ArrayList<Patient>) xstream.fromXML(fis);
+            loadedList.rebuildArrayAfterLoad(); // ⬅️ Kembalikan array internal
+            return loadedList;
         } catch (Exception e) {
             System.err.println("❌ Gagal memuat past patients dari XML: " + e.getMessage());
-            return FXCollections.observableArrayList();
+            return new ArrayList<>();
         }
     }
 
     public static void clearPastPatientsXml(String username) {
         try {
-            String folderPath = "data/past_patient_doctor_" + username;
-            String filePath = folderPath + "/doctor_" + username + "_pastPatients.xml";
+            String filePath = "data/past_patient_doctor_" + username + "/doctor_" + username + "_pastPatients.xml";
             File file = new File(filePath);
             if (file.exists()) {
-                FileOutputStream fos = new FileOutputStream(file);
-                String emptyXml = "<patients></patients>";
-                fos.write(emptyXml.getBytes());
-                fos.close();
+                try (FileOutputStream fos = new FileOutputStream(file)) {
+                    String emptyXml = "<patients></patients>";
+                    fos.write(emptyXml.getBytes());
+                }
                 System.out.println("✅ Past patients XML dikosongkan: " + file.getPath());
             } else {
                 System.out.println("⚠️ File tidak ditemukan: " + file.getPath());
@@ -125,5 +112,4 @@ public class PatientXmlHandler {
             e.printStackTrace();
         }
     }
-
 }

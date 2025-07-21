@@ -1,15 +1,14 @@
 package model;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import util.ArrayList;
 import util.PatientXmlHandler;
 
 import java.time.LocalDate;
 
 public class PatientService {
 
-    private static ObservableList<Patient> activePatients = FXCollections.observableArrayList();
-    private static ObservableList<Patient> pastPatients = FXCollections.observableArrayList();
+    private static ArrayList<Patient> activePatients = new ArrayList<>();
+    private static ArrayList<Patient> pastPatients = new ArrayList<>();
     private static int nextId = 1;
 
     public static void addNewPatient(String name, LocalDate dob, String status, String issue, String createdBy) {
@@ -26,7 +25,6 @@ public class PatientService {
             p.setDateOfBirth(dob);
             p.setStatus(status);
             p.setPatientIssue(issue);
-            // Optional: force refresh in table
             int idx = activePatients.indexOf(p);
             activePatients.set(idx, p);
             return true;
@@ -36,10 +34,16 @@ public class PatientService {
 
     public static boolean deletePatient(int id) {
         Patient p = findActivePatientById(id);
-        if (p != null)
-            return activePatients.remove(p);
+        if (p != null) {
+            activePatients.remove(p);
+            return true;
+        }
         p = findPastPatientById(id);
-        return p != null && pastPatients.remove(p);
+        if (p != null) {
+            pastPatients.remove(p);
+            return true;
+        }
+        return false;
     }
 
     public static boolean moveToPast(int id) {
@@ -53,18 +57,26 @@ public class PatientService {
     }
 
     public static Patient findActivePatientById(int id) {
-        return activePatients.stream().filter(p -> p.getPatientId() == id).findFirst().orElse(null);
+        for (Patient p : activePatients) {
+            if (p.getPatientId() == id)
+                return p;
+        }
+        return null;
     }
 
     public static Patient findPastPatientById(int id) {
-        return pastPatients.stream().filter(p -> p.getPatientId() == id).findFirst().orElse(null);
+        for (Patient p : pastPatients) {
+            if (p.getPatientId() == id)
+                return p;
+        }
+        return null;
     }
 
-    public static ObservableList<Patient> getActivePatients() {
+    public static ArrayList<Patient> getActivePatients() {
         return activePatients;
     }
 
-    public static ObservableList<Patient> getPastPatients() {
+    public static ArrayList<Patient> getPastPatients() {
         return pastPatients;
     }
 
@@ -72,30 +84,61 @@ public class PatientService {
         return activePatients.size() + pastPatients.size();
     }
 
-    public static ObservableList<Patient> getActivePatientsByUser(String username) {
-        return activePatients.filtered(p -> p.getCreatedBy().equals(username));
+    public static ArrayList<Patient> getActivePatientsByUser(String username) {
+        ArrayList<Patient> result = new ArrayList<>();
+        for (Patient p : activePatients) {
+            if (p.getCreatedBy().equals(username)) {
+                result.add(p);
+            }
+        }
+        return result;
     }
 
-    public static ObservableList<Patient> getPastPatientsByUser(String username) {
-        return pastPatients.filtered(p -> p.getCreatedBy().equals(username));
+    public static ArrayList<Patient> getPastPatientsByUser(String username) {
+        ArrayList<Patient> result = new ArrayList<>();
+        for (Patient p : pastPatients) {
+            if (p.getCreatedBy().equals(username)) {
+                result.add(p);
+            }
+        }
+        return result;
     }
 
     public static void loadPatientsFromXml() {
-        String username = SessionManager.getCurrentUser().getUsername(); // ambil user login
-        ObservableList<Patient> loaded = PatientXmlHandler.loadFromXml(username);
-        activePatients.setAll(loaded);
-        nextId = loaded.stream().mapToInt(Patient::getPatientId).max().orElse(0) + 1;
+        String username = SessionManager.getCurrentUser().getUsername();
+        ArrayList<Patient> loaded = PatientXmlHandler.loadFromXml(username);
+        activePatients.clear();
+        for (Patient p : loaded) {
+            activePatients.add(p);
+        }
+        nextId = getMaxId(activePatients) + 1;
     }
 
     public static void loadPatientsFromXml(String doctorUsername) {
-        ObservableList<Patient> loaded = PatientXmlHandler.loadFromXml(doctorUsername);
-        activePatients.setAll(loaded);
-        nextId = loaded.stream().mapToInt(Patient::getPatientId).max().orElse(0) + 1;
+        ArrayList<Patient> loaded = PatientXmlHandler.loadFromXml(doctorUsername);
+        activePatients.clear();
+        for (Patient p : loaded) {
+            activePatients.add(p);
+        }
+        nextId = getMaxId(activePatients) + 1;
     }
 
     public static void loadPastPatientsFromXml(String doctorUsername) {
-        ObservableList<Patient> loaded = PatientXmlHandler.loadPastPatients(doctorUsername);
-        pastPatients.setAll(loaded);
+        ArrayList<Patient> loaded = PatientXmlHandler.loadPastPatients(doctorUsername);
+        pastPatients.clear();
+        for (Patient p : loaded) {
+            pastPatients.add(p);
+        }
+    }
+
+    private static int getMaxId(ArrayList<Patient> list) {
+        int max = 0;
+        for (Patient p : list) {
+            if (p.getPatientId() > max) {
+                max = p.getPatientId();
+            }
+        }
+        return max;
     }
 
     public static void clearAll() {
